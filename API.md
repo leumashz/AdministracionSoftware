@@ -1,5 +1,40 @@
+### Modelos en la base de datos
+#### Platillo
+|ATRIBUTO 	| TIPO       | DESCRIPCION 			 |
+|---------------|------------|-----------------------------------|			
+| nombre    	| String     | nombre del platillo		 |  
+| descripcion   | String     | info sobre el platillo            |  
+| precio    	| Number     | Cuanto cuesta                     |
+| url_img     	| String     | url de la imagen del platillo     |
+| rating  	| Number     | calificacion            		 |
+| tipo		| number     | tipo, 1 - bebida, 2 - tacos, etc. |
+
+#### Orden
+|ATRIBUTO 	| TIPO       | DESCRIPCION 			   	  |
+|---------------|------------|--------------------------------------------|			
+| estado   	| Number     | 1:nueva, 2:pagada, 3:entregada, etc        |  
+| id_usuario    | Number     | id del usuario que hizo la orden           |  
+| platillo      | [Platillo] | Arreglo de platillos que se ordenan        |  
+| fecha    	| Number     | fecha y hora en la que se hizo el pedido   |
+| total     	| Number     | cantidad a pagar por el usuario            |
+| tipo  	| Number     | para llevar, entregar, por definir   	  |
+
+#### Usuario
+|ATRIBUTO 	| TIPO       | DESCRIPCION 			 |
+|---------------|------------|-----------------------------------|			
+| nombre    	| String     | nombre del usuario		 |  
+| email 	| String     | correo del usaurio                |  
+| tipo    	| Number     | tipo de cuenta                    |
+| telefono     	| Number     | telefono de contacto              |
+| fecha  	| Date       | fecha y hora de registro   	 |
+
+
+
+
+
 ### Información sobre las peticiones que se pueden hacer a la aplicacion
 ##### url base: http://localhost:3000  ,tomando en cuenta una url local
+
 
 #### Sobre platillos  
 |METODO | URL           | QUE HACE                                                  |
