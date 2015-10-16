@@ -21,3 +21,4 @@ El comando: mongod inicia el servicio de mongodb, debe estar corriendo en una co
 
 El comando: node app.js inicia la aplicación en http://localhost:3000
 
+[Ver información sobre las peticiones a la base de datos](https://github.com/samuelgz/AdministracionSoftware/blob/master/API.md)
