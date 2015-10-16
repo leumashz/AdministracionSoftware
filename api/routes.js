@@ -16,13 +16,13 @@ module.exports = function(app) {
 	app.delete('/platillo/:id', pCtrl.deletePlatillo );
 	//usuario
 	app.get('/usuarios', uCtrl.findAllUsuarios);
-	app.get('/usuarios/:id', uCtrl.findById);
+	app.get('/usuario/:id', uCtrl.findById);
 	app.post('/usuario', uCtrl.addUsuario);
 	app.put('/usuario/:id', uCtrl.updateUsuario);	
 	app.delete('/usuario/:id', uCtrl.deleteUsuario);
 	//orden
-	app.get('/ordenes', oCtrl.findAllOrdenes);
 	app.get('/orden/:id', oCtrl.findById);
+	app.get('/ordenes', oCtrl.findAllOrdenes);
 	app.post('/orden', oCtrl.addOrden);
 	app.put('/orden/:id', oCtrl.updateOrden);	
 	app.delete('/orden/:id', oCtrl.deleteOrden );

@@ -1,8 +1,8 @@
 var Orden = require('../models/orden.js');
 
   
-  exports.findAllPlatillos = function(req, res) {
-    Orden.find(function(err, platillos) {
+  exports.findAllOrdenes = function(req, res) {
+    Orden.find(function(err, ordenes) {
       if(!err) {
         console.log('GET /ordenes')
         res.json(ordenes);
@@ -23,7 +23,7 @@ var Orden = require('../models/orden.js');
     });
   };
 
-  exports.addPlatillo = function(req, res) {
+  exports.addOrden = function(req, res) {
     console.log('POST');
     console.log(req.body);
 
@@ -31,7 +31,7 @@ var Orden = require('../models/orden.js');
       estado:         req.body.estado,
       id_usuario:     req.body.id_usuario,
       platillos:      req.body.platillos,
-      fecha           req.body.fecha,
+      fecha:          req.body.fecha,
       total:          req.body.total,
       tipo:           req.body.tipo,
     });
@@ -49,12 +49,12 @@ var Orden = require('../models/orden.js');
 
   exports.updateOrden = function(req, res) {
     Orden.findById(req.params.id, function(err, orden) {
-      orden.estado:         req.body.estado,
-      orden.id_usuario:     req.body.id_usuario,
-      orden.platillos:      req.body.platillos,
-      orden.fecha           req.body.fecha,
-      orden.total:          req.body.total,
-      orden.tipo:           req.body.tipo,
+      orden.estado =         req.body.estado,
+      orden.id_usuario=     req.body.id_usuario,
+      orden.platillos=      req.body.platillos,
+      orden.fecha=           req.body.fecha,
+      orden.total=          req.body.total,
+      orden.tipo=           req.body.tipo,
 
       orden.save(function(err) {
         if(!err) {

@@ -7,7 +7,7 @@ var ordenSchema = new Schema({
 		estado: 	Number,
 		id_usuario: {type: Schema.ObjectId, ref: "Usuario" } ,
 		platillos: 	[Platillo],
-		fecha: 		Date.now,
+		fecha: 		Number,
 		total: 		Number,
 		tipo:       Number   
 });
