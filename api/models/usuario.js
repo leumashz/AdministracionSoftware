@@ -5,7 +5,8 @@ var UsuarioSchema = new mongoose.Schema({
 	nombre: 		String,
 	email: 			String,
 	tipo: 			Number,
-	telefono:       Number  
+	telefono:       String, 
+	fecha: 			Date 
 });
 
 

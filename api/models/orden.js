@@ -5,9 +5,9 @@ var Platillo 	= mongoose.model('Platillo');
 
 var ordenSchema = new Schema({
 		estado: 	Number,
-		id_usuario: {type: Schema.ObjectId, ref: "Usuario" } ,
+		id_usuario: String, //obtener campo _id del usuario
 		platillos: 	[Platillo],
-		fecha: 		Number,
+		fecha: 		Date,
 		total: 		Number,
 		tipo:       Number   
 });

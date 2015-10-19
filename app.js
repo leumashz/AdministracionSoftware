@@ -6,7 +6,7 @@ var express  = require("express"),
 
 //conexión mongodb
 
-mongoose.connect('mongodb://localhost/cafeta', function(err, res) {
+mongoose.connect('mongodb://localhost/pr', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   } else {
