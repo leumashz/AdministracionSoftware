@@ -8,6 +8,7 @@ var Orden = require('../models/orden.js');
         res.json(ordenes);
       } else {
         console.log('ERROR: ' + err);
+        res.send(null);
       }
     });
   };
@@ -19,6 +20,7 @@ var Orden = require('../models/orden.js');
         res.json(orden);
       } else {
         console.log('ERROR: ' + err);
+        res.send(null);
       }
     });
   };
@@ -34,13 +36,16 @@ var Orden = require('../models/orden.js');
       fecha:          req.body.fecha,
       total:          req.body.total,
       tipo:           req.body.tipo,
+      extra:          req.body.extra
     });
 
     orden.save(function(err) {
       if(!err) {
         console.log('Orden creada');
+        //res.send(null);
       } else {
         console.log('ERROR: ' + err);
+        //res.send(null);
       }
     });
 
@@ -49,18 +54,21 @@ var Orden = require('../models/orden.js');
 
   exports.updateOrden = function(req, res) {
     Orden.findById(req.params.id, function(err, orden) {
-      orden.estado =         req.body.estado,
-      orden.id_usuario=     req.body.id_usuario,
-      orden.platillos=      req.body.platillos,
-      orden.fecha=           req.body.fecha,
-      orden.total=          req.body.total,
-      orden.tipo=           req.body.tipo,
+      orden.estado      =    req.body.estado,
+      orden.id_usuario  =    req.body.id_usuario,
+      orden.platillos   =    req.body.platillos,
+      orden.fecha       =    req.body.fecha,
+      orden.total       =    req.body.total,
+      orden.tipo        =    req.body.tipo,
+      orden.extra       =    req.body.extra
 
       orden.save(function(err) {
         if(!err) {
           console.log('orden actualizada');
+
         } else {
           console.log('ERROR: ' + err);
+
         }
         res.json(orden);
       });
@@ -73,9 +81,10 @@ var Orden = require('../models/orden.js');
       orden.remove(function(err) {
         if(!err) {
           console.log('Orden Eliminada');
+          res.send(null);
         } else {
           console.log('ERROR: ' + err);
-          //res.send(null);
+          res.send(null);
         }
       })
     });

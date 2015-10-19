@@ -33,7 +33,7 @@
   		nombre:         req.body.nombre,
   		descripcion: 	  req.body.descripcion,
   		precio:         req.body.precio,
-  		url_ímg:        req.body.url_ímg,
+  		url_img:        req.body.url_img,
   		rating:         req.body.rating,
   		tipo:           req.body.tipo,
   	});
@@ -55,7 +55,7 @@
   		platillo.nombre         = req.body.nombre;
   		platillo.descripcion    = req.body.descripcion;
   		platillo.precio         = req.body.precio;
-  		platillo.url_ímg        = req.body.url_ímg;
+  		platillo.url_img        = req.body.url_img;
   		platillo.rating         = req.body.rating;
   		platillo.tipo           = req.body.tipo;
 
@@ -76,9 +76,10 @@
   		platillo.remove(function(err) {
   			if(!err) {
   				console.log('Platillo Eliminado');
+          res.send(null);
   			} else {
   				console.log('ERROR: ' + err);
-          //res.send(null);
+          res.send(null);
   			}
   		})
   	});

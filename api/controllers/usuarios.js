@@ -32,8 +32,9 @@ var Usuario = require('../models/usuario.js');
     var usuario = new Usuario({
       nombre:   req.body.nombre,
       email:    req.body.email,
-      tipó:     req.body.tipo,
+      tipo:     req.body.tipo,
       telefono: req.body.telefono,
+      fecha:    req.body.fecha
     });
 
     usuario.save(function(err) {
@@ -53,6 +54,7 @@ var Usuario = require('../models/usuario.js');
       usuario.mail      = req.body.mail;
       usuario.tipo      = req.body.tipo;
       usuario.telefono  = req.body.tipo;
+      usuario.fecha     = req.body.fecha;
 
       usuario.save(function(err) {
         if(!err) {
@@ -70,9 +72,10 @@ var Usuario = require('../models/usuario.js');
       usuario.remove(function(err) {
         if(!err) {
           console.log('Usuario Eliminado');
+          res.send(null);
         } else {
-          console.log('ERROR: ' + err);
-          //res.send(null);
+          console.log('ERROR: ' + err);          
+          res.send(null);
         }
       })
     });
