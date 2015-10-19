@@ -1,12 +1,11 @@
 var express  = require("express"),
     app      = express(),
     http     = require("http"),
-    //server   = http.createServer(app),
     mongoose = require('mongoose'); 
 
 //conexión mongodb
 
-mongoose.connect('mongodb://localhost/pr', function(err, res) {
+mongoose.connect('mongodb://localhost/platon', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   } else {

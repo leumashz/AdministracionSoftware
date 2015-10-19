@@ -6,7 +6,7 @@ var UsuarioSchema = new mongoose.Schema({
 	email: 			String,
 	tipo: 			Number,
 	telefono:       String, 
-	fecha: 			Date 
+	fecha: 			{type: Date, default: Date.now} 
 });
 
 

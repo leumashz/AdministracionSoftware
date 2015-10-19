@@ -7,7 +7,7 @@ var ordenSchema = new Schema({
 		estado: 	Number,
 		id_usuario: String, //obtener campo _id del usuario
 		platillos: 	[Platillo],
-		fecha: 		Date,
+		fecha: 		{type: Date, default: Date.now},
 		total: 		Number,
 		tipo:       Number   
 });
