@@ -4,6 +4,7 @@ var express  = require("express"),
     cors     = require("cors"),
     mongoose = require('mongoose'); 
 
+var port     = process.env.PORT || 80;
 //conexión mongodb
 
 mongoose.connect('mongodb://localhost/platon', function(err, res) {
@@ -16,7 +17,7 @@ mongoose.connect('mongodb://localhost/platon', function(err, res) {
 
 
 app.configure(function () {
-  //app.use(express.static(__dirname + '/angular')); 
+  app.use(express.static(__dirname + '/desktop')); 
   app.use(cors());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -33,6 +34,6 @@ app.configure(function () {
 require('./api/routes.js')(app);
 
 
-app.listen(3000, function() {
-  console.log("Node server running on http://localhost:3000");
+app.listen(port, function() {
+  console.log("Node server running on http://localhost");
 });

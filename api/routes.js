@@ -27,7 +27,7 @@ module.exports = function(app) {
 	app.put('/orden/:id', oCtrl.updateOrden);	
 	app.delete('/orden/:id', oCtrl.deleteOrden );
 	//panel hecho en angular para manejar la aplicacion
-	/*app.get('*', function(req, res) {
-		res.sendfile('./angular/index.html');
-	});*/
+	app.get('*', function(req, res) {
+		res.sendfile('./desktop/index.html');
+	});
 };

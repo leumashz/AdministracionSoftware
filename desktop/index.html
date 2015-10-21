@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sistema para la gestión de ordenes web</title>
+	<link href="styles/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/css/main.css" rel="stylesheet" />
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+</head>
+<body ng-app="CafeteriaApp">
+	<header></header>
+	<div class="container-fluid" ng-controller="PlatillosController">
+
+		<div class="row">
+			<div class="col-md-2 no-float">
+				<h2>Admin</h2>
+				<br>
+				<h4>Mostrar el menu <span class="glyphicon glyphicon-list-alt"></span></h4>
+				<br>
+				<h4>Mostrar ordenes <span class="glyphicon glyphicon-list-alt"></span></h4>
+				<br>
+				<br>
+				<strong>Información sobre la empresa</strong>
+				<br><br>
+				<strong>Salir</strong>
+
+			</div>
+        	<div class="col-md-10 no-float">
+        			<h3>Content</h3>
+        	</div>
+		</div> 
+	</div>
+	
+<!-- definicion aplicacion angular -->
+<script src="js/core.js"></script>
+<!-- controladores --> 	
+<script src="js/controllers.js"></script>
+<!-- servicios -->	
+<script src="js/services.js"></script>
+<!-- directivas --> 
+<script src="js/directives.js"></script>	
+</body>
+<!-- <div class="platillos" ng-repeat="platillo in platillos">
+						{{platillo.nombre}}
+						<br>
+						{{platillo.descripcion}}
+						<img ng-src="{{platillo.url_img}}"/>
+						<br>
+						{{platillo.precio}}
+					</div> 
+
+<h5>Agregar platillo al menu <span class="glyphicon glyphicon-plus"></span></h5>
+
+-->
+</html>
