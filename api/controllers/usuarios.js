@@ -1,7 +1,7 @@
 var Usuario = require('../models/usuario.js');
 
   
-  exports.findAllUsuarios = function(req, res) {
+  exports.findAllUsuarios = function(req, res, next) {
     Usuario.find(function(err, usuarios) {
       if(!err) {
         console.log('GET /usuarios')
@@ -13,7 +13,7 @@ var Usuario = require('../models/usuario.js');
   };
 
   //GET - regresa un usuario por id
-  exports.findById = function(req, res) {
+  exports.findById = function(req, res, next) {
     Usuario.findById(req.params.id, function(err, usuario) {
       if(!err) {
         console.log('GET /usuario/' + req.params.id);
@@ -25,7 +25,7 @@ var Usuario = require('../models/usuario.js');
   };
 
   
-  exports.addUsuario = function(req, res) {
+  exports.addUsuario = function(req, res, next) {
     console.log('POST');
     console.log(req.body);
 
@@ -48,7 +48,7 @@ var Usuario = require('../models/usuario.js');
     res.json(usuario);
   };
 
-  exports.updateUsuario = function(req, res) {
+  exports.updateUsuario = function(req, res, next) {
     Usuario.findById(req.params.id, function(err, usuario) {
       usuario.nombre    = req.body.nombre;
       usuario.mail      = req.body.mail;
@@ -67,7 +67,7 @@ var Usuario = require('../models/usuario.js');
     });
   }
 
-  exports.deleteUsuario = function(req, res) {
+  exports.deleteUsuario = function(req, res, next) {
     Usuario.findById(req.params.id, function(err, usuario) {
       usuario.remove(function(err) {
         if(!err) {

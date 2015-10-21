@@ -1,7 +1,7 @@
   var Platillo = require('../models/platillo.js');
 
   //GET - regresa todos los platillos
-  exports.findAllPlatillos = function(req, res) {
+  exports.findAllPlatillos = function(req, res, next) {
   	Platillo.find(function(err, platillos) {
   		if(!err) {
         console.log('GET /platillos')
@@ -13,7 +13,7 @@
   };
 
   //GET - regresa un platillo por id
-  exports.findById = function(req, res) {
+  exports.findById = function(req, res, next) {
   	Platillo.findById(req.params.id, function(err, platillo) {
   		if(!err) {
         console.log('GET /platillo/' + req.params.id);
@@ -25,7 +25,7 @@
   };
 
   //POST - Insertar un platillo en la base da datos
-  exports.addPlatillo = function(req, res) {
+  exports.addPlatillo = function(req, res, next) {
   	console.log('POST');
   	console.log(req.body);
 
@@ -50,7 +50,7 @@
   };
 
   //PUT - Actualizar la información de un platillos
-  exports.updatePlatillo = function(req, res) {
+  exports.updatePlatillo = function(req, res, next) {
   	Platillo.findById(req.params.id, function(err, platillo) {
   		platillo.nombre         = req.body.nombre;
   		platillo.descripcion    = req.body.descripcion;
@@ -71,7 +71,7 @@
   }
 
   //DELETE - Delete a Platillo with specified ID
-  exports.deletePlatillo = function(req, res) {
+  exports.deletePlatillo = function(req, res, next) {
   	Platillo.findById(req.params.id, function(err, platillo) {
   		platillo.remove(function(err) {
   			if(!err) {

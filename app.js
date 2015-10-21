@@ -1,6 +1,7 @@
 var express  = require("express"),
     app      = express(),
     http     = require("http"),
+    cors     = require("cors"),
     mongoose = require('mongoose'); 
 
 //conexión mongodb
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://localhost/platon', function(err, res) {
 
 app.configure(function () {
   //app.use(express.static(__dirname + '/angular')); 
+  app.use(cors());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   //app.use(express.json());

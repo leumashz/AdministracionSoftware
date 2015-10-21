@@ -1,7 +1,7 @@
 var Orden = require('../models/orden.js');
 
   
-  exports.findAllOrdenes = function(req, res) {
+  exports.findAllOrdenes = function(req, res, next) {
     Orden.find(function(err, ordenes) {
       if(!err) {
         console.log('GET /ordenes')
@@ -13,7 +13,7 @@ var Orden = require('../models/orden.js');
     });
   };
 
-  exports.findById = function(req, res) {
+  exports.findById = function(req, res, next) {
     Orden.findById(req.params.id, function(err, orden) {
       if(!err) {
         console.log('GET /orden/' + req.params.id);
@@ -25,7 +25,7 @@ var Orden = require('../models/orden.js');
     });
   };
 
-  exports.addOrden = function(req, res) {
+  exports.addOrden = function(req, res, next) {
     console.log('POST');
     console.log(req.body);
 
@@ -52,7 +52,7 @@ var Orden = require('../models/orden.js');
     res.json(orden);
   };
 
-  exports.updateOrden = function(req, res) {
+  exports.updateOrden = function(req, res, next) {
     Orden.findById(req.params.id, function(err, orden) {
       orden.estado      =    req.body.estado,
       orden.id_usuario  =    req.body.id_usuario,
@@ -76,7 +76,7 @@ var Orden = require('../models/orden.js');
   }
 
   
-  exports.deleteOrden = function(req, res) {
+  exports.deleteOrden = function(req, res, next) {
     Orden.findById(req.params.id, function(err, orden) {
       orden.remove(function(err) {
         if(!err) {
