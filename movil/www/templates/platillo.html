@@ -5,28 +5,26 @@
         <img class="full-image" src="{{platillo.url_img}}">
         <h1>{{platillo.nombre}}</h1>
         <p>{{platillo.descripcion}}</p>
+        <h2>Costo : {{platillo.precio|currency}}</h2>
         <!--<p>
           <a href="#" class="subdued">1 Like</a>
           <a href="#" class="subdued">5 Comments</a>
         </p>-->
-        <span ng-repeat="rating in ratings">{{rating.current}} out of
-            {{rating.max}}
+        <span ng-repeat="rating in ratings">
             <div star-rating rating-value="rating.current" max="rating.max" on-rating- selected="getSelectedRating(rating)"></div>
         </span>
+
+
       </div>
 
       <div class="item tabs tabs-secondary tabs-icon-left">
         <a class="tab-item" href="#">
           <i class="icon ion-social-usd"></i>
-          Like
+          Agregar al Carrito
         </a>
         <a class="tab-item" href="#">
-          <i class="icon ion-chatbox"></i>
-          Comment
-        </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-share"></i>
-          Share
+          <i class="icon ion-chatboxes"></i>
+          Comentar
         </a>
       </div>
 

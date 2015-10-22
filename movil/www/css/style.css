@@ -19,5 +19,5 @@ ul.rating {
     cursor: pointer;
 }
 .rating .filled {
-    color: red;
+    color: orange;
 }
