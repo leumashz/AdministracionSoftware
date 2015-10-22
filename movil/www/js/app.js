@@ -3,29 +3,56 @@ angular.module('ionicApp', ['ionic', 'controllers', 'services','directives'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
+/////////Tabs/
+  .state('tab', {
+    url: "/tab",
+    abstract: true,
+    templateUrl: "templates/tabs.html"
+    })
+///////////Vistas//////////////////////
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html'
   })
+
   .state('register',{
     url:'/register',
     templateUrl: 'templates/register.html'
   })
+
   .state('recover',{
     url:'/recover',
     templateUrl: 'templates/recover.html'
   })
-  .state('menu',{
+
+  .state('tab.menu',{
     url:'/menu',
-    templateUrl: 'templates/menu.html',
-    controller: 'MenuCtrl'
+    views: {
+      'tab-menu': {
+        templateUrl: 'templates/menu.html',
+        controller: 'MenuCtrl'
+      }
+    }
+
   })
+
+  .state('tab.carrito',{
+    url:'/carrito',
+    views: {
+      'tab-carrito': {
+        templateUrl: 'templates/carrito.html',
+        controller: 'CarritoCtrl'
+      }
+    }
+
+  })
+
   .state('platillo',{
     url: '/menu/:idPlatillo',
     templateUrl: 'templates/platillo.html',
     controller : 'PlatilloCtrl'
   });
 
-  $urlRouterProvider.otherwise("/menu");
+  $urlRouterProvider.otherwise("/tab/menu");
 
 });
