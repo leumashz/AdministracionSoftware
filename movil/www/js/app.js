@@ -1,12 +1,11 @@
-angular.module('ionicApp', ['ionic', 'controllers', 'services','directives'])
+angular.module('ionicApp', ['ionic', 'controllers', 'services'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
   .state('login', {
     url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
+    templateUrl: 'templates/login.html'
   })
   .state('register',{
     url:'/register',
@@ -16,17 +15,12 @@ angular.module('ionicApp', ['ionic', 'controllers', 'services','directives'])
     url:'/recover',
     templateUrl: 'templates/recover.html'
   })
-  .state('menu',{
-    url:'/menu',
-    templateUrl: 'templates/menu.html',
-    controller: 'MenuCtrl'
-  })
-  .state('platillo',{
-    url: '/menu/:idPlatillo',
-    templateUrl: 'templates/platillo.html',
-    controller : 'PlatilloCtrl'
+  .state('platillos',{
+    url:'/platillos',
+    templateUrl: 'templates/platillos.html',
+    controller: 'PlatillosCtrl'
   });
 
-  $urlRouterProvider.otherwise("/menu");
+  $urlRouterProvider.otherwise("/platillos");
 
 });
