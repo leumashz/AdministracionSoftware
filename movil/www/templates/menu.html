@@ -1,8 +1,8 @@
-<ion-view title="platillos">
+<ion-view title="menu">
   <ion-content padding=true>
     <div class="list">
 
-      <a ng-repeat="platillo in platillos" href="#" class="item item-thumbnail-left">
+      <a ng-repeat="platillo in menu" href="#/menu/{{platillo._id}}" class="item item-thumbnail-left">
         <img ng-src="{{ platillo.url_img }}">
         <h2>{{ platillo.nombre }}</h2>
         <h4>{{ platillo.descripcion }}</h4>

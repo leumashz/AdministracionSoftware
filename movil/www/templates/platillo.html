@@ -1,0 +1,35 @@
+<ion-view title="platillo">
+  <ion-content padding=true>
+    <div class="list card">
+      <div class="item item-body">
+        <img class="full-image" src="{{platillo.url_img}}">
+        <h1>{{platillo.nombre}}</h1>
+        <p>{{platillo.descripcion}}</p>
+        <!--<p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+        </p>-->
+        <span ng-repeat="rating in ratings">{{rating.current}} out of
+            {{rating.max}}
+            <div star-rating rating-value="rating.current" max="rating.max" on-rating- selected="getSelectedRating(rating)"></div>
+        </span>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-social-usd"></i>
+          Like
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
