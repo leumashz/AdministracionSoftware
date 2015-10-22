@@ -5,7 +5,8 @@ angular.module('ionicApp', ['ionic', 'controllers', 'services','directives'])
   $stateProvider
   .state('login', {
     url: '/login',
-    templateUrl: 'templates/login.html'
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
   })
   .state('register',{
     url:'/register',
