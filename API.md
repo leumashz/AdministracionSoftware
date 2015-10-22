@@ -1,5 +1,5 @@
 ### Modelos en la base de datos
-#### Platillo
+#### Menu
 |ATRIBUTO 	| TIPO       | DESCRIPCION 			 |
 |---------------|------------|-----------------------------------|			
 | nombre    	| String     | nombre del platillo		 |  
@@ -36,10 +36,10 @@
 ##### url base: http://localhost:3000  ,tomando en cuenta una url local
 
 
-#### Sobre platillos  
+#### Sobre menu
 |METODO | URL           | QUE HACE                                                  |
 |-------|---------------|-----------------------------------------------------------|
-| GET   | /platillos    | devuelve un objeto JSON con todos los platillos           |
+| GET   | /menu   		| devuelve un objeto JSON con todos los platillos           |
 | GET   | /platillo/:id | devuelve un objeto JSON con un platillo por id especifico |
 | POST  | /platillo     | agrega un nuevo platillo a la base de datos               |
 | PUT   | /platillo/:id | actualiza la información de un platillo mediante su id    |
