@@ -1,6 +1,21 @@
 angular.module('controllers', [])
-.controller('PlatillosCtrl', function($scope,platilloService) {
-  platilloService.getPlatillos().then(function(users){
-		$scope.platillos = users;
+
+
+.controller('MenuCtrl', function($scope,menuService) {
+  menuService.getMenu().then(function(menu){
+		$scope.menu = menu;
 	});
+})
+
+.controller('PlatilloCtrl',function ($scope,$stateParams,platilloService) {
+  platilloService.getPlatillo($stateParams.idPlatillo).then(function(platillo){
+		$scope.platillo = platillo;
+	});
+  $scope.ratings = [{
+      current: 5,
+      max: 10
+  }, {
+      current: 3,
+      max: 5
+  }];  
 });

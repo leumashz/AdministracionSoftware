@@ -1,4 +1,4 @@
-angular.module('ionicApp', ['ionic', 'controllers', 'services'])
+angular.module('ionicApp', ['ionic', 'controllers', 'services','directives'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -15,12 +15,17 @@ angular.module('ionicApp', ['ionic', 'controllers', 'services'])
     url:'/recover',
     templateUrl: 'templates/recover.html'
   })
-  .state('platillos',{
-    url:'/platillos',
-    templateUrl: 'templates/platillos.html',
-    controller: 'PlatillosCtrl'
+  .state('menu',{
+    url:'/menu',
+    templateUrl: 'templates/menu.html',
+    controller: 'MenuCtrl'
+  })
+  .state('platillo',{
+    url: '/menu/:idPlatillo',
+    templateUrl: 'templates/platillo.html',
+    controller : 'PlatilloCtrl'
   });
 
-  $urlRouterProvider.otherwise("/platillos");
+  $urlRouterProvider.otherwise("/menu");
 
 });
