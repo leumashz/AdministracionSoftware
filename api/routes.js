@@ -1,7 +1,7 @@
 //importando modelos
-var Persona = require ('./models/platillo');
-var Usuario = require ('./models/usuario');
-var Orden 	= require ('./models/orden');
+var Platillo = require ('./models/platillo');
+var Usuario  = require ('./models/usuario');
+var Orden 	 = require ('./models/orden');
 //importando controladores
 var pCtrl 	= require ('./controllers/platillos');
 var oCtrl 	= require ('./controllers/ordenes');
@@ -9,7 +9,7 @@ var uCtrl 	= require ('./controllers/usuarios');
 
 module.exports = function(app) {
 	//platillo
-	app.get('/platillos', pCtrl.findAllPlatillos);
+	app.get('/menu', pCtrl.findMenu);
 	app.get('/platillo/:id', pCtrl.findById);
 	app.post('/platillo', pCtrl.addPlatillo);
 	app.put('/platillo/:id', pCtrl.updatePlatillo);	
@@ -27,7 +27,7 @@ module.exports = function(app) {
 	app.put('/orden/:id', oCtrl.updateOrden);	
 	app.delete('/orden/:id', oCtrl.deleteOrden );
 	//panel hecho en angular para manejar la aplicacion
-	/*app.get('*', function(req, res) {
-		res.sendfile('./angular/index.html');
-	});*/
+	app.get('*', function(req, res) {
+		res.sendfile('./desktop/index.html');
+	});
 };

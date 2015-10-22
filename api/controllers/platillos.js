@@ -1,10 +1,10 @@
   var Platillo = require('../models/platillo.js');
 
   //GET - regresa todos los platillos
-  exports.findAllPlatillos = function(req, res, next) {
+  exports.findMenu = function(req, res, next) {
   	Platillo.find(function(err, platillos) {
   		if(!err) {
-        console.log('GET /platillos')
+        console.log('GET /menu')
   			res.json(platillos);
   		} else {
   			console.log('ERROR: ' + err);
