@@ -1,13 +1,28 @@
 <ion-view title="platillo">
-  <ion-content padding=true>
-    <div class="list">
+  
 
-      <a ng-repeat="platillo in menu" href="#/menu/{{platillo._id}}" class="item item-thumbnail-left">
+  <ion-nav-buttons side="left">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline"
+        ng-click="data.showDelete = !data.showDelete;"></button>
+    </div>
+ </ion-nav-buttons>
+
+  <ion-content padding=true>
+
+    <ion-list show-delete="data.showDelete">
+      <ion-item class="item-remove-animate item-thumbnail-left  item-icon-right"
+                  ng-repeat="platillo in menu" type="item-text-wrap" >
         <img ng-src="{{ platillo.url_img }}">
         <h2>{{ platillo.nombre }}</h2>
         <h4>{{ platillo.descripcion }}</h4>
-      </a>
 
-    </div>
+
+        <ion-delete-button class="ion-minus-circled" ng-click="eliminarPlatillo(platillo)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+
+
   </ion-content>
 </ion-view>

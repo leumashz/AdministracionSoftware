@@ -6,8 +6,15 @@ angular.module('controllers', [])
 		$scope.menu = menu;
 	});
 })
+
+
+
+
+
+
+
 ///////////////////PlatilloCtrl//////////////////////
-.controller('PlatilloCtrl',function ($scope,$stateParams,platilloService) {
+.controller('PlatilloCtrl',function ($scope,$stateParams,platilloService,carritoService) {
 
   platilloService.getPlatillo($stateParams.idPlatillo).then(function(platillo){
 		$scope.platillo = platillo;
@@ -21,39 +28,31 @@ angular.module('controllers', [])
     /*window.localStorage.setItem("username", 'Luis');
     console.log(window.localStorage.getItem("username"));
     window.localStorage.removeItem("username");*/
-    var menuCarrito = JSON.parse(window.localStorage.getItem("menuCarrito"));
+    var menuCarrito = carritoService.getCarrito();
+    console.log(menuCarrito);
     if(menuCarrito==null){
       menuCarrito = [];
     }
     menuCarrito.push(platillo);
-    window.localStorage.setItem("menuCarrito", JSON.stringify( menuCarrito));
-    console.log(JSON.parse(window.localStorage.getItem("menuCarrito")));
+    carritoService.setCarrito(menuCarrito);
+    //console.log(JSON.parse(window.localStorage.getItem("menuCarrito")));
     //window.localStorage.removeItem("menuCarrito");//Comentalo
   };
 
 
 })
+
+
 ////////////////////CarritoCtrl///////////////////////////////////////
-.controller('CarritoCtrl', function($scope) {
-  $scope.menu = JSON.parse(window.localStorage.getItem("menuCarrito"));
+.controller('CarritoCtrl', function($scope,carritoService) {
+  $scope.menu = carritoService.getCarrito();
+  $scope.data = {
+    showDelete: false
+  };
+  $scope.eliminarPlatillo = function (platillo) {
+    $scope.menu.splice($scope.menu.indexOf(platillo), 1);
+    carritoService.setCarrito( $scope.menu);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  };
 
 });
