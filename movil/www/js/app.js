@@ -47,10 +47,15 @@ angular.module('ionicApp', ['ionic', 'controllers', 'services','directives'])
 
   })
 
-  .state('platillo',{
+  .state('tab.platillo',{
     url: '/menu/:idPlatillo',
-    templateUrl: 'templates/platillo.html',
-    controller : 'PlatilloCtrl'
+      views: {
+        'tab-menu' : {
+          templateUrl: 'templates/platillo.html',
+          controller : 'PlatilloCtrl'
+        }
+      }
+
   });
 
   $urlRouterProvider.otherwise("/tab/menu");
