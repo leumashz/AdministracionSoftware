@@ -37,6 +37,7 @@ angular.module('routes', [])
   })
 
   .state('tab.carrito',{
+     cache: false,
     url:'/carrito',
     views: {
       'tab-carrito': {
