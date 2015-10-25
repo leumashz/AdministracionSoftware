@@ -5,7 +5,9 @@ angular
 
 
  function CarritoCtrl ($scope,carritoService) {
-    $scope.menu = carritoService.getCarrito();
+   $scope.$on('$ionicView.beforeEnter',function () {
+     $scope.menu = carritoService.getCarrito();
+   });
     $scope.data = {
       showDelete: false
     };

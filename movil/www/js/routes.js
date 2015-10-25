@@ -38,8 +38,7 @@ function config($stateProvider, $urlRouterProvider) {
 
     })
 
-    .state('tab.carrito',{
-       cache: false,
+    .state('tab.carrito',{      
       url:'/carrito',
       views: {
         'tab-carrito': {
