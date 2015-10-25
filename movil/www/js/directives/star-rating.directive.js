@@ -1,6 +1,9 @@
-angular.module('directives', [])
+angular
+  .module('ionicApp')
+  .directive('starRating',starRating);
 
-.directive('starRating', function () {
+
+function starRating() {
     return {
         restrict: 'A',
         template: '<ul class="rating">' +
@@ -38,4 +41,4 @@ angular.module('directives', [])
             });
         }
     }
-});
+}
