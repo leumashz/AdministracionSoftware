@@ -38,12 +38,23 @@ function config($stateProvider, $urlRouterProvider) {
 
     })
 
-    .state('tab.carrito',{      
+    .state('tab.carrito',{
       url:'/carrito',
       views: {
         'tab-carrito': {
           templateUrl: 'templates/carrito.html',
           controller: 'CarritoCtrl'
+        }
+      }
+
+    })
+
+    .state('tab.compra',{
+      url:'/carrito/compra',
+      views: {
+        'tab-carrito': {
+          templateUrl: 'templates/compra.html',
+          controller: 'CompraCtrl'
         }
       }
 
