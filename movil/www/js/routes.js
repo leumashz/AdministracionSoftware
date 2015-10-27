@@ -32,7 +32,7 @@ function config($stateProvider, $urlRouterProvider) {
       views: {
         'tab-menu': {
           templateUrl: 'templates/menu.html',
-          controller: 'MenuCtrl'
+          controller: 'menuCtrl'
         }
       }
 
@@ -43,7 +43,7 @@ function config($stateProvider, $urlRouterProvider) {
       views: {
         'tab-carrito': {
           templateUrl: 'templates/carrito.html',
-          controller: 'CarritoCtrl'
+          controller: 'carritoCtrl'
         }
       }
 
@@ -54,7 +54,7 @@ function config($stateProvider, $urlRouterProvider) {
       views: {
         'tab-carrito': {
           templateUrl: 'templates/compra.html',
-          controller: 'CompraCtrl'
+          controller: 'compraCtrl'
         }
       }
 
@@ -65,7 +65,7 @@ function config($stateProvider, $urlRouterProvider) {
         views: {
           'tab-menu' : {
             templateUrl: 'templates/platillo.html',
-            controller : 'PlatilloCtrl'
+            controller : 'platilloCtrl'
           }
         }
 

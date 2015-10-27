@@ -1,6 +1,6 @@
 angular
   .module('ionicApp')
-  .controller('MenuCtrl',MenuCtrl);
+  .controller('menuCtrl',MenuCtrl);
 
 
   function MenuCtrl ($scope,menuService) {

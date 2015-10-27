@@ -1,6 +1,6 @@
 angular
   .module('ionicApp')
-  .controller('CarritoCtrl',CarritoCtrl);
+  .controller('carritoCtrl',CarritoCtrl);
 
 
 
@@ -19,24 +19,5 @@ angular
       carritoService.setCarrito($scope.menu);
 
     };
-
-    /*$scope.showConfirm = function() {
-      var carrito = carritoService.getCarrito();
-      console.log(carrito);
-      var confirmPopup = $ionicPopup.confirm({
-        title: 'Comprar',
-        template: 'Are you sure you want to eat this ice cream?',
-        cancelText: 'Cancelar',
-        okText : 'Comprar'
-      });
-      confirmPopup.then(function(res) {
-        if(res) {
-          console.log('You are sure');
-        } else {
-          console.log('You are not sure');
-        }
-      });
-
-    };*/
 
   }
