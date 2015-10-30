@@ -4,10 +4,25 @@ angular
 
 
 
- function CarritoCtrl ($scope,carritoService, $ionicPopup, $timeout) {
+ function CarritoCtrl ($scope,carritoService, $ionicPopup, $location,$ionicHistory) {
 
    $scope.$on('$ionicView.beforeEnter',function () {
-     $scope.menu = carritoService.getCarrito();
+     var menu = carritoService.getCarrito();
+     if(menu.length){
+        $scope.menu = menu;
+     }else{
+       var alertPopup = $ionicPopup.alert({
+           title: 'Carrito vacio!!',
+         template: 'Tiene que agregar previamente algo al carrito desde el menu :('
+       });
+       alertPopup.then(function(res) {
+            $location.path("#/tab/menu");
+            //console.log($ionicHistory.viewHistory());
+        });
+
+
+     }
+
    });
 
     $scope.data = {
