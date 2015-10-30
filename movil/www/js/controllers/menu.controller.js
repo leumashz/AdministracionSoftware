@@ -4,7 +4,9 @@ angular
 
 
   function MenuCtrl ($scope,menuService) {
-    menuService.getMenu().then(function(menu){
-  		$scope.menu = menu;
-  	});
+    $scope.$on('$ionicView.beforeEnter',function () {
+      menuService.getMenu().then(function(menu){
+        $scope.menu = menu;
+      });
+    });
   }
