@@ -4,7 +4,7 @@ angular
 
 
 
-  function PlatilloCtrl($scope,$stateParams,platilloService,carritoService) {
+  function PlatilloCtrl($scope,$stateParams,platilloService,carritoService,$location) {
 
     platilloService.getPlatillo($stateParams.idPlatillo).then(function(platillo){
   		$scope.platillo = platillo;
@@ -22,6 +22,7 @@ angular
       }
       menuCarrito.push(platillo);
       carritoService.setCarrito(menuCarrito);
+      $location.path("#/tab/menu");
     };
 
 
