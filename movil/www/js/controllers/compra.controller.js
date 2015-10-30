@@ -3,7 +3,7 @@ angular
   .controller('compraCtrl',CompraCtrl);
 
 
-  function CompraCtrl($scope,carritoService,$filter,compraService,$ionicPopup ) {
+  function CompraCtrl($scope,carritoService,$filter,compraService,$ionicPopup,$location ) {
     $scope.CurrentDate = new Date();
 
     var menu = carritoService.getCarrito();
@@ -29,5 +29,9 @@ angular
         title: 'Compra Exitosa!',
         template: 'Gracias por su compra :)'
       });
+      alertPopup.then(function(res) {
+           $location.path("#/tab/home");
+           //console.log($ionicHistory.viewHistory());
+       });
     }
   };

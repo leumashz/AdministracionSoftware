@@ -90,5 +90,5 @@ function config($stateProvider, $urlRouterProvider) {
 
     });
 
-    $urlRouterProvider.otherwise("/tab/menu");
+    $urlRouterProvider.otherwise("/tab/home");
 }
