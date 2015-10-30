@@ -40,6 +40,7 @@ function config($stateProvider, $urlRouterProvider) {
 
     .state('tab.carrito',{
       url:'/carrito',
+      cache : false,
       views: {
         'tab-carrito': {
           templateUrl: 'templates/carrito.html',
@@ -70,6 +71,7 @@ function config($stateProvider, $urlRouterProvider) {
 
     .state('tab.compra',{
       url:'/carrito/compra',
+      cache : false,
       views: {
         'tab-carrito': {
           templateUrl: 'templates/compra.html',

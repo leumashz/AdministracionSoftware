@@ -3,16 +3,29 @@ angular
   .controller('compraCtrl',CompraCtrl);
 
 
-  function CompraCtrl($scope,carritoService,$filter,compraService,$ionicPopup,$location ) {
-    $scope.CurrentDate = new Date();
-
+  function CompraCtrl($scope,carritoService,$filter,compraService,$ionicPopup,$location,$state,$ionicHistory ) {
     var menu = carritoService.getCarrito();
-    $scope.NumeroPlatillos = menu.length;
-    $scope.precioTotal = 0;
+    $scope.$on('$ionicView.beforeEnter',function () {
 
-    for (var i = 0; i < menu.length; i++) {
-      $scope.precioTotal+= menu[i].precio;
-    }
+      if(menu==null){
+        $state.go('tab.carrito');
+      }else{
+        $scope.CurrentDate = new Date();
+
+
+        $scope.NumeroPlatillos = menu.length;
+        $scope.precioTotal = 0;
+
+        for (var i = 0; i < menu.length; i++) {
+          $scope.precioTotal+= menu[i].precio;
+        }
+      }
+
+    });
+
+
+
+
 
    var compraJSON = {
       'estado' : 120394,
@@ -30,7 +43,9 @@ angular
         template: 'Gracias por su compra :)'
       });
       alertPopup.then(function(res) {
-           $location.path("#/tab/home");
+            carritoService.deleteCarrito();
+            $state.go('tab.home');
+           //$location.path("#/tab/home");
            //console.log($ionicHistory.viewHistory());
        });
     }

@@ -4,16 +4,11 @@ angular
 
 
 
- function CarritoCtrl ($scope,carritoService, $ionicPopup, $location,$ionicHistory) {
-
-   $scope.data = {
-     badgeCount : 3
-   };
-
-
+ function CarritoCtrl ($scope,carritoService, $ionicPopup, $location,$ionicHistory,$state) {
+    var menu = carritoService.getCarrito();
    $scope.$on('$ionicView.beforeEnter',function () {
-     var menu = carritoService.getCarrito();
-     if(menu.length){
+
+     if(menu!=null){
         $scope.menu = menu;
      }else{
        var alertPopup = $ionicPopup.alert({
@@ -21,8 +16,7 @@ angular
          template: 'Tiene que agregar previamente algo al carrito desde el menu :('
        });
        alertPopup.then(function(res) {
-            $location.path("#/tab/menu");
-            //console.log($ionicHistory.viewHistory());
+         $state.go('tab.home', {cache: false})
         });
 
 
@@ -32,6 +26,7 @@ angular
 
     $scope.data = {
       showDelete: false
+      //,numeroCarrito : menu.length
     };
 
     $scope.eliminarPlatillo = function (platillo) {
