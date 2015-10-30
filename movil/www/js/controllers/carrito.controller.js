@@ -6,6 +6,11 @@ angular
 
  function CarritoCtrl ($scope,carritoService, $ionicPopup, $location,$ionicHistory) {
 
+   $scope.data = {
+     badgeCount : 3
+   };
+
+
    $scope.$on('$ionicView.beforeEnter',function () {
      var menu = carritoService.getCarrito();
      if(menu.length){
