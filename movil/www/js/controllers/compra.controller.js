@@ -3,7 +3,7 @@ angular
   .controller('compraCtrl',CompraCtrl);
 
 
-  function CompraCtrl($scope,carritoService,$filter,compraService ) {
+  function CompraCtrl($scope,carritoService,$filter,compraService,$ionicPopup ) {
     $scope.CurrentDate = new Date();
 
     var menu = carritoService.getCarrito();
@@ -24,6 +24,10 @@ angular
     }
 
     $scope.pedirOrden = function () {
-      compraService.postCompra(JSON.stringify(compraJSON));
+      //compraService.postCompra(JSON.stringify(compraJSON));
+      var alertPopup = $ionicPopup.alert({
+        title: 'Compra Exitosa!',
+        template: 'Gracias por su compra :)'
+      });
     }
   };
