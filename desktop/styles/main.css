@@ -1,0 +1,33 @@
+body{
+	background: #F7F7F7;
+}
+nav .brand-logo{
+	color:#000;
+}
+nav ul a{
+	color:#000;
+}
+
+nav a{
+	color: #000;
+}
+
+nav .top-nav{
+	box-shadow: none;
+}
+
+.side-nav .fixed{
+	color: #FFF;
+}
+
+.collection {
+	border:none;
+}
+
+.collection .collection-item{
+	border-bottom:none;
+}
+
+.card.small {
+    height: 350px;
+}

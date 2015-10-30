@@ -1,45 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CafeteriaApp">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Sistema para la gestión de ordenes web</title>
-	<link href="styles/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles/css/main.css" rel="stylesheet" />
+	<link href="styles/materialize/css/materialize.min.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
+    <link href="styles/icons/icons.css" rel="stylesheet">
+    <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/materialize.min.js"></script>
 	<script src="js/lib/angular.min.js"></script>
 	<script src="js/lib/angular-route.min.js"></script>
+
+	<base href="/">
 </head>
-<body ng-app="CafeteriaApp">
-	<header></header>
-	<div class="container-fluid" ng-controller="PlatillosController">
+<body>
 
-		<div class="row">
-			<div class="col-md-2 no-float">
-				<h2>Admin</h2>
-				<br>
-				<h4>Mostrar el menu <span class="glyphicon glyphicon-list-alt"></span></h4>
-				<br>
-				<h4>Mostrar ordenes <span class="glyphicon glyphicon-list-alt"></span></h4>
-				<br>
-				<br>
-				<strong>Información sobre la empresa</strong>
-				<br><br>
-				<strong>Salir</strong>
-
-			</div>
-        	<div class="col-md-10 no-float">
-        			<h3>Content</h3>
-        	</div>
-		</div> 
-	</div>
-	
-<!-- definicion aplicacion angular -->
-<script src="js/core.js"></script>
-<!-- controladores --> 	
-<script src="js/controllers.js"></script>
-<!-- servicios -->	
-<script src="js/services.js"></script>
-<!-- directivas --> 
-<script src="js/directives.js"></script>	
+	<nav class="top-nav teal lighten-3 z-depth-0">
+		<div class="container">
+			<div class="nav-wrapper container">
+				<span class="page-title">Dashboard</span>
+			</div>					
+		</div>
+	</nav>
+	<div ng-view></div>
+	<!-- definicion aplicacion angular -->
+	<script src="js/core.js"></script>
+	<!-- controladores --> 	
+	<script src="js/controllers.js"></script>
+	<!-- servicios -->	
+	<script src="js/services.js"></script>
+	<!-- directivas --> 
+	<script src="js/directives.js"></script>	
 </body>
 <!-- <div class="platillos" ng-repeat="platillo in platillos">
 						{{platillo.nombre}}
@@ -53,4 +44,14 @@
 <h5>Agregar platillo al menu <span class="glyphicon glyphicon-plus"></span></h5>
 
 -->
+
+<!-- 
+
+<ul id="nav" class="right">
+						        <li><a href="sass.html">Zelda</a></li>
+						        <li><a href="badges.html">Zelda2</a></li>
+						        <li><a href="collapsible.html">Zelda3</a></li>
+					      	</ul>
+-->
 </html>
+

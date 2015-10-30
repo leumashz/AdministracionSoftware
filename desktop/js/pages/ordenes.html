@@ -1,0 +1,65 @@
+<!-- Inicia principal --> 
+	<div class="container">
+		<div class="side-nav fixed  white z-depth-4">
+	        <ul class="collection">
+	        	<!-- Usuario admin  o cajero -->
+	        		<li class="collection-item avatar">
+				      <img src="img/avatar/persona.jpg" alt="" class="circle">
+				      
+				      <p>Hola, <br>
+				         Juan
+				      </p>
+				      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+				    </li>
+				    <div class="divider"></div> 
+	        	<!-- Inician elementos de la barra de navegacion -->
+	        	<li class="collection-item avatar">
+			    	<a href="/"><i class="material-icons circle red">store</i>
+			      		<span class="title">Inicio</span>
+			      	</a>
+			    </li>
+
+			    <li class="collection-item avatar">
+			    	<a href="/verOrden"><i class="material-icons circle red">assignment</i>
+			      	Ver orden actual
+			      	</a>
+			    </li>
+			    <li class="collection-item avatar">
+			    	<a href="/verOrdenes"><i class="material-icons circle red">assignment</i>
+			      	Ver todas
+			      	</a>
+			    </li>s
+			    <div class="divider"></div> 
+			    <li class="collection-item avatar">
+			    	<a href="#salir"><i class="material-icons circle red">power_settings_new</i>
+			      	Salir	
+			      	</a>
+			    </li> 
+	        </ul>
+	        <!-- Finalizan elementos de la barra de navegacion -->
+	    </div>
+	</div>
+    <div class="container">
+    	<div class="row">
+      		<div class="col s10 offset-s2">
+		      	<div class="row">
+		      		<div class="col s3" ng-repeat="platillo in menu">
+		      			<div class="card small">
+				      		<div class="card-image">
+			      				<img ng-src="{{platillo.url_img}}">
+			      			</div>
+				      		<div class="card-content">
+				      			<span class="card-title grey-text text-darken-4">{{platillo.nombre}}</span>
+			      			</div>
+			      			<div class="card-action">
+			      				<a href="#" ng-click="deletePlatillo(platillo._id)">Agregar</a>
+			      			</div>
+		      			</div>
+
+		      		</div>
+		      	</div>
+			</div>	
+		</div>
+   	</div>
+	
+<!-- Termina contenido principal -->

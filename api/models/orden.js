@@ -4,13 +4,14 @@ var Usuario 	= mongoose.model('Usuario');
 var Platillo 	= mongoose.model('Platillo');
 
 var ordenSchema = new Schema({
-		estado: 	String,
-		id_usuario: String, //obtener campo _id del usuario
-		platillos: 	[String],
-		fecha: 		{type: Date, default: Date.now},
-		total: 		Number,
-		tipo:       Number,
-		extra:   	String
+		estado: 		String,
+		id_usuario: 	String, //obtener campo _id del usuario
+		platillos: 		[String],
+		fecha: 			{type: Date, default: Date.now},
+		total: 			Number,
+		tipo:       	Number,
+		descripcion:   	[String],
+		llevar: 		Boolean
 });
 
 
