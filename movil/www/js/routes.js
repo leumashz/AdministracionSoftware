@@ -46,7 +46,26 @@ function config($stateProvider, $urlRouterProvider) {
           controller: 'carritoCtrl'
         }
       }
+    })
 
+    .state('tab.settings',{
+      url:'/settings',
+      views: {
+        'tab-settings': {
+          templateUrl: 'templates/settings.html'//,
+          //: 'carritoCtrl'
+        }
+      }
+    })
+
+    .state('tab.home',{
+      url:'/home',
+      views: {
+        'tab-home': {
+          templateUrl: 'templates/home.html'//,
+          //: 'carritoCtrl'
+        }
+      }
     })
 
     .state('tab.compra',{
