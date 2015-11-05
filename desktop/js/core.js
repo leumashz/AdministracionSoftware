@@ -25,8 +25,12 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'js/pages/ordenes.html',
             controller  : 'ordenController',
         })
-        .when('/verOrden', {
-            templateUrl : 'js/pages/verOrden.html',
+        .when('/agregarOrden', {
+            templateUrl : 'js/pages/agregarOrden.html',
+            controller  : 'ordenController',
+        })
+        .when('/editarOrden', {
+            templateUrl : 'js/pages/editarOrden.html',
             controller  : 'ordenController',
         })
         .when('/verOrdenes', {
