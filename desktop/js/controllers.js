@@ -10,9 +10,7 @@ app.controller('menuController', ['$scope', 'menuService', function($scope,menuS
 					menuService.all()
 						.success(function (data) {
 							$scope.menu = data;
-							$(document).ready(function() {
-			        location.reload();
-			    });		
+								
 						});
 						
 				});

@@ -92,7 +92,7 @@
   		platillo.remove(function(err) {
   			if(!err) {
   				console.log('Platillo Eliminado');
-          res.redirect('http://localhost/verMenu#success');
+          res.send(null);
   			} else {
   				console.log('ERROR: ' + err);
           res.send(null);
