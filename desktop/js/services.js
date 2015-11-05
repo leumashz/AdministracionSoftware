@@ -3,15 +3,15 @@
     var menuFactory = {};
     //obtener todo el menu
     menuFactory.all = function() {
-      return $http.get('/menu', { cache: true });
+      return $http.get('/menu');
     }
     //obtener un platillo
     menuFactory.get = function(id) {
-      return $http.get('/platillo/'+id, { cache: false });
+      return $http.get('/platillo/'+id);
     }
     //crear un platillo
     menuFactory.create = function(platilloData) {
-      return $http.post('/platillo/',platilloData, { cache: false });
+      return $http.post('/platillo/',platilloData);
     }
     //actualizar un platillo
     menuFactory.update = function(id,platilloData) {
