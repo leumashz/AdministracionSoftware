@@ -27,7 +27,7 @@ var Orden = require('../models/orden.js');
 
   exports.addOrden = function(req, res, next) {
     console.log('POST');
-    console.log(req.body);
+    //console.log(req.body);
 
     var orden = new Orden({
       estado:         req.body.estado,
@@ -42,33 +42,31 @@ var Orden = require('../models/orden.js');
     orden.save(function(err) {
       if(!err) {
         console.log('Orden creada');
-        //res.send(null);
+        res.send(null);
       } else {
         console.log('ERROR: ' + err);
-        //res.send(null);
+        res.send(null);
       }
     });
 
-    res.json(orden);
+    //res.json(orden);
   };
 
   exports.updateOrden = function(req, res, next) {
     Orden.findById(req.params.id, function(err, orden) {
-      orden.estado      =    req.body.estado,
-      orden.id_usuario  =    req.body.id_usuario,
-      orden.platillos   =    req.body.platillos,
-      orden.fecha       =    req.body.fecha,
-      orden.total       =    req.body.total,
-      orden.tipo        =    req.body.tipo,
-      orden.extra       =    req.body.extra
+      if(req.body.estado) orden.estado      =    req.body.estado;
+      if(req.body.id_usuario) orden.id_usuario  =    req.body.id_usuario;
+      if(req.body.platillos) orden.platillos   =    req.body.platillos;
+      if(req.body.fecha) orden.fecha       =    req.body.fecha;
+      if(req.body.total) orden.total       =    req.body.total;
+      if(req.body.tipo) orden.tipo        =    req.body.tipo;
+      if(req.body.extra) orden.extra       =    req.body.extra;
 
       orden.save(function(err) {
         if(!err) {
           console.log('orden actualizada');
-
         } else {
           console.log('ERROR: ' + err);
-
         }
         res.json(orden);
       });

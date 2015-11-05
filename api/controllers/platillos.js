@@ -9,6 +9,7 @@
   			res.json(platillos);
   		} else {
   			console.log('ERROR: ' + err);
+        res.send(null);
   		}
   	});
   };
