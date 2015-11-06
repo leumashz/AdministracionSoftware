@@ -49,11 +49,11 @@
       platillo.save(function(err) {
           if(!err) {
             //console.log('Created');
-            res.redirect('http://localhost/agregarPlatillo#success');
+            res.redirect('http://45.55.49.58/agregarPlatillo#success');
           } else {
             //console.log('ERROR: ' );
             platillo.url_img = 'http://res.cloudinary.com/evileumas/image/upload/v1446208401/platillo-vacio_v3uxxi.jpg';
-            res.redirect('http://localhost/agregarPlatillo#fail');
+            res.redirect('http://45.55.49.58/agregarPlatillo#fail');
           }
         });
     });
