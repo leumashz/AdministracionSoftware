@@ -10,6 +10,10 @@ angular
   		},
   		setCarrito : function (menuCarrito) {
   			window.localStorage.setItem("menuCarrito", JSON.stringify( menuCarrito));
-  		}
+  		},
+      deleteCarrito : function () {
+        window.localStorage.removeItem("menuCarrito");
+      }
+
   	}
   }

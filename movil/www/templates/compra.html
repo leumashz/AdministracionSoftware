@@ -1,0 +1,37 @@
+<ion-view title="compra">
+
+  <ion-content padding=true>
+    <div class="list">
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-person"></i>
+      Cesar Ibarra
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-android-restaurant"></i>
+      {{NumeroPlatillos}}
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-calendar"></i>
+      <span>{{CurrentDate | date:'medium'}}</span>
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-cash"></i>
+      {{precioTotal|currency}}
+    </a>
+
+    <ion-toggle ng-model="pushNotification.checked"
+             ng-change="pushNotificationChange()"
+             class="item item-icon-left" href="#">
+             <i class="icon ion-android-car"></i>
+             Para llevar?
+    </ion-toggle>
+  </div>
+  <button class="button button-block button-positive" ng-click="pedirOrden()">
+  Pedir
+  </button>
+  </ion-content>
+</ion-view>

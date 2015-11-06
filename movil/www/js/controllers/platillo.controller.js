@@ -1,10 +1,10 @@
 angular
   .module('ionicApp')
-  .controller('PlatilloCtrl',PlatilloCtrl);
+  .controller('platilloCtrl',PlatilloCtrl);
 
 
 
-  function PlatilloCtrl($scope,$stateParams,platilloService,carritoService) {
+  function PlatilloCtrl($scope,$stateParams,platilloService,carritoService,$location,$state) {
 
     platilloService.getPlatillo($stateParams.idPlatillo).then(function(platillo){
   		$scope.platillo = platillo;
@@ -15,9 +15,6 @@ angular
   	});
 
     $scope.agregarCarrito = function (platillo) {
-      /*window.localStorage.setItem("username", 'Luis');
-      console.log(window.localStorage.getItem("username"));
-      window.localStorage.removeItem("username");*/
       var menuCarrito = carritoService.getCarrito();
       console.log(menuCarrito);
       if(menuCarrito==null){
@@ -25,8 +22,8 @@ angular
       }
       menuCarrito.push(platillo);
       carritoService.setCarrito(menuCarrito);
-      //console.log(JSON.parse(window.localStorage.getItem("menuCarrito")));
-      //window.localStorage.removeItem("menuCarrito");//Comentalo
+      //$location.path("#/tab/menu");
+      $state.go('tab.menu');
     };
 
 

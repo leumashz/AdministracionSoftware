@@ -32,18 +32,50 @@ function config($stateProvider, $urlRouterProvider) {
       views: {
         'tab-menu': {
           templateUrl: 'templates/menu.html',
-          controller: 'MenuCtrl'
+          controller: 'menuCtrl'
         }
       }
 
     })
 
-    .state('tab.carrito',{      
+    .state('tab.carrito',{
       url:'/carrito',
+      cache : false,
       views: {
         'tab-carrito': {
           templateUrl: 'templates/carrito.html',
-          controller: 'CarritoCtrl'
+          controller: 'carritoCtrl'
+        }
+      }
+    })
+
+    .state('tab.settings',{
+      url:'/settings',
+      views: {
+        'tab-settings': {
+          templateUrl: 'templates/settings.html'//,
+          //: 'carritoCtrl'
+        }
+      }
+    })
+
+    .state('tab.home',{
+      url:'/home',
+      views: {
+        'tab-home': {
+          templateUrl: 'templates/home.html'//,
+          //: 'carritoCtrl'
+        }
+      }
+    })
+
+    .state('tab.compra',{
+      url:'/carrito/compra',
+      cache : false,
+      views: {
+        'tab-carrito': {
+          templateUrl: 'templates/compra.html',
+          controller: 'compraCtrl'
         }
       }
 
@@ -54,11 +86,11 @@ function config($stateProvider, $urlRouterProvider) {
         views: {
           'tab-menu' : {
             templateUrl: 'templates/platillo.html',
-            controller : 'PlatilloCtrl'
+            controller : 'platilloCtrl'
           }
         }
 
     });
 
-    $urlRouterProvider.otherwise("/tab/menu");
+    $urlRouterProvider.otherwise("/tab/home");
 }

@@ -1,19 +1,37 @@
 angular
   .module('ionicApp')
-  .controller('CarritoCtrl',CarritoCtrl);
+  .controller('carritoCtrl',CarritoCtrl);
 
 
 
- function CarritoCtrl ($scope,carritoService) {
+ function CarritoCtrl ($scope,carritoService, $ionicPopup, $location,$ionicHistory,$state) {
+    var menu = carritoService.getCarrito();
    $scope.$on('$ionicView.beforeEnter',function () {
-     $scope.menu = carritoService.getCarrito();
+
+     if(menu!=null){
+        $scope.menu = menu;
+     }else{
+       var alertPopup = $ionicPopup.alert({
+           title: 'Carrito vacio!!',
+         template: 'Tiene que agregar previamente algo al carrito desde el menu :('
+       });
+       alertPopup.then(function(res) {
+         $state.go('tab.home', {cache: false})
+        });
+
+
+     }
+
    });
+
     $scope.data = {
       showDelete: false
+      //,numeroCarrito : menu.length
     };
+
     $scope.eliminarPlatillo = function (platillo) {
       $scope.menu.splice($scope.menu.indexOf(platillo), 1);
-      carritoService.setCarrito( $scope.menu);
+      carritoService.setCarrito($scope.menu);
 
     };
 
