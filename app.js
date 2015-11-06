@@ -19,7 +19,7 @@ var upload = multer({ storage: storage });*/
 var port     = process.env.PORT || 80;
 //conexión mongodb
 
-mongoose.connect('mongodb://localhost/baseMenu', function(err, res) {
+mongoose.connect('mongodb://localhost/platon', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   } else {
@@ -34,7 +34,7 @@ cloudinary.config({
 });
 
 app.configure(function () {
-  app.use(express.static(__dirname + '/desktop')); 
+  app.use(express.static(__dirname + '/desktop'));
   app.use(cors());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
