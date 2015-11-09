@@ -44,9 +44,13 @@
 			      				<img ng-src="{{platillo.url_img}}">
 			      			</div>
 				      		<div class="card-content">
-				      			<span class="card-title grey-text text-darken-4">{{platillo.nombre}}</span>
+				      			<p>{{platillo.precio | currency}}</p>
+				      			<span class="card-title grey-text text-darken-4"><h6>{{platillo.nombre}}</h6></span><br><br>
+				      			
+
 			      			</div>
 			      			<div class="card-action">
+			      				
 			      				<a href="/editarPlatillo/{{platillo._id}}">Editar</a>
 			      				<a href="#" ng-click="deletePlatillo(platillo._id)">Eliminar</a>
 			      			</div>
