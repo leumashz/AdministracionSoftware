@@ -15,11 +15,11 @@
     }
     //actualizar un platillo
     menuFactory.update = function(id,platilloData) {
-      return $http.put('/platillo/'+id,platilloData,  { cache: false });
+      return $http.put('/platillo/'+id,platilloData);
     }
     //borrar un platillo
     menuFactory.delete = function(id) {
-      return $http.delete('/platillo/'+id, { cache: false });
+      return $http.delete('/platillo/'+id);
     }
     return menuFactory;
 }]);

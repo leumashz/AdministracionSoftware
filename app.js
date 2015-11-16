@@ -19,7 +19,7 @@ var upload = multer({ storage: storage });*/
 var port     = process.env.PORT || 80;
 //conexión mongodb
 
-mongoose.connect('mongodb://localhost/platon', function(err, res) {
+mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   } else {

@@ -64,7 +64,7 @@
   exports.updatePlatillo = function(req, res, next) {
   	
     Platillo.findById(req.params.id, function(err, platillo) {
-      
+      console.log(platillo.nombre);
       if(req.body.nombre) platillo.nombre  = req.body.nombre;
       if(req.body.descripcion ) platillo.descripcion   = req.body.descripcion;
       if(req.body.precio) platillo.precio  = req.body.precio;
@@ -72,13 +72,15 @@
       if(req.body.rating) platillo.rating  = req.body.rating;
   		if(req.body.tipo) platillo.tipo  = req.body.tipo;   
 
-      console.log(platillo);
+      //console.log(platillo);
   		
       platillo.save(function(err) {
         if(!err) {
-          console.log('Updated');
+          console.log('Se modifico el platillo');
+          console.log(platillo);
            res.json(platillo);
         } else {
+          
           res.json(platillo);
         }
           

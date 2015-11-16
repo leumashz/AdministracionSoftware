@@ -21,27 +21,25 @@ app.controller('addPlatilloController',['$scope','menuService', function($scope,
 	
 
 	$scope.guardarPlatillo = function() {
-		$scope.proceso = true;
-		$scope.mensaje = '';
-
+			
 		menuService.create($scope.platilloData)
 			.success(function(data) {
-				$scope.proceso = false;
 				$scope.platilloData = {};
-				$scope.mensaje = data.message;
+				
 				
 			});
 	};
 }]);
 
 app.controller('editPlatilloController',['$scope','$routeParams','menuService', function($scope,$routeParams,menuService){
+	$scope.platilloData = {};
 	menuService.get($routeParams.id)
 		.success(function(data) {
 			$scope.platilloData = data;	
 		});
 
-	$scope.guardarPlatillo = function() {
-		menuService.update($routeParams.id, $scope.data)
+	$scope.actualizarPlatillo = function() {
+		menuService.update($routeParams.id, $scope.platilloData)
 			.success(function(data) {
 				$scope.platilloData = {};
 			});
