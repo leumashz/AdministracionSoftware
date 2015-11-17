@@ -32,15 +32,15 @@ app.controller('addPlatilloController',['$scope','menuService', function($scope,
 }]);
 
 app.controller('editPlatilloController',['$scope','$routeParams','menuService', function($scope,$routeParams,menuService){
-	$scope.platilloData = {};
 	menuService.get($routeParams.id)
 		.success(function(data) {
 			$scope.platilloData = data;	
 		});
 
 	$scope.actualizarPlatillo = function() {
-		menuService.update($routeParams.id, $scope.platilloData)
+		menuService.update($routeParams.id,$scope.platilloData)
 			.success(function(data) {
+				//console.log($routeParams.id);
 				$scope.platilloData = {};
 			});
 	};
