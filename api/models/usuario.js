@@ -3,11 +3,12 @@ var	Schema 		= mongoose.Schema;
 
 var UsuarioSchema = new mongoose.Schema({
 	nombre: 		String,
-	email: 			String,
-	password: 		String,
+	email: 			{ type: String, required: true, index: { unique: true }}, 
+	password: 		{ type: String, required: true, select: false },
 	tipo: 			Number,
 	telefono:       String, 
-	fecha: 			{type: Date, default: Date.now} 
+	fecha: 			{type: Date, default: Date.now},
+	token: 			String
 });
 
 

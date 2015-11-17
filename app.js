@@ -6,6 +6,7 @@ var express     = require("express"),
     cors        = require("cors"),
     mongoose    = require('mongoose'),
     multer      = require('multer'),
+    server      = http.createServer(app),
     cloudinary  = require('cloudinary');
 
   cloudinary.config({
@@ -39,6 +40,6 @@ mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {
     console.log('ERROR: connecting to Database. ' + err);
   }
   app.listen(port, function() {
-    console.log("Node server running on http://localhost:3000");
+    console.log("Node server running on http://localhost");
   });
 });

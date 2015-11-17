@@ -69,6 +69,6 @@ module.exports = function(apiRoutes) {
 		.get(iCtrl.findById)	
 		.put(iCtrl.updateInfo);
 
-
+	//api.get('/private',middleware.ensureAuthenticated)
 	return apiRoutes;
 };
