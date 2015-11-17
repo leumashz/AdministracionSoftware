@@ -7,27 +7,42 @@ var pCtrl 	= require ('./controllers/platillos');
 var oCtrl 	= require ('./controllers/ordenes');
 var uCtrl 	= require ('./controllers/usuarios');
 
-module.exports = function(app) {
-	//platillo
-	app.get('/menu', pCtrl.findMenu);
-	app.get('/platillo/:id', pCtrl.findById);
-	app.post('/platillo', pCtrl.addPlatillo);
-	app.put('/platillo/:id', pCtrl.updatePlatillo);	
-	app.delete('/platillo/:id', pCtrl.deletePlatillo );
-	//usuario
-	app.get('/usuarios', uCtrl.findAllUsuarios);
-	app.get('/usuario/:id', uCtrl.findById);
-	app.post('/usuario', uCtrl.addUsuario);
-	app.put('/usuario/:id', uCtrl.updateUsuario);	
-	app.delete('/usuario/:id', uCtrl.deleteUsuario);
-	//orden
-	app.get('/orden/:id', oCtrl.findById);
-	app.get('/ordenes', oCtrl.findAllOrdenes);
-	app.post('/orden', oCtrl.addOrden);
-	app.put('/orden/:id', oCtrl.updateOrden);	
-	app.delete('/orden/:id', oCtrl.deleteOrden );
-	//panel hecho en angular para manejar la aplicacion
-	app.get('*', function(req, res) {
-		res.sendfile('./desktop/index.html');
-	});
+
+module.exports = function(apiRoutes) {
+	//rutas para manejar platillos
+	apiRoutes.route('/menu')
+		.get(pCtrl.findMenu);
+
+	apiRoutes.route('/platillo')
+		.post(pCtrl.addPlatillo);
+
+	apiRoutes.route('/platillo/:id')
+		.get(pCtrl.findById)
+		.put(pCtrl.updatePlatillo)
+		.delete(pCtrl.deletePlatillo)
+
+	//rutas para manejar ordenes
+	apiRoutes.route('/ordenes')
+		.get(oCtrl.findAllOrdenes);
+
+	apiRoutes.route('/orden')
+		.post(oCtrl.addOrden);
+
+	apiRoutes.route('/orden/:id')
+		.get(oCtrl.findById)
+		.put(oCtrl.updateOrden)
+		.delete(oCtrl.deleteOrden)
+	//rutas para manejar usuarios
+	apiRoutes.route('/usuarios')
+		.get(uCtrl.findAllUsuarios);
+
+	apiRoutes.route('/usuario')
+		.post(uCtrl.addUsuario);
+
+	apiRoutes.route('/usuario/:id')
+		.get(uCtrl.findById)
+		.put(uCtrl.updateUsuario)
+		.delete(uCtrl.deleteUsuario);
+
+	return apiRoutes;
 };
