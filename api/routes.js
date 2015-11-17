@@ -1,12 +1,15 @@
 //importando modelos
-var Platillo = require ('./models/platillo');
-var Usuario  = require ('./models/usuario');
-var Orden 	 = require ('./models/orden');
+var Platillo 	= require ('./models/platillo');
+var Usuario  	= require ('./models/usuario');
+var Orden 	 	= require ('./models/orden');
+var Sugerencia = require ('./models/orden');
+var Info		= require ('./models/info');
 //importando controladores
 var pCtrl 	= require ('./controllers/platillos');
 var oCtrl 	= require ('./controllers/ordenes');
 var uCtrl 	= require ('./controllers/usuarios');
-
+var sCtrl 	= require ('./controllers/sugerencias');
+var iCtrl 	= require ('./controllers/infos');
 
 module.exports = function(apiRoutes) {
 	//rutas para manejar platillos
@@ -32,6 +35,7 @@ module.exports = function(apiRoutes) {
 		.get(oCtrl.findById)
 		.put(oCtrl.updateOrden)
 		.delete(oCtrl.deleteOrden)
+	
 	//rutas para manejar usuarios
 	apiRoutes.route('/usuarios')
 		.get(uCtrl.findAllUsuarios);
@@ -43,6 +47,28 @@ module.exports = function(apiRoutes) {
 		.get(uCtrl.findById)
 		.put(uCtrl.updateUsuario)
 		.delete(uCtrl.deleteUsuario);
+
+	//rutas para manejar sugerencias
+	apiRoutes.route('/sugerencias')
+		.get(sCtrl.findAllSugerencias);
+
+	apiRoutes.route('/sugerencia')
+		.post(sCtrl.addSugerencia);
+
+	apiRoutes.route('/sugerencia/:id')
+		.get(sCtrl.findById)
+		.put(sCtrl.updateSugerencia)
+		.delete(sCtrl.deleteSugerencia);
+
+	//info de la cafeteria
+	apiRoutes.route('/info')
+		.get(iCtrl.findInfo)
+		.post(iCtrl.addInfo);
+
+	apiRoutes.route('/info/:id')
+		.get(iCtrl.findById)	
+		.put(iCtrl.updateInfo);
+
 
 	return apiRoutes;
 };

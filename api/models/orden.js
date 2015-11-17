@@ -6,7 +6,7 @@ var Platillo 	= mongoose.model('Platillo');
 var ordenSchema = new Schema({
 		estado: 		String,
 		id_usuario: 	String, //obtener campo _id del usuario
-		platillos: 		[String],
+		platillos: 		Object,
 		fecha: 			{type: Date, default: Date.now},
 		total: 			Number,
 		tipo:       	Number,

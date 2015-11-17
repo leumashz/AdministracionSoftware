@@ -37,6 +37,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'js/pages/verOrdenes.html',
             controller  : 'ordenController',
         })
+        .when('/info', {
+            templateUrl : 'js/pages/informacion.html',
+            controller  : 'infoController',
+        })
         .otherwise({
             redirectTo: '/'
         });

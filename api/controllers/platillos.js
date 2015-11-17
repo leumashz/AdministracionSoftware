@@ -23,6 +23,7 @@
   			res.json(platillo);
   		} else {
   			console.log('ERROR: ' + err);
+        res.send(null);
   		}
   	});
   };
@@ -41,11 +42,8 @@
   		tipo:           1,
   	});
 
-    //console.log(req.files);console.log(req.files);
-      //console.log(platillo);
-
-      cloudinary.uploader.upload(req.file.path, function(result) { 
-      //console.log(result);
+    cloudinary.uploader.upload(req.file.path, function(result) { 
+    //console.log(result);
       platillo.url_img = result.url;
       platillo.save(function(err) {
           if(!err) {
@@ -65,19 +63,13 @@
   exports.updatePlatillo = function(req, res, next) {
   	
     Platillo.findById(req.params.id, function(err, platillo) {
-      console.log('actual ' + platillo.nombre);
-      console.log('enviado ' + req.body.nombre);
-      //console.log(res.body);
-      //console.log(req);
-      platillo.nombre  = req.body.nombre;
-      platillo.descripcion   = req.body.descripcion;
-      platillo.precio  = req.body.precio;
-      platillo.url_img  = req.body.url_img;
-      platillo.rating  = req.body.rating;
-  		platillo.tipo  = req.body.tipo;   
+      if(!req.body.nombre) platillo.nombre  = req.body.nombre;
+      if(!req.body.descripcion) platillo.descripcion   = req.body.descripcion;
+      if(!req.body.precio) platillo.precio  = req.body.precio;
+      if(!req.body.url_img) platillo.url_img  = req.body.url_img;
+      if(!req.body.rating) platillo.rating  = req.body.rating;
+  		if(!req.body.tipo) platillo.tipo  = req.body.tipo;   
 
-      //console.log(platillo);
-  		
       platillo.save(function(err) {
         if(!err) {
           console.log('Se modifico el platillo');
