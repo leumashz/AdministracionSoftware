@@ -1,10 +1,14 @@
 var app = angular.module('CafeteriaApp', ['ngRoute']);
 
 app.config(function($routeProvider, $locationProvider) {
+
     $routeProvider
         .when('/', {
+            templateUrl : 'js/pages/inicio.html',
+            controller  : 'mainController',
+        })
+        .when('/home', {
             templateUrl : 'js/pages/home.html'
-            //controller  : 'mainController'
         })
         .when('/entrantes', {
             templateUrl : 'js/pages/entrantes.html'
@@ -36,6 +40,10 @@ app.config(function($routeProvider, $locationProvider) {
         .when('/verOrdenes', {
             templateUrl : 'js/pages/verOrdenes.html',
             controller  : 'ordenController',
+        })
+        .when('/info', {
+            templateUrl : 'js/pages/informacion.html',
+            controller  : 'infoController',
         })
         .otherwise({
             redirectTo: '/'

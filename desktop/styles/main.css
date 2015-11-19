@@ -31,3 +31,10 @@ nav .top-nav{
 .card.small {
     height: 350px;
 }
+
+.card.small .card-content {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+	margin-top: 0px;
+}
