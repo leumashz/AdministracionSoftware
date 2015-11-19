@@ -2,9 +2,8 @@ app.controller('mainController', ['$scope','$rootScope', '$location', 'Auth',fun
 	$scope.loggedIn = Auth.isLoggedIn();
 
 	$rootScope.$on('$routeChangeStart', function() {
-
 		Auth.getUsuario()
-			.success(function (data) {
+			.then(function (data) {
 				$scope.usuario = data;
 			});
 	});
@@ -47,7 +46,6 @@ app.controller('menuController', ['$scope', 'menuService', function($scope,menuS
 }]);
 
 app.controller('addPlatilloController',['$scope','menuService', function($scope,menuService){
-	
 
 	$scope.guardarPlatillo = function() {
 			

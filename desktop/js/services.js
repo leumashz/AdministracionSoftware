@@ -95,7 +95,7 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
         return $http.get('/api/usuarioOn', {cache: true});
       else
         return $q.reject({ message: 'el usuario no tiene token'});
-    }
+    };
 
     return authFactory;
   }]);
