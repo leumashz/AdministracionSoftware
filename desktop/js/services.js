@@ -65,11 +65,10 @@ app.factory('ordenService', ['$http',function($http){
     return ordenFactory;
 }]);
 
-/*app.service('authService', [])
-  .factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
+app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
     var authFactory = {};
 
-    authFactory.login = function(username, password) {
+    authFactory.login = function(email, password) {
       return $http.post('/api/authenticate', {
         email:    email,
         password: password
@@ -78,48 +77,48 @@ app.factory('ordenService', ['$http',function($http){
           AuthToken.setToken(data.token);
           return data;
         });
-    };
+    }
 
     authFactory.logout = function(){
       AuthToken.setToken();
-    };
+    }
 
     authFactory.isLoggedIn = function(){
       if(AuthToken.getToken())
         return true;
       else
         return false;
-    };
+    }
 
     authFactory.getUsuario = function() {
       if(AuthToken.getToken())
-        return $http.get('/api/usuarioOn');
+        return $http.get('/api/usuarioOn', {cache: true});
       else
         return $q.reject({ message: 'el usuario no tiene token'});
-    };
+    }
 
     return authFactory;
-  }])
+  }]);
 
 
-  .factory('AuthToken', ['$window', function($window) {
+  app.factory('AuthToken', ['$window', function($window) {
     var authTokenFactory = {};
 
     authTokenFactory.getToken = function() {
       return $window.localStorage.getItem('token');
-    };
+    }
 
     authTokenFactory.setToken = function(token) {
       if(token)
         $window.localStorage.setItem('token',token);
       else
         $window.localStorage.removeItem('token');
-    };
+    }
 
     return authTokenFactory;
-  }])
+  }]);
 
-  .factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,AuthToken){
+  app.factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,AuthToken){
     var interceptorFactory = {};
 
     interceptorFactory.request = function(config){
@@ -129,7 +128,7 @@ app.factory('ordenService', ['$http',function($http){
         config.headers['x-access-token'] = token;
 
       return config;
-    };
+    }
 
     interceptorFactory.responseError = function(response) {
       if(response.status == 403){
@@ -137,7 +136,7 @@ app.factory('ordenService', ['$http',function($http){
         $location.path('login');
       }
       return $q.reject(response);
-    };
+    }
 
     return interceptorFactory; 
-  }]);*/
+  }]);
