@@ -7,6 +7,8 @@ var express     = require("express"),
     mongoose    = require('mongoose'),
     multer      = require('multer'),
     server      = http.createServer(app),
+    jwt         = require('jsonwebtoken'),
+    
     cloudinary  = require('cloudinary');
 
   cloudinary.config({
@@ -15,7 +17,7 @@ var express     = require("express"),
     api_secret:"dGJAHsAqTEBpCPNEGjnzrTgV7NM"
   });
 
-  app.use(bodyParser.urlencoded({ extended: false }));  
+  //app.use(bodyParser.urlencoded({ extended: false }));  
   app.use(bodyParser.json());  
   app.use(methodOverride());
   app.use('/',express.static(__dirname + '/desktop'));

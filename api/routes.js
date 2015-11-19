@@ -2,17 +2,25 @@
 var Platillo 	= require ('./models/platillo');
 var Usuario  	= require ('./models/usuario');
 var Orden 	 	= require ('./models/orden');
-var Sugerencia = require ('./models/orden');
+var Sugerencia 	= require ('./models/orden');
 var Info		= require ('./models/info');
+ 
 //importando controladores
 var pCtrl 	= require ('./controllers/platillos');
 var oCtrl 	= require ('./controllers/ordenes');
 var uCtrl 	= require ('./controllers/usuarios');
 var sCtrl 	= require ('./controllers/sugerencias');
 var iCtrl 	= require ('./controllers/infos');
+var authTkn = require ('./controllers/middleware');
+
 
 module.exports = function(apiRoutes) {
 	//rutas para manejar platillos
+	apiRoutes.route('/')
+		.get(function(req,res,next){
+			res.json({message: 'Estas en la api (° ͜ʖ°)'});
+		});
+
 	apiRoutes.route('/menu')
 		.get(pCtrl.findMenu);
 
@@ -69,6 +77,28 @@ module.exports = function(apiRoutes) {
 		.get(iCtrl.findById)	
 		.put(iCtrl.updateInfo);
 
-	//api.get('/private',middleware.ensureAuthenticated)
+	apiRoutes.route('/authenticate')
+		.post(authTkn.authenticate);
+
+	//obtener info del usuario logeado
+	apiRoutes.route('/usuarioOn')
+		.get(function(req,res,next){
+			res.send(req.decoded);
+		});
+
 	return apiRoutes;
 };
+
+
+/*
+
+{
+    "nombre":"samuel2",
+    "email":"samuel2@gmail.com",
+    "password":"holamundo",
+    "tipo":1,
+    "telefono":"6161155593",
+    "admin":true
+    
+}
+*/
