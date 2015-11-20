@@ -102,20 +102,20 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
 
 
   app.factory('AuthToken', ['$window', function($window) {
-    var authTokenFactory = {};
+      var authTokenFactory = {};
 
-    authTokenFactory.getToken = function() {
-      return $window.localStorage.getItem('token');
-    }
+      authTokenFactory.getToken = function() {
+        return $window.localStorage.getItem('token');
+      }
 
-    authTokenFactory.setToken = function(token) {
-      if(token)
-        $window.localStorage.setItem('token',token);
-      else
-        $window.localStorage.removeItem('token');
-    }
+      authTokenFactory.setToken = function(token) {
+        if(token)
+          $window.localStorage.setItem('token',token);
+        else
+          $window.localStorage.removeItem('token');
+      }
 
-    return authTokenFactory;
+      return authTokenFactory;
   }]);
 
   app.factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,AuthToken){
@@ -139,4 +139,15 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
     }
 
     return interceptorFactory; 
+  }]);
+
+  app.factory('name', ['AuthToken','AuthInterceptor','Auth', function(AuthToken,AuthInterceptor,Auth){
+    var logoutFactory = {};
+
+    Auth.logout();
+
+    $scope.usuario = {};
+    $location.path('/login');
+
+    return 
   }]);

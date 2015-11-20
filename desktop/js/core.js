@@ -8,7 +8,8 @@ app.config(function($routeProvider, $locationProvider) {
             controller  : 'mainController',
         })
         .when('/home', {
-            templateUrl : 'js/pages/home.html'
+            templateUrl : 'js/pages/home.html',
+            controller  : 'mainController', 
         })
         .when('/entrantes', {
             templateUrl : 'js/pages/entrantes.html'
@@ -19,11 +20,11 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/agregarPlatillo', {
             templateUrl : 'js/pages/agregarPlatillo.html',
-            controller  : 'addPlatilloController',
+            controller  : 'menuController',
         })
         .when('/editarPlatillo/:id', {
             templateUrl : 'js/pages/editarPlatillo.html',
-            controller  : 'editPlatilloController',
+            controller  : 'menuController',
         })
         .when('/vOrdenes', {
             templateUrl : 'js/pages/ordenes.html',

@@ -8,7 +8,7 @@ var express     = require("express"),
     multer      = require('multer'),
     server      = http.createServer(app),
     jwt         = require('jsonwebtoken'),
-    
+    tkn         = require('./api/controllers/middleware'),
     cloudinary  = require('cloudinary');
 
   cloudinary.config({
@@ -29,6 +29,7 @@ var express     = require("express"),
   var apiRouter = require('./api/routes')(miRouter);
 
   app.use('/api',apiRouter);
+  app.use(tkn.verifyToken);
 
   var angularApp = express.Router();
     angularApp.get('', function(req, res){  

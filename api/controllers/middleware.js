@@ -8,27 +8,27 @@ exports.authenticate = function (req, res, next) {
 	Usuario.findOne({
 		email: req.body.email
 	}).select('email password').exec(function(err,usuario){
-		console.log('entro a la funcion principal');
+		//console.log('entro a la funcion principal');
 		if (err) throw err;
 
 		if(!usuario){
-			console.log('usuario incorrecto');
+			//console.log('usuario incorrecto');
 			res.json({
 				success: false,
-				message: 'Fallo en la autenticacion. Usuario no encontrado'
+				message: 'Error de inicio de sesion. Correo Invalido'
 			});
 		} else if (usuario) {
-			console.log('llego al else if');
+			//console.log('llego al else if');
 			var passwordValido = usuario.comparePassword(req.body.password);
 			if (!passwordValido) {
 
 				res.json({
 					success: false,
-					message: 'Fallo en la autenticacion. Password Incorrecto'
+					message: 'Error de inicio de sesion. Password Incorrecto'
 				});
 			}
 			else {
-				console.log('llego al ultimo else');
+				//console.log('llego al ultimo else');
 				var token = jwt.sign({
 						email: usuario.email
 					}, secretoDeAmor, {
