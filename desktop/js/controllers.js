@@ -27,7 +27,16 @@ app.controller('mainController', ['$scope','$rootScope', '$location', 'Auth',fun
 }])
 
 
-app.controller('menuController', ['$scope', 'menuService','$location','Auth', function($scope,menuService){
+app.controller('menuController', ['$scope', 'menuService','Auth','$rootScope', function($scope,menuService,Auth,$rootScope){
+		$scope.loggedIn = Auth.isLoggedIn();
+		
+		$rootScope.$on('$routeChangeStart', function() {
+		Auth.getUsuario()
+			.then(function (data) {
+				$scope.usuario = data;
+			});
+		});
+
 		menuService.all().success(function(data) {
 				$scope.menu = data;
 		});
@@ -51,6 +60,7 @@ app.controller('menuController', ['$scope', 'menuService','$location','Auth', fu
 			};
 		};
 
+		
 		//actualizar la información de un platillo
 		/*$scope.actualizarPlatillo = function() {
 			menuService.get($routeParams.id)

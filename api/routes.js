@@ -86,6 +86,7 @@ module.exports = function(apiRoutes) {
 			res.send(req.decoded);
 		});
 
+	apiRoutes.use(authTkn.verifyToken);
 	return apiRoutes;
 };
 
