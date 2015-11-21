@@ -122,7 +122,7 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
 
 
 
-  app.factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,AuthToken){
+  app.factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,$location,AuthToken){
     var interceptorFactory = {};
 
     interceptorFactory.request = function(config){

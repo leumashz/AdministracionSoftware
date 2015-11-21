@@ -53,6 +53,7 @@ exports.verifyToken = function(req, res, next){
 		console.log('si hay token');
 		jwt.verify(token, superSecret, function(err, decoded) {
 			if(err) {
+				
 				return res.status(403).send({
 					success: false,
 					message: 'Error al autenticar token'

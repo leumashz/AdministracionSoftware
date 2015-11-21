@@ -34,6 +34,7 @@ app.controller('menuController', ['$scope', 'menuService','Auth','$rootScope', f
 		Auth.getUsuario()
 			.then(function (data) {
 				$scope.usuario = data;
+				console.log($scope.usuario);
 			});
 		});
 
