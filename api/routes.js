@@ -1,3 +1,4 @@
+var  bodyParser = require('body-parser'); 
 //importando modelos
 var Platillo 	= require ('./models/platillo');
 var Usuario  	= require ('./models/usuario');
@@ -11,21 +12,24 @@ var oCtrl 	= require ('./controllers/ordenes');
 var uCtrl 	= require ('./controllers/usuarios');
 var sCtrl 	= require ('./controllers/sugerencias');
 var iCtrl 	= require ('./controllers/infos');
-var authTkn = require ('./controllers/middleware');
+var tkn = require ('./controllers/middleware');
 
 
-module.exports = function(apiRoutes) {
-	//rutas para manejar platillos
-	apiRoutes.route('/')
-		.get(function(req,res,next){
+module.exports = function(app, express) {
+	
+	var apiRoutes = express.Router();
+	
+	apiRoutes.get('/',function(req,res,next){
 			res.json({message: 'Estas en la api (° ͜ʖ°)'});
-		});
+	});
 
-	apiRoutes.route('/menu')
-		.get(pCtrl.findMenu);
+	apiRoutes.post('/authenticate',tkn.authenticate)
 
-	apiRoutes.route('/platillo')
-		.post(pCtrl.addPlatillo);
+	apiRoutes.use(tkn.verifyToken);
+
+	apiRoutes.get('/menu',pCtrl.findMenu);
+
+	apiRoutes.post('/platillo',pCtrl.addPlatillo);
 
 	apiRoutes.route('/platillo/:id')
 		.get(pCtrl.findById)
@@ -33,11 +37,9 @@ module.exports = function(apiRoutes) {
 		.delete(pCtrl.deletePlatillo)
 
 	//rutas para manejar ordenes
-	apiRoutes.route('/ordenes')
-		.get(oCtrl.findAllOrdenes);
+	apiRoutes.get('/ordenes',oCtrl.findAllOrdenes);
 
-	apiRoutes.route('/orden')
-		.post(oCtrl.addOrden);
+	apiRoutes.post('/orden',oCtrl.addOrden);
 
 	apiRoutes.route('/orden/:id')
 		.get(oCtrl.findById)
@@ -45,11 +47,9 @@ module.exports = function(apiRoutes) {
 		.delete(oCtrl.deleteOrden)
 	
 	//rutas para manejar usuarios
-	apiRoutes.route('/usuarios')
-		.get(uCtrl.findAllUsuarios);
+	apiRoutes.get('/usuarios',uCtrl.findAllUsuarios);
 
-	apiRoutes.route('/usuario')
-		.post(uCtrl.addUsuario);
+	apiRoutes.post('/usuario',uCtrl.addUsuario);
 
 	apiRoutes.route('/usuario/:id')
 		.get(uCtrl.findById)
@@ -57,11 +57,9 @@ module.exports = function(apiRoutes) {
 		.delete(uCtrl.deleteUsuario);
 
 	//rutas para manejar sugerencias
-	apiRoutes.route('/sugerencias')
-		.get(sCtrl.findAllSugerencias);
+	apiRoutes.get('/sugerencias',sCtrl.findAllSugerencias);
 
-	apiRoutes.route('/sugerencia')
-		.post(sCtrl.addSugerencia);
+	apiRoutes.post('/sugerencia',sCtrl.addSugerencia);
 
 	apiRoutes.route('/sugerencia/:id')
 		.get(sCtrl.findById)
@@ -77,16 +75,12 @@ module.exports = function(apiRoutes) {
 		.get(iCtrl.findById)	
 		.put(iCtrl.updateInfo);
 
-	apiRoutes.route('/authenticate')
-		.post(authTkn.authenticate);
-
 	//obtener info del usuario logeado
-	apiRoutes.route('/usuarioOn')
-		.get(function(req,res,next){
-			res.send(req.decoded);
-		});
+	apiRoutes.get('/usuarioOn', function(req,res,next){
+		res.send(req.decoded);
+	});
 
-	apiRoutes.use(authTkn.verifyToken);
+	
 	return apiRoutes;
 };
 

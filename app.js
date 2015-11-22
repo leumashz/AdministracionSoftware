@@ -17,7 +17,7 @@ var express     = require("express"),
     api_secret:"dGJAHsAqTEBpCPNEGjnzrTgV7NM"
   });
 
-  //app.use(bodyParser.urlencoded({ extended: false }));  
+  app.use(bodyParser.urlencoded({ extended: true }));  
   app.use(bodyParser.json());  
   app.use(methodOverride());
   app.use('/',express.static(__dirname + '/desktop'));
@@ -25,19 +25,24 @@ var express     = require("express"),
   app.use(multer({dest:'./temp/'}).single('imgTemp'));
 
   var port = 80;
-  var miRouter = express.Router();
-  var apiRouter = require('./api/routes')(miRouter);
-
-
+  //var miRouter = express.Router();
+  var apiRouter = require('./api/routes')(app, express);
   app.use('/api',apiRouter);
-  app.use(tkn.verifyToken);
 
-  var angularApp = express.Router();
-    angularApp.get('', function(req, res){  
+/*
+// API ROUTES ------------------------
+var apiRoutes = require('./app/routes/api')(app, express);
+app.use('/api', apiRoutes);
+
+*/
+  //app.use(tkn.verifyToken);
+
+  //var angularApp = express.Router();
+    app.get('*', function(req, res){  
       res.sendFile('index.html',{root: __dirname + '/desktop'});
   }); 
 
-  app.use('*',angularApp);
+  //app.use('*',angularApp);
 
 
 
