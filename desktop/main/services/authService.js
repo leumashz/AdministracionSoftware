@@ -18,7 +18,7 @@ angular.module('authService', [])
           AuthToken.setToken(data.token);
           return data;
         });
-    }
+    };
 
     /* 	funcion para finalizar la sesion
     	lo que hace es eliminar el token
@@ -27,7 +27,7 @@ angular.module('authService', [])
     */
     authFactory.logout = function(){
       AuthToken.setToken();
-    }
+    };
     /*
 		Comprobar si el usuario esta loggeado
     */
@@ -36,13 +36,13 @@ angular.module('authService', [])
         return true;
       else
         return false;
-    }
+    };
     /*
 		Funcion que se utiliza para obtener los datos del usuario actual
     */
     authFactory.getUsuario = function() {
       if(AuthToken.getToken())
-        return $http.get('/api/usuarioOn', {cache: false});
+        return $http.get('/api/usuarioOn', {cache: true});
       else
         return $q.reject({ message: 'el usuario no tiene token'});
     };
@@ -57,7 +57,7 @@ angular.module('authService', [])
       // devuelve el token que se encuntra en local storage
       authTokenFactory.getToken = function() {
         return $window.localStorage.getItem('token');
-      }
+      };
 
       /*
 		Cuando esta funcion es llamada con un argumento (token valido generado por la api)
@@ -69,7 +69,7 @@ angular.module('authService', [])
           $window.localStorage.setItem('token',token);
         else
           $window.localStorage.removeItem('token');
-      }
+      };
 
       return authTokenFactory;
   })
@@ -83,12 +83,11 @@ angular.module('authService', [])
       var token = AuthToken.getToken();
 
       if(token){
-        console.log(token);
         config.headers['x-access-token'] = token;
       }
 
       return config;
-    }
+    };
 
     interceptorFactory.responseError = function(response) {
       
@@ -97,7 +96,7 @@ angular.module('authService', [])
         $location.path('/');
       }
       return $q.reject(response);
-    }
+    };
 
     return interceptorFactory; 
   });

@@ -4,7 +4,7 @@ var Usuario   = require('../models/usuario.js');
 var secretoDeAmor = 'cesarislove';
 var jwt         = require('jsonwebtoken');
 
-exports.authenticate = function (req, res,next) {
+exports.authenticate = function (req, res) {
 	
 	Usuario.findOne({
 		email: req.body.email
@@ -15,7 +15,7 @@ exports.authenticate = function (req, res,next) {
 
 		if(!usuario){
 			//console.log('usuario incorrecto');
-			res.json({
+			return res.json({
 				success: false,
 				message: 'Error de inicio de sesion. Correo Invalido'
 			});
@@ -24,21 +24,21 @@ exports.authenticate = function (req, res,next) {
 			var passwordValido = usuario.comparePassword(req.body.password);
 			if (!passwordValido) {
 
-				res.json({
+				return res.json({
 					success: false,
 					message: 'Error de inicio de sesion. Password Incorrecto'
 				});
 			}
 			else {
-				console.log('llego al ultimo else');
+				//console.log('llego al ultimo else');
 				var token = jwt.sign({
 						email: usuario.email
 					}, secretoDeAmor, {
 						expiresInMinutes: 1440
 				});
 				//se devuelve el token 
-				console.log('token generado');
-				res.json({
+				//console.log('token generado');
+				return res.json({
 					success: true,
 					message: 'Token generado',
 					token: token
@@ -49,7 +49,7 @@ exports.authenticate = function (req, res,next) {
 };
 
 exports.verifyToken = function(req, res, next){
-	var token = req.body.token || req.params.token || req.headers['x-access-token'] || req.headers.token || req.param('token') || req.query.token;
+	var token = req.body.token || req.params.token || req.headers['x-access-token'];
 
 	//console.log(token);
 
@@ -74,5 +74,4 @@ exports.verifyToken = function(req, res, next){
 			message: 'No hay token que decodificar'
 		});
 	}
-	next();
 };

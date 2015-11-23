@@ -1,0 +1,36 @@
+<div class="row">
+	<h5 class="center-align">Regitro de usuario</h5>
+    <form class="col s9 offset-s3" ng-submit="doLogin()">
+      
+      <div class="row">
+        <div class="input-field col s8">
+          <input id="email" type="email" class="validate" ng-model="loginData.email" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s8">
+          <input id="password" type="password" class="validate" ng-model="loginData.password" required>
+          <label for="password">Password</label>
+        </div>
+      </div>
+	<div class="row">
+		<div class="col s9 offset-s3">
+			<button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Aceptar</button>
+		</div>
+	</div>
+	 <div ng-if="error">		
+		<div class="row">
+        	<div class="col s8 ofsset-s3">
+          		<div class="card red darken-1">
+            		<div class="card-content white-text">
+              			<span class="card-title">Algo anda mal<i class="large material-icons right">report_problem</i></span>
+              			<br>{{ error }}
+            		</div>
+          		</div>
+       		 </div>
+      	</div>
+	</div>
+    </form>
+ </div>

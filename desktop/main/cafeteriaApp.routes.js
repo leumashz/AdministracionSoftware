@@ -4,13 +4,16 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
     
 
 	$routeProvider
+        .when('/registro',{
+            templateUrl : 'main/views/pages/inicio.html'        
+        })
         .when('/', {
             templateUrl : 'main/views/pages/inicio.html',
             controller  : 'mainController',
         })
         .when('/home', {
-            templateUrl : 'main/views/pages/home.html',
-            controller  : 'mainController', 
+            templateUrl : 'main/views/pages/home.html'
+            
         })
         .when('/entrantes', {
             templateUrl : 'main/views/pages/entrantes.html'
@@ -21,7 +24,6 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
         })
         .when('/agregarPlatillo', {
             templateUrl : 'main/views/pages/agregarPlatillo.html',
-            controller  : 'platilloCreateController',
         })
         .when('/editarPlatillo/:id', {
             templateUrl : 'main/views/pages/editarPlatillo.html',

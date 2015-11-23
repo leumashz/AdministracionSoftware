@@ -1,4 +1,4 @@
-angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
+angular.module('menuCtrl', ['menuService','authService'])
 
 .controller('menuController', function($scope,Menu) {
 
@@ -21,41 +21,6 @@ angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
 })
 
 .controller('platilloCreateController', function($scope,Menu) {
-	/*var data = {};
-	-- Upload, AuthToken,$http--
-	$scope.submit = function() {
-      if ($scope.file) {
-        console.log($scope.file);
-        //$scope.upload($scope.file);
-        $http.post('/upload',$scope.file);
-      }
-    };*/
-
-    
-    // upload on file select or drop
-   /* $scope.upload = function (file) {
-        Upload.upload({
-            url: '/api/platillo/',
-            data: {file: file}
-        }).then(function (resp) {
-            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        }, function (resp) {
-            console.log('Error status: ' + resp.status);
-        });
-    };*/
-
-    /*$scope.upload = function(file) {
-       var token = AuthToken.getToken();
-       
-       Upload.http({
-		  url: '/api/platillo',
-		  headers : {
-		    'Content-Type': file.type,
-		    'token': token
-		  },
-		  data: file
-		});
-     };*/
      
     
 
@@ -76,8 +41,9 @@ angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
 		// call the userService function to update 
 		Menu.update($routeParams.id, $scope.platilloData)
 			.success(function(data) {
-				$scope.platilloData = {};
-				$scope.message = data.message;
+				//$scope.platilloData = {};
+				//$scope.message = data.message;
+				//console.log($scope.message);
 			});
 	};
 

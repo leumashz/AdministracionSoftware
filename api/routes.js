@@ -1,4 +1,4 @@
-var bodyParser = require('body-parser'); 
+//var bodyParser = require('body-parser'); 
 //var multer = require('multer');
 
 //importando modelos
@@ -28,7 +28,7 @@ module.exports = function(app, express) {
 	apiRoutes.post('/usuario',uCtrl.addUsuario);
 
 	apiRoutes.post('/platillo',pCtrl.addPlatillo);
-	
+
 	apiRoutes.post('/authenticate',tkn.authenticate);
 
 	apiRoutes.use(tkn.verifyToken);
@@ -85,8 +85,8 @@ module.exports = function(app, express) {
 		.put(iCtrl.updateInfo);
 
 	//obtener info del usuario logeado
-	apiRoutes.get('/usuarioOn', function(req,res,next){
-		res.send(req.decoded);
+	apiRoutes.get('/usuarioOn', function(req,res){
+		return res.send(req.decoded);
 	});
 
 	
