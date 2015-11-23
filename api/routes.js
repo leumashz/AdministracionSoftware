@@ -4,7 +4,7 @@ var Usuario  	= require ('./models/usuario');
 var Orden 	 	= require ('./models/orden');
 var Sugerencia 	= require ('./models/orden');
 var Info		= require ('./models/info');
- 
+
 //importando controladores
 var pCtrl 	= require ('./controllers/platillos');
 var oCtrl 	= require ('./controllers/ordenes');
@@ -43,7 +43,7 @@ module.exports = function(apiRoutes) {
 		.get(oCtrl.findById)
 		.put(oCtrl.updateOrden)
 		.delete(oCtrl.deleteOrden)
-	
+
 	//rutas para manejar usuarios
 	apiRoutes.route('/usuarios')
 		.get(uCtrl.findAllUsuarios);
@@ -74,7 +74,7 @@ module.exports = function(apiRoutes) {
 		.post(iCtrl.addInfo);
 
 	apiRoutes.route('/info/:id')
-		.get(iCtrl.findById)	
+		.get(iCtrl.findById)
 		.put(iCtrl.updateInfo);
 
 	apiRoutes.route('/authenticate')
@@ -99,6 +99,6 @@ module.exports = function(apiRoutes) {
     "tipo":1,
     "telefono":"6161155593",
     "admin":true
-    
+
 }
 */

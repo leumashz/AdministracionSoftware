@@ -17,8 +17,8 @@ var express     = require("express"),
     api_secret:"dGJAHsAqTEBpCPNEGjnzrTgV7NM"
   });
 
-  //app.use(bodyParser.urlencoded({ extended: false }));  
-  app.use(bodyParser.json());  
+  //app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
   app.use(methodOverride());
   app.use('/',express.static(__dirname + '/desktop'));
   app.use(cors());
@@ -32,13 +32,13 @@ var express     = require("express"),
   app.use(tkn.verifyToken);
 
   var angularApp = express.Router();
-    angularApp.get('', function(req, res){  
+    angularApp.get('', function(req, res){
       res.sendFile('index.html',{root: __dirname + '/desktop'});
-  }); 
+  });
   app.use('*',angularApp);
 
 
-mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {  
+mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
