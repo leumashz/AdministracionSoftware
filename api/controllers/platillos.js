@@ -19,9 +19,7 @@
   //GET - regresa un platillo por id
   exports.findById = function(req, res) {
   	Platillo.findById(req.params.id, function(err, platillo) {
-  		if(err) res.sed(err);
-
-  			
+  		if(err) res.sed(err);  			
         res.json(platillo);
   		
   	});
@@ -60,7 +58,7 @@
   exports.updatePlatillo = function(req, res) {
   	
     Platillo.findById(req.params.id, function(err, platillo) {
-      console.log(req.body);
+      //console.log(req.body);
 
       if(err) res.send(err);
 
