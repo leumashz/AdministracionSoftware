@@ -9,7 +9,7 @@ var  bodyParser = require('body-parser');
         res.json(usuarios);
       } else {
         console.log('ERROR: ' + err);
-        res.send(err);
+        res.json({message: 'error al obtener usuarios'});
       }
     });
   };
@@ -21,7 +21,7 @@ var  bodyParser = require('body-parser');
         res.json(usuario);
       } else {
         console.log('ERROR: ' + err);
-        res.send(err);
+        res.json({mensaje: 'No se encontro el usuario'});
       }
     });
   };
@@ -43,9 +43,9 @@ var  bodyParser = require('body-parser');
     usuario.save(function(err) {
       if(!err) {
         console.log('usuario creado');
-        res.json({ message: 'Usuario creado' });
+        res.json({ message: 'Usuario registrado' });
       } else {
-        console.log('ERROR: ' + err);
+        //console.log('ERROR: ' + err);
       }
     });
   };
@@ -63,7 +63,7 @@ var  bodyParser = require('body-parser');
           res.json({ message: 'Usuario actualizado' });
         } else {
           console.log('ERROR: ' + err);
-          res.send(err);
+          res.json({ message: 'Error al intentar actualizar los datos'});
         }
       });
     });
@@ -74,10 +74,10 @@ var  bodyParser = require('body-parser');
       usuario.remove(function(err) {
         if(!err) {
           console.log('Usuario Eliminado');
-          res.send(null);
+          res.json({message: 'Usuario eliminado exitosamente'});
         } else {
           console.log('ERROR: ' + err);          
-          res.send(err);
+          res.json({message: 'Error al intentar eliminar el usuario'});
         }
       })
     });

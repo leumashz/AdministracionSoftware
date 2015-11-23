@@ -21,7 +21,7 @@ angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
 })
 
 .controller('platilloCreateController', function($scope,Menu,Upload, AuthToken,$http) {
-	
+
 	$scope.submit = function() {
       if ($scope.file) {
         console.log($scope.file);

@@ -24,7 +24,9 @@ module.exports = function(app, express) {
 			res.json({message: 'Estas en la api (° ͜ʖ°)'});
 	});
 
-	apiRoutes.post('/authenticate',tkn.authenticate)
+	apiRoutes.post('/usuario',uCtrl.addUsuario);
+
+	apiRoutes.post('/authenticate',tkn.authenticate);
 
 	apiRoutes.use(tkn.verifyToken);
 
@@ -51,7 +53,7 @@ module.exports = function(app, express) {
 	//rutas para manejar usuarios
 	apiRoutes.get('/usuarios',uCtrl.findAllUsuarios);
 
-	apiRoutes.post('/usuario',uCtrl.addUsuario);
+	
 
 	apiRoutes.route('/usuario/:id')
 		.get(uCtrl.findById)
