@@ -25,7 +25,7 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
         })
         .when('/editarPlatillo/:id', {
             templateUrl : 'main/views/pages/editarPlatillo.html',
-            controller  : 'platilloEditeController',
+            controller  : 'platilloEditController',
         })
         .when('/vOrdenes', {
             templateUrl : 'main/views/pages/ordenes.html'
