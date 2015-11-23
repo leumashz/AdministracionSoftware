@@ -6,15 +6,15 @@
         </div>
 
 
-        <form>
+        <form ng-submit="doLogin(emailLogin,passwordLogin)">
           <div class="list">
             <label class="item item-input">
               <span class="input-label">Usuario</span>
-              <input type="text">
+              <input  type="email" ng-model="emailLogin" required>
             </label>
             <label class="item item-input">
               <span class="input-label">Constraseña</span>
-              <input type="password">
+              <input type="password"  ng-model="passwordLogin" required>
             </label>
           </div>
 
@@ -22,7 +22,7 @@
               <strong><a href = "#/recover">Olvidaste tu contraseña?</a></strong>
           </div>
 
-          <button class="button button-block button-positive">
+          <button class="button button-block button-positive" type="submit">
             Iniciar sesión
           </button>
         </form>
