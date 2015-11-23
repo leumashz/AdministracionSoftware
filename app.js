@@ -1,12 +1,12 @@
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
-    //http        = require("http"),
+    http        = require("http"),
     methodOverride = require("method-override"),
-    //cors        = require("cors"),
+    cors        = require("cors"),
     mongoose    = require('mongoose'),
     multer      = require('multer'),
-    //server      = http.createServer(app),
+    server      = http.createServer(app),
     jwt         = require('jsonwebtoken'),
     cloudinary  = require('cloudinary'),
     morgan      = require('morgan'),
@@ -24,16 +24,16 @@ var express     = require("express"),
   app.use(bodyParser.json());  
   app.use(methodOverride());
 
-  app.use(function(req, res, next) {
+  /*app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST','PUT','DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
     next();
-  });
+  });*/
 
   
   app.use('/',express.static(__dirname + '/desktop'));
-  //app.use(cors());
+  app.use(cors());
   app.use(multer({dest:'./temp/'}).single('tempImg'));
   //app.use(multer({dest:'./temp/'}).array('imgs',2));
 

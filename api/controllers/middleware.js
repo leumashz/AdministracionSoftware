@@ -15,7 +15,7 @@ exports.authenticate = function (req, res) {
 
 		if(!usuario){
 			//console.log('usuario incorrecto');
-			return res.json({
+			res.json({
 				success: false,
 				message: 'Error de inicio de sesion. Correo Invalido'
 			});
@@ -24,7 +24,7 @@ exports.authenticate = function (req, res) {
 			var passwordValido = usuario.comparePassword(req.body.password);
 			if (!passwordValido) {
 
-				return res.json({
+				res.json({
 					success: false,
 					message: 'Error de inicio de sesion. Password Incorrecto'
 				});

@@ -12,8 +12,8 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
             controller  : 'mainController',
         })
         .when('/home', {
-            templateUrl : 'main/views/pages/home.html'
-            
+            templateUrl : 'main/views/pages/home.html',
+            controller  : 'homeController', 
         })
         .when('/entrantes', {
             templateUrl : 'main/views/pages/entrantes.html'

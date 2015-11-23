@@ -1,4 +1,4 @@
-angular.module('mainCtrl', [])
+angular.module('mainCtrl', ['ordenService'])
 
 .controller('mainController', function($scope,$rootScope, $location, Auth) {
 	$scope.loggedIn = Auth.isLoggedIn();
@@ -29,4 +29,13 @@ angular.module('mainCtrl', [])
 		$location.path('/');
 	};
 
+})
+
+.controller('homeController', function($scope, $interval, Orden) {
+	$scope.callAtInterval = function() {
+        console.log("$scope.callAtInterval - Interval occurred");
+    }
+
+    $interval( function(){ $scope.callAtInterval(); }, 3000);
 });
+
