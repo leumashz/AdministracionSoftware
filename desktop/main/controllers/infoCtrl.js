@@ -22,3 +22,19 @@ angular.module('infoCtrl', ['menuService', 'authService'])
 			
 	};	
 })
+
+.controller('infoEditController', function($scope, $routeParams, Info){
+	Info.get($routeParams.id)
+		.success(function(data) {
+			$scope.infoData = data;
+		});
+
+	$scope.saveInfo = function() {
+		$scope.message = '':
+
+		Info.update($routeParams.id, $scope.infoData)
+			.success(function(data){
+				//algo
+			});
+	};
+});
