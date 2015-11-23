@@ -9,7 +9,7 @@ var express     = require("express"),
     server      = http.createServer(app),
     jwt         = require('jsonwebtoken'),
     cloudinary  = require('cloudinary'),
-    morgan      = require('morgan'),
+    //morgan      = require('morgan'),
     path        = require('path');
 
 //var upload = multer({ dest: 'uploads/' });
@@ -39,7 +39,7 @@ var express     = require("express"),
 
   var port = 80;
   //var miRouter = express.Router();
-  app.use(morgan('dev'));
+  //app.use(morgan('dev'));
 
   var apiRouter = require('./api/routes')(app, express);
   app.use('/api',apiRouter);
