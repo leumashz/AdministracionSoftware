@@ -11,7 +11,7 @@ exports.authenticate = function (req, res,next) {
 	}).select('email password').exec(function(err,usuario){
 		//console.log('entro a la funcion principal');
 		if (err) throw err;
-		console.log(usuario.email);
+		//console.log(usuario.email);
 
 		if(!usuario){
 			//console.log('usuario incorrecto');
