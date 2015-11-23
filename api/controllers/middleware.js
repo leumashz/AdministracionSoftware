@@ -50,8 +50,10 @@ exports.verifyToken = function(req, res, next){
 	var token = req.body.token || req.param('token') || req.headers['x-access-token'];
 
 	if (token) {
+		console.log('si hay token');
 		jwt.verify(token, superSecret, function(err, decoded) {
 			if(err) {
+				
 				return res.status(403).send({
 					success: false,
 					message: 'Error al autenticar token'
@@ -62,6 +64,7 @@ exports.verifyToken = function(req, res, next){
 			}
 		});
 	} else {
+		console.log('no hay token');
 		return res.status(403).send({
 			success: false,
 			message: 'No hay token que decodificar'

@@ -28,6 +28,7 @@ var express     = require("express"),
   var miRouter = express.Router();
   var apiRouter = require('./api/routes')(miRouter);
 
+
   app.use('/api',apiRouter);
   app.use(tkn.verifyToken);
 
@@ -36,6 +37,13 @@ var express     = require("express"),
       res.sendFile('index.html',{root: __dirname + '/desktop'});
   });
   app.use('*',angularApp);
+
+
+mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {
+  });
+
+  app.use('*',angularApp);
+
 
 
 mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {

@@ -3,11 +3,11 @@
     var menuFactory = {};
     //obtener todo el menu
     menuFactory.all = function() {
-      return $http.get('/api/menu');
+      return $http.get('/api/menu',{cache: true});
     }
     //obtener un platillo
     menuFactory.get = function(id) {
-      return $http.get('/api/platillo/'+id);
+      return $http.get('/api/platillo/'+id,{cache: true});
     }
     //crear un platillo
     menuFactory.create = function(platilloData) {
@@ -28,10 +28,10 @@
   app.factory('usuarioService', ['$http',function($http){
     var usuarioFactory = {};
     usuarioFactory.all = function() {
-      return $http.get('/api/usuarios');
+      return $http.get('/api/usuarios',{cache: true});
     }
     usuarioFactory.get = function(id) {
-      return $http.get('/api/usuario/'+id);
+      return $http.get('/api/usuario/'+id,{cache: true});
     }
     usuarioFactory.create = function(usuarioData) {
       return $http.post('/api/usuario/',usuarioData);
@@ -48,10 +48,10 @@
 app.factory('ordenService', ['$http',function($http){
     var ordenFactory = {};
     ordenFactory.all = function() {
-      return $http.get('/api/ordenes');
+      return $http.get('/api/ordenes',{cache: true});
     }
     ordenFactory.get = function(id) {
-      return $http.get('/api/orden/'+id);
+      return $http.get('/api/orden/'+id,{cache: true});
     }
     ordenFactory.create = function(ordenData) {
       return $http.post('/api/orden/',ordenData);
@@ -64,6 +64,8 @@ app.factory('ordenService', ['$http',function($http){
     }
     return ordenFactory;
 }]);
+
+
 
 app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
     var authFactory = {};
@@ -118,7 +120,9 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
       return authTokenFactory;
   }]);
 
-  app.factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,AuthToken){
+
+
+  app.factory('AuthInterceptor', ['$q','$location','AuthToken', function($q,$location,AuthToken){
     var interceptorFactory = {};
 
     interceptorFactory.request = function(config){
@@ -131,6 +135,7 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
     }
 
     interceptorFactory.responseError = function(response) {
+      
       if(response.status == 403){
         AuthToken.setToken();
         $location.path('login');
@@ -139,15 +144,4 @@ app.factory('Auth', ['$http','$q', 'AuthToken', function($http, $q, AuthToken) {
     }
 
     return interceptorFactory; 
-  }]);
-
-  app.factory('name', ['AuthToken','AuthInterceptor','Auth', function(AuthToken,AuthInterceptor,Auth){
-    var logoutFactory = {};
-
-    Auth.logout();
-
-    $scope.usuario = {};
-    $location.path('/login');
-
-    return 
   }]);
