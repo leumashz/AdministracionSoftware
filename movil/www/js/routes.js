@@ -14,7 +14,8 @@ function config($stateProvider, $urlRouterProvider) {
   ///////////Vistas//////////////////////
     .state('login', {
       url: '/login',
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: 'loginCtrl'
     })
 
     .state('register',{
@@ -92,5 +93,5 @@ function config($stateProvider, $urlRouterProvider) {
 
     });
 
-    $urlRouterProvider.otherwise("/tab/home");
+    $urlRouterProvider.otherwise("login");
 }
