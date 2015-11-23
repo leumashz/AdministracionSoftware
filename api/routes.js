@@ -69,7 +69,6 @@ module.exports = function(app, express) {
 	apiRoutes.get('/sugerencias',sCtrl.findAllSugerencias);
 
 	apiRoutes.post('/sugerencia',sCtrl.addSugerencia);
-
 	apiRoutes.route('/sugerencia/:id')
 		.get(sCtrl.findById)
 		.put(sCtrl.updateSugerencia)
