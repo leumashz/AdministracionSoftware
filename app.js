@@ -9,8 +9,11 @@ var express     = require("express"),
     server      = http.createServer(app),
     jwt         = require('jsonwebtoken'),
     tkn         = require('./api/controllers/middleware'),
-    cloudinary  = require('cloudinary')
+    cloudinary  = require('cloudinary'),
+
     path        = require('path');
+
+var upload = multer({ dest: 'uploads/' });
 
   cloudinary.config({
     cloud_name: "evileumas" ,
@@ -31,17 +34,13 @@ var express     = require("express"),
   var apiRouter = require('./api/routes')(app, express);
   app.use('/api',apiRouter);
 
-  //app.use(tkn.verifyToken);
-
   //var angularApp = express.Router();
     app.get('*', function(req, res){  
       //res.sendFile('index.html',{root: __dirname + '/desktop'});
       res.sendFile(path.join(__dirname + '/desktop/main/views/index.html'));
   }); 
 
- 
-
-
+  
 
 mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {  
   if(err) {

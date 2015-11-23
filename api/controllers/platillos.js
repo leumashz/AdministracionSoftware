@@ -32,7 +32,7 @@
   exports.addPlatillo = function(req, res, next) {
   	console.log('POST');
   	//console.log(req.file.path);
-  	/*var platillo = new Platillo({
+  	var platillo = new Platillo({
   		
       nombre:         req.body.nombre,
   		descripcion: 	  req.body.descripcion,
@@ -41,7 +41,17 @@
   		rating:         5,
   		tipo:           1,
   	});
-
+    
+    /*platillo.save(function(err) {
+          if(!err) {
+            //console.log('Created');
+            res.redirect('/agregarPlatillo#success');
+          } else {
+            //console.log('ERROR: ' );
+            platillo.url_img = 'http://res.cloudinary.com/evileumas/image/upload/v1446208401/platillo-vacio_v3uxxi.jpg';
+            res.redirect('/agregarPlatillo#fail');
+          }
+        });*/
     cloudinary.uploader.upload(req.file.path, function(result) { 
     //console.log(result);
       platillo.url_img = result.url;
@@ -59,11 +69,11 @@
 
 
 
-    */
+    
+    /*//console.log(req.body);
     //console.log(req.body);
-    console.log(req.file.path);
-    console.log('me han llamado');
-    res.json({message: true});
+    //console.log('me han llamado');
+    //res.json({message: true});*/
   }
 
   //PUT - Actualizar la información de un platillos

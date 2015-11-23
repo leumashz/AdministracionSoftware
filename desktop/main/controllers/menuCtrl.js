@@ -20,15 +20,16 @@ angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
 
 })
 
-.controller('platilloCreateController', function($scope,Menu,Upload, AuthToken,$http) {
-
+.controller('platilloCreateController', function($scope,Menu) {
+	/*var data = {};
+	-- Upload, AuthToken,$http--
 	$scope.submit = function() {
       if ($scope.file) {
         console.log($scope.file);
         //$scope.upload($scope.file);
-        $http.post('/api/platillo/',$scope.file);
+        $http.post('/upload',$scope.file);
       }
-    };
+    };*/
 
     
     // upload on file select or drop
@@ -43,7 +44,7 @@ angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
         });
     };*/
 
-    $scope.upload = function(file) {
+    /*$scope.upload = function(file) {
        var token = AuthToken.getToken();
        
        Upload.http({
@@ -54,7 +55,7 @@ angular.module('menuCtrl', ['menuService','ngFileUpload','authService'])
 		  },
 		  data: file
 		});
-     };
+     };*/
      
     
 

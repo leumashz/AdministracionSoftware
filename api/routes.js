@@ -1,4 +1,5 @@
-var  bodyParser = require('body-parser'); 
+var bodyParser = require('body-parser'); 
+//var multer = require('multer');
 
 //importando modelos
 var Platillo 	= require ('./models/platillo');
@@ -26,13 +27,15 @@ module.exports = function(app, express) {
 
 	apiRoutes.post('/usuario',uCtrl.addUsuario);
 
+	apiRoutes.post('/platillo',pCtrl.addPlatillo);
+	
 	apiRoutes.post('/authenticate',tkn.authenticate);
 
 	apiRoutes.use(tkn.verifyToken);
 
 	apiRoutes.get('/menu',pCtrl.findMenu);
 
-	apiRoutes.post('/platillo',pCtrl.addPlatillo);
+	
 
 	apiRoutes.route('/platillo/:id')
 		.get(pCtrl.findById)
