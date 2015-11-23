@@ -1,4 +1,5 @@
 var  bodyParser = require('body-parser'); 
+
 //importando modelos
 var Platillo 	= require ('./models/platillo');
 var Usuario  	= require ('./models/usuario');
@@ -36,6 +37,7 @@ module.exports = function(app, express) {
 		.put(pCtrl.updatePlatillo)
 		.delete(pCtrl.deletePlatillo)
 
+
 	//rutas para manejar ordenes
 	apiRoutes.get('/ordenes',oCtrl.findAllOrdenes);
 
@@ -55,7 +57,9 @@ module.exports = function(app, express) {
 		.get(uCtrl.findById)
 		.put(uCtrl.updateUsuario)
 		.delete(uCtrl.deleteUsuario);
-
+	
+	
+	
 	//rutas para manejar sugerencias
 	apiRoutes.get('/sugerencias',sCtrl.findAllSugerencias);
 

@@ -31,8 +31,8 @@
   //POST - Insertar un platillo en la base da datos
   exports.addPlatillo = function(req, res, next) {
   	console.log('POST');
-  	console.log(req.file.path);
-  	var platillo = new Platillo({
+  	//console.log(req.file.path);
+  	/*var platillo = new Platillo({
   		
       nombre:         req.body.nombre,
   		descripcion: 	  req.body.descripcion,
@@ -56,7 +56,14 @@
           }
         });
     });
-    
+
+
+
+    */
+    //console.log(req.body);
+    console.log(req.file.path);
+    console.log('me han llamado');
+    res.json({message: true});
   }
 
   //PUT - Actualizar la información de un platillos
@@ -74,7 +81,7 @@
         if(!err) {
           console.log('Se modifico el platillo');
           
-           res.json(platillo);
+          res.json({ message: 'Platillo Actualizado' });
         } else {
           
           res.json(platillo);
@@ -86,18 +93,34 @@
   };
 
   //DELETE - Delete a Platillo with specified ID
-  exports.deletePlatillo = function(req, res, next) {
+  /*exports.deletePlatillo = function(req, res, next) {
   	Platillo.findById(req.params.id, function(err, platillo) {
   		platillo.remove(function(err) {
   			if(!err) {
   				console.log('Platillo Eliminado');
-          res.send(null);
+          //res.send(null);
   			} else {
   				console.log('ERROR: ' + err);
-          res.send(null);
+          //res.send(null);
   			}
   		})
   	});
   }
 
-  
+*/
+exports.deletePlatillo = function(req, res, net) {
+  Platillo.remove({
+    _id: req.params.id
+  }, function(err, platillo){
+    if(err) res.send(err);
+    
+    res.json({ message: 'Platillo eliminado'});   
+  });
+}
+
+exports.uploadFile = function(req, res, next) {
+   
+    var file = req.files.file;
+    console.log(file.name);
+    console.log(file.type);
+}

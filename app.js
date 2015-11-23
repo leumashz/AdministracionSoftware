@@ -5,11 +5,12 @@ var express     = require("express"),
     http        = require("http"),
     cors        = require("cors"),
     mongoose    = require('mongoose'),
-    multer      = require('multer'),
+    multer      = require('multer');
     server      = http.createServer(app),
     jwt         = require('jsonwebtoken'),
     tkn         = require('./api/controllers/middleware'),
-    cloudinary  = require('cloudinary');
+    cloudinary  = require('cloudinary')
+    path        = require('path');
 
   cloudinary.config({
     cloud_name: "evileumas" ,
@@ -22,27 +23,23 @@ var express     = require("express"),
   app.use(methodOverride());
   app.use('/',express.static(__dirname + '/desktop'));
   app.use(cors());
-  app.use(multer({dest:'./temp/'}).single('imgTemp'));
+  app.use(multer({dest:'./temp/'}).single('tempImg'));
+  //app.use(multer({dest:'./temp/'}).array('imgs',2));
 
   var port = 80;
   //var miRouter = express.Router();
   var apiRouter = require('./api/routes')(app, express);
   app.use('/api',apiRouter);
 
-/*
-// API ROUTES ------------------------
-var apiRoutes = require('./app/routes/api')(app, express);
-app.use('/api', apiRoutes);
-
-*/
   //app.use(tkn.verifyToken);
 
   //var angularApp = express.Router();
     app.get('*', function(req, res){  
-      res.sendFile('index.html',{root: __dirname + '/desktop'});
+      //res.sendFile('index.html',{root: __dirname + '/desktop'});
+      res.sendFile(path.join(__dirname + '/desktop/main/views/index.html'));
   }); 
 
-  //app.use('*',angularApp);
+ 
 
 
 

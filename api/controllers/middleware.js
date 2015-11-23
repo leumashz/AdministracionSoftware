@@ -51,10 +51,10 @@ exports.authenticate = function (req, res,next) {
 exports.verifyToken = function(req, res, next){
 	var token = req.body.token || req.params.token || req.headers['x-access-token'] || req.headers.token || req.param('token') || req.query.token;
 
-	console.log(token);
+	//console.log(token);
 
 	if (token) {
-		console.log('si hay token');
+		//console.log('si hay token');
 		jwt.verify(token, secretoDeAmor, function(err, decoded) {
 			if(err) {
 				
@@ -68,7 +68,7 @@ exports.verifyToken = function(req, res, next){
 			}
 		});
 	} else {
-		console.log('no hay token');
+		//console.log('no hay token');
 		return res.status(403).send({
 			success: false,
 			message: 'No hay token que decodificar'

@@ -38,21 +38,22 @@
       		<div class="col s10 offset-s2">
 		      	<h2>Agregar Platillo</h2>
 		      	<div class="row">
-		      		<form class="col s12" method="post" action="/api/platillo" enctype="multipart/form-data">
+		      		
+		      		<!-- <form class="col s12"  enctype="multipart/form-data">
 					      <div class="row">
 					        <div class="input-field col s6">
-					          <input id="nombre" type="text" class="validate" name="nombre" required>
+					          <input id="nombre" type="text" class="validate" name="nombre" ng-model="platilloData.nombre"required>
 					          <label for="nombre">Nombre</label>
 					        </div>
 					        <div class="input-field col s6">
-					          <input id="precio" type="number" step="any" class="validate" name="precio" required>
+					          <input id="precio" type="number" step="any" class="validate" name="precio" ng-model="platilloData.precio" required>
 					          <label for="precio">Precio</label>
 					        </div>
 					      </div>
 					      <div class="row">
 					        <div class="input-field col s12">
 					          <textarea id="descripcion" class="materialize-textarea validate" 
-					          name="descripcion" required></textarea>
+					          name="descripcion" ng-model="platilloData.descripcion" required></textarea>
 					          <label for="textarea1">Descripcion</label>
 					        </div>
 					      </div>
@@ -60,17 +61,31 @@
 						    <div class="file-field input-field">
 						      <div class="btn">
 						        <span>Imagen del platillo</span>
-						        <input type="file" name="imgTemp">
+						        <input type="file" name="file" file-model="platilloData.file">
 						      </div>
 						      <div class="file-path-wrapper">
 						        <input class="file-path validate" type="text">
-						      </div>
+						      </div> 
 						    </div>
 					      </div>
 					      <div class="row">
-					      	<button type="submit" class="btn">Aceptar</button>
+					      	<button type="submit" class="btn" ng-click="uploadFile()">Aceptar</button>
 					      </div>
-				    </form>
+				    </form> -->
+				    
+					<form name="form">					
+					  <div class="button" ngf-select ng-model="file" name="tempImg" ngf-pattern="'image/*'"
+					    accept="image/*" ngf-max-size="20MB" ngf-min-height="100" 
+					    ngf-resize="{width: 100, height: 100}">Select</div>
+					  
+					  
+					  <button type="submit" ng-click="submit()">submit</button>
+					</form>
+					
+
+					
+
+					Image thumbnail: <img ngf-thumbnail="file || '/thumb.jpg'">
 		      	</div>
 			</div>	
 		</div>
