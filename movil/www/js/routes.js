@@ -2,8 +2,8 @@ angular
   .module('ionicApp')
   .config(config);
 
-function config($stateProvider, $urlRouterProvider) {
-
+function config($stateProvider, $urlRouterProvider,$httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor');
     $stateProvider
   /////////Tabs/
     .state('tab', {
@@ -93,5 +93,5 @@ function config($stateProvider, $urlRouterProvider) {
 
     });
 
-    $urlRouterProvider.otherwise("login");
+    $urlRouterProvider.otherwise("/tab/home");
 }
