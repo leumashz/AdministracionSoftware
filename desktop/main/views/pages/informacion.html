@@ -1,99 +1,85 @@
-<!-- Inicia principal --> 
-	<div class="container">
+<!-- Inicia navbar --> 
+<div class="row">	
 		<div class="side-nav fixed  white z-depth-4">
-	        <ul class="collection">
-	        	<!-- Usuario admin  o cajero -->
-	        		<li class="collection-item avatar">
-				      <img src="img/avatar/persona.jpg" alt="" class="circle">
-				      
-				      <p>Hola, <br>
-				         Juan
-				      </p>
-				      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+		        <ul class="collection">
+		        	<!-- Usuario admin  o cajero -->
+		        		<li class="collection-item avatar">
+					      <img src="img/avatar/persona.jpg" alt="" class="circle">
+					      
+					      <p>Hola, <br>
+					        	{{actual.usuario.nombre}}
+					      </p>
+					      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+		        	<!-- Inician elementos de la barra de navegacion -->
+		        	<li class="collection-item avatar">
+				    	<a href="/home"><i class="material-icons circle red">store</i>
+				      		<span class="title">Inicio</span>
+				      	</a>
 				    </li>
-	        	<!-- Inician elementos de la barra de navegacion -->
-	        	<li class="collection-item avatar">
-			    	<a href="/home"><i class="material-icons circle red">store</i>
-			      		<span class="title">Inicio</span>
-			      	</a>
-			    </li>
-			    <li class="collection-item avatar">
-			    	<a href="/verMenu"><i class="material-icons circle red">receipt</i>
-			      	Menu
-			      	</a>
-			    </li>
-			    <li class="collection-item avatar">
-			    	<a href="/vOrdenes"><i class="material-icons circle red">view_list</i>
-			      	Ordenes	
-			      	</a>
-			    </li>
-			    <li class="collection-item avatar">
-			    	<a href="/verUsuarios"><i class="material-icons circle red">perm_identity</i>
-			      	Usuarios
-			      	</a>
-			    </li>
-			    <div class="divider"></div>
-			    <li class="collection-item avatar">
-			    	<a href="/informacion"><i class="material-icons circle red">assignment_ind</i>
-			      	Info	
-			      	</a>
-			    </li>  
-			    <li class="collection-item avatar">
-			    	<a href="#salir"><i class="material-icons circle red">power_settings_new</i>
-			      	Salir	
-			      	</a>
-			    </li> 
-	        </ul>
-	        <!-- Finalizan elementos de la barra de navegacion -->
-	    </div>
-	</div>
-    <div class="container">
-    	<div class="row">
-      		<div class="col s3 offset-s1">
-	      		<div class="card">
-	      			<div class="card-image">
-	      				<img src="img/platillos/pozole.png">
-	      			</div>
-	      			<div class="card-content">
-	      			<span class="card-title grey-text text-darken-4">Platillo del dia</span>
-	      			<br>La especialidad de la casa, uno de los platillos más pedidos.
-	      			</div>
-	      			<div class="card-action">
-	      				<a href="#">Promocionar</a>
-	      			</div>
-	      		</div>
-      		</div>
-      		<div class="col s4">
-      			<div class="card">
-      				<div class="card-content">
-      					<span class="card-title grey-text text-darken-4">Ordenes recientes</span>
-      				</div>
-      				<div class="card-action">
-      					<div class="collection">
-        					<a href="#!" class="collection-item active">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>		
-      					</div>
-      				</div>
+				    <li class="collection-item avatar">
+				    	<a href="#" ng-click="doLogout()"><i class="material-icons circle red">power_settings_new</i>
+				      	Salir	
+				      	</a>
+				    </li> 
+		        </ul>
+		    </div>
+<!-- Termina navbvar -->
+
+
+<!-- Contenido principal -->	    
+    	<div class="main">
+    		<div class="row">
+      			<div class="col s12">
+	      			<!-- <div class="container"> -->
+	      				<ul class="collection">
+	      			<li class="collection-header"><h5>Información del establecimiento</h5></li>
+					    <li class="collection-item avatar">
+					      <i class="material-icons circle">sort_by_alpha</i>
+					      <span class="title">{{info.nombre}}</span>
+					      <p>First Line <br>
+					         Second Line
+					      </p>
+					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+					    <li class="collection-item avatar">
+					      <i class="material-icons circle green">subject</i>
+					      <span class="title">{{info.descripcion}}</span>
+					      <p>First Line <br>
+					         Second Line
+					      </p>
+					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+					    <li class="collection-item avatar">
+					      <i class="material-icons circle red">location_on</i>
+					      <span class="title">{{info.direccion}}</span>
+					      <p>First Line <br>
+					         Second Line
+					      </p>
+					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+					    <li class="collection-item avatar">
+					      <i class="material-icons circle orange">http</i>
+					      <span class="title">{{info.url}}</span>
+					      <p>First Line <br>
+					         Second Line
+					      </p>
+					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+					    <li class="collection-item avatar">
+					      <i class="material-icons circle blue">phone</i>
+					      <span class="title">{{info.telefono}}</span>
+					      <p>First Line <br>
+					         Second Line
+					      </p>
+					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+					  </ul>
+	      			<!-- </div> -->
       			</div>
-      		</div>
-      		<div class="col s4">
-      			<div class="card">
-      				<div class="card-content">
-      					<span class="card-title grey-text text-darken-4">Ordenes completadas</span>
-      				</div>
-      				<div class="card-action">
-      					<div class="collection">
-        					<a href="#!" class="collection-item active">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>		
-      					</div>
-      				</div>
-      			
-      			</div>
-      		</div>
+      		
       	</div>
-	</div>
+	</div>	
+</div>
+
 <!-- Termina contenido principal -->

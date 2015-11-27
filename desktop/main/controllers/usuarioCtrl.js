@@ -7,6 +7,7 @@ angular.module('usuarioCtrl', ['usuarioService', 'authService'])
 				$scope.usuarios = data;
 	});
 
+	
 
 	$scope.eliminarUsuario = function(id) {
 		Usuario.delete(id)

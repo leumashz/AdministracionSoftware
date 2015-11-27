@@ -30,7 +30,7 @@ angular.module('infoCtrl', ['menuService', 'authService'])
 		});
 
 	$scope.saveInfo = function() {
-		$scope.message = '':
+		$scope.message = '';
 
 		Info.update($routeParams.id, $scope.infoData)
 			.success(function(data){

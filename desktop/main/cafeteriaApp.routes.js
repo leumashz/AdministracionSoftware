@@ -43,7 +43,8 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
             controller  : 'ordenEditController',
         })
         .when('/info', {
-            templateUrl : 'main/views/pages/informacion.html'
+            templateUrl : 'main/views/pages/informacion.html',
+            controller  : 'infoController',
            
         })
         .when('/verUsuarios', {

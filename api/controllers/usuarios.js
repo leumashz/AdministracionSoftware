@@ -5,7 +5,7 @@ var  bodyParser = require('body-parser');
   exports.findAllUsuarios = function(req, res, next) {
     Usuario.find(function(err, usuarios) {
       if(!err) {
-        //console.log('GET /usuarios')
+        console.log(usuarios);
         res.json(usuarios);
       } else {
         //console.log('ERROR: ' + err);
@@ -26,6 +26,17 @@ var  bodyParser = require('body-parser');
     });
   };
 
+  exports.findbyEmail = function(req, res) {
+    console.log(req.body);
+    Usuario.findOne(req.body.email, function(err, usuario) {
+      if(!err){
+        res.json(usuario);
+      }
+      else {
+        res.json({mensaje: 'Error email invalido '});
+      }
+    });
+  };
   
   exports.addUsuario = function(req, res, next) {
     console.log('POST');
@@ -93,4 +104,5 @@ var  bodyParser = require('body-parser');
     
     res.json({message: 'usuario eliminado'});   
   });
-}
+};
+

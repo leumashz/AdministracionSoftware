@@ -63,7 +63,8 @@ module.exports = function(app, express) {
 		.put(uCtrl.updateUsuario)
 		.delete(uCtrl.deleteUsuario);
 	
-	
+	apiRoutes.route('/usuario/:email')
+		.get(uCtrl.findbyEmail);
 	
 	//rutas para manejar sugerencias
 	apiRoutes.get('/sugerencias',sCtrl.findAllSugerencias);

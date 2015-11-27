@@ -1,6 +1,6 @@
 angular.module('mainCtrl', ['ordenService', 'authService'])
 
-.controller('mainController', function($scope,$rootScope, $location, Auth) {
+.controller('mainController', function($scope,$rootScope, $location, Auth, Usuario, Menu) {
 	//$scope.place = $location.path();;
 	//console.log($scope.place);
 	
@@ -30,6 +30,8 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
 		$location.path('/');
 	};
 
+
+	
 	/*$scope.isActive = function (viewLocation) {
      return $location.path().indexOf(viewLocation) == 0;
 	}

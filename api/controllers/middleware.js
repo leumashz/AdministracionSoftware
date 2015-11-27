@@ -8,7 +8,7 @@ exports.authenticate = function (req, res) {
 	
 	Usuario.findOne({
 		email: req.body.email
-	}).select('nombre email password tipo telefono fecha direccion admin id').exec(function(err,usuario){
+	}).select('_id nombre email password tipo telefono fecha direccion admin').exec(function(err,usuario){
 		if (err) throw err;
 		if(!usuario){
 			res.json({
@@ -25,16 +25,10 @@ exports.authenticate = function (req, res) {
 			}
 			else {
 //s				console.log(usuario);
-				var nombre, admin, telefono, direccion, fecha, id;
+				//var nombre, admin, telefono, direccion, fecha, id;
 				
 				var token = jwt.sign({
-						email: usuario.email,
-						nombre: usuario.nombre,
-						admin: usuario.admin,
-						telefono: usuario.telefono,
-						direccion: usuario.direccion,
-						fecha: usuario.fecha,
-						id: id
+						usuario
 					}, secretaClave, {
 						expiresInMinutes: 1440
 

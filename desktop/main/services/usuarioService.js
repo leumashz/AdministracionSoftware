@@ -18,6 +18,10 @@ angular.module('usuarioService', [])
     usuarioFactory.delete = function(id) {
       return $http.delete('/api/usuario/'+id);
     }
+    usuarioFactory.getId = function(email) {
+      return $http.get('/api/usuario/'+email);
+    }
+
     return usuarioFactory;
 
 });
