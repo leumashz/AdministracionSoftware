@@ -1,44 +1,44 @@
 var bodyParser = require('body-parser'); 
 var mongoose  = require('mongoose');
 var Usuario   = require('../models/usuario.js');
-var secretoDeAmor = 'cesarislove';
+var secretaClave = 'cesarislove';
 var jwt         = require('jsonwebtoken');
 
 exports.authenticate = function (req, res) {
 	
 	Usuario.findOne({
 		email: req.body.email
-	}).select('email password').exec(function(err,usuario){
-		//console.log('entro a la funcion principal');
+	}).select('nombre email password tipo telefono fecha direccion admin').exec(function(err,usuario){
 		if (err) throw err;
-		//console.log(usuario.email);
-
 		if(!usuario){
-			//console.log('usuario incorrecto');
 			res.json({
 				success: false,
 				message: 'Error de inicio de sesion. Correo Invalido'
 			});
 		} else if (usuario) {
-			//console.log('llego al else if');
 			var passwordValido = usuario.comparePassword(req.body.password);
 			if (!passwordValido) {
-
 				res.json({
 					success: false,
 					message: 'Error de inicio de sesion. Password Incorrecto'
 				});
 			}
 			else {
-				//console.log('llego al ultimo else');
+//s				console.log(usuario);
+				var nombre, admin, telefono, direccion, fecha;
+				console.log(nombre);
 				var token = jwt.sign({
-						email: usuario.email
-					}, secretoDeAmor, {
+						email: usuario.email,
+						nombre: usuario.nombre,
+						admin: usuario.admin,
+						telefono: usuario.telefono,
+						direccion: usuario.direccion,
+						fecha: usuario.fecha
+					}, secretaClave, {
 						expiresInMinutes: 1440
+
 				});
-				//se devuelve el token 
-				//console.log('token generado');
-				return res.json({
+				res.json({
 					success: true,
 					message: 'Token generado',
 					token: token
@@ -51,11 +51,8 @@ exports.authenticate = function (req, res) {
 exports.verifyToken = function(req, res, next){
 	var token = req.body.token || req.params.token || req.headers['x-access-token'];
 
-	//console.log(token);
-
 	if (token) {
-		//console.log('si hay token');
-		jwt.verify(token, secretoDeAmor, function(err, decoded) {
+		jwt.verify(token, secretaClave, function(err, decoded) {
 			if(err) {
 				
 				return res.status(403).send({
@@ -68,7 +65,6 @@ exports.verifyToken = function(req, res, next){
 			}
 		});
 	} else {
-		//console.log('no hay token');
 		return res.status(403).send({
 			success: false,
 			message: 'No hay token que decodificar'

@@ -9,6 +9,7 @@ var UsuarioSchema = new mongoose.Schema({
 	tipo: 			Number,
 	telefono:       String, 
 	fecha: 			{ type: Date, default: Date.now},
+	direccion: 		String,
 	admin:  		{ type: Boolean, default: false},
 	token: 			String
 });

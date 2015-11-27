@@ -37,12 +37,13 @@ var  bodyParser = require('body-parser');
       password: req.body.password,
       tipo:     req.body.tipo,
       telefono: req.body.telefono,
+      direccion:req.body.direccion,
       admin:    req.body.admin
     });
 
     usuario.save(function(err) {
       if(!err) {
-        console.log('usuario creado');
+        //console.log('usuario creado');
         res.json({ message: 'Usuario registrado' });
       } else {
         //console.log('ERROR: ' + err);
@@ -52,17 +53,18 @@ var  bodyParser = require('body-parser');
 
   exports.updateUsuario = function(req, res, next) {
     Usuario.findById(req.params.id, function(err, usuario) {
-      usuario.nombre    = req.body.nombre;
-      usuario.mail      = req.body.mail;
-      usuario.password  = req.body.password; 
-      usuario.telefono  = req.body.telefono;
+      if(req.body.nombre) usuario.nombre    = req.body.nombre;
+      if(req.body.email) usuario.email      = req.body.email;
+      if(req.body.password) usuario.password  = req.body.password; 
+      if(req.body.telefono) usuario.telefono  = req.body.telefono;
+      if(req.body.direccion) usuario.direccion = req.body.direccion;
 
       usuario.save(function(err) {
         if(!err) {
-          console.log('Updated');
+          //console.log('Updated');
           res.json({ message: 'Usuario actualizado' });
         } else {
-          console.log('ERROR: ' + err);
+          //console.log('ERROR: ' + err);
           res.json({ message: 'Error al intentar actualizar los datos'});
         }
       });
@@ -73,10 +75,10 @@ var  bodyParser = require('body-parser');
     Usuario.findById(req.params.id, function(err, usuario) {
       usuario.remove(function(err) {
         if(!err) {
-          console.log('Usuario Eliminado');
+          //console.log('Usuario Eliminado');
           res.json({message: 'Usuario eliminado exitosamente'});
         } else {
-          console.log('ERROR: ' + err);          
+          //console.log('ERROR: ' + err);          
           res.json({message: 'Error al intentar eliminar el usuario'});
         }
       })
