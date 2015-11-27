@@ -14,6 +14,7 @@ function config($stateProvider, $urlRouterProvider,$httpProvider) {
   ///////////Vistas//////////////////////
     .state('login', {
       url: '/login',
+      cache : false,
       templateUrl: 'templates/login.html',
       controller: 'loginCtrl'
     })
@@ -54,8 +55,8 @@ function config($stateProvider, $urlRouterProvider,$httpProvider) {
       url:'/settings',
       views: {
         'tab-settings': {
-          templateUrl: 'templates/settings.html'//,
-          //: 'carritoCtrl'
+          templateUrl: 'templates/settings.html',
+          controller : 'settingsCtrl'
         }
       }
     })

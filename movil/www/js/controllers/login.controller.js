@@ -3,7 +3,7 @@ angular
   .controller('loginCtrl',LoginCtrl);
 
 
-  function LoginCtrl($scope,$rootScope, $location, Auth) {
+  function LoginCtrl($scope,$rootScope, $location,$ionicPopup, Auth) {
       	$scope.loggedIn = Auth.isLoggedIn();
 
 
@@ -18,11 +18,11 @@ angular
       	$scope.doLogin = function(email,password) {
       		Auth.login(email,password)
       			.success(function (data) {
-      				if(data.success)
-      					$location.path('/tab/home');
+      				if(data.success){
+                $location.path('/tab/home');
+              }
       				else{
-      					//$scope.error = data.message;
-                console.log(data.message);
+                var alertPopup = $ionicPopup.alert({template: data.message});
               }
       			});
       	};
