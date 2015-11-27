@@ -2,8 +2,8 @@ angular
   .module('ionicApp')
   .config(config);
 
-function config($stateProvider, $urlRouterProvider) {
-
+function config($stateProvider, $urlRouterProvider,$httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor');
     $stateProvider
   /////////Tabs/
     .state('tab', {
@@ -14,6 +14,7 @@ function config($stateProvider, $urlRouterProvider) {
   ///////////Vistas//////////////////////
     .state('login', {
       url: '/login',
+      cache : false,
       templateUrl: 'templates/login.html',
       controller: 'loginCtrl'
     })
@@ -54,8 +55,8 @@ function config($stateProvider, $urlRouterProvider) {
       url:'/settings',
       views: {
         'tab-settings': {
-          templateUrl: 'templates/settings.html'//,
-          //: 'carritoCtrl'
+          templateUrl: 'templates/settings.html',
+          controller : 'settingsCtrl'
         }
       }
     })
@@ -93,5 +94,5 @@ function config($stateProvider, $urlRouterProvider) {
 
     });
 
-    $urlRouterProvider.otherwise("login");
+    $urlRouterProvider.otherwise("/tab/home");
 }

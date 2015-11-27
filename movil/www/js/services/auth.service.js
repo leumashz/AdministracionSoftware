@@ -84,8 +84,9 @@ function AuthInterceptor($q,$location,AuthToken){
       var token = AuthToken.getToken();
 
       if(token){
-        console.log(token);
         config.headers['x-access-token'] = token;
+      }else {
+        $location.path('/login');
       }
 
       return config;
@@ -95,7 +96,7 @@ function AuthInterceptor($q,$location,AuthToken){
 
       if(response.status == 403){
         AuthToken.setToken();
-        $location.path('/');
+        $location.path('/login');
       }
       return $q.reject(response);
     }
