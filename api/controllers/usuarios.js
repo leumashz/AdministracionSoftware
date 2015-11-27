@@ -5,10 +5,10 @@ var  bodyParser = require('body-parser');
   exports.findAllUsuarios = function(req, res, next) {
     Usuario.find(function(err, usuarios) {
       if(!err) {
-        console.log('GET /usuarios')
+        //console.log('GET /usuarios')
         res.json(usuarios);
       } else {
-        console.log('ERROR: ' + err);
+        //console.log('ERROR: ' + err);
         res.json({message: 'error al obtener usuarios'});
       }
     });
@@ -44,7 +44,7 @@ var  bodyParser = require('body-parser');
     usuario.save(function(err) {
       if(!err) {
         //console.log('usuario creado');
-        res.json({ message: 'Usuario registrado' });
+        res.json(usuario);
       } else {
         //console.log('ERROR: ' + err);
       }
@@ -71,7 +71,7 @@ var  bodyParser = require('body-parser');
     });
   }
 
-  exports.deleteUsuario = function(req, res, next) {
+  /*exports.deleteUsuario = function(req, res, next) {
     Usuario.findById(req.params.id, function(err, usuario) {
       usuario.remove(function(err) {
         if(!err) {
@@ -83,6 +83,14 @@ var  bodyParser = require('body-parser');
         }
       })
     });
-  }
+  }*/
 
-  
+  exports.deleteUsuario = function(req, res) {
+  Usuario.remove({
+    _id: req.params.id
+  }, function(err, usuario){
+    if(err) res.send(err);
+    
+    res.json({message: 'usuario eliminado'});   
+  });
+}

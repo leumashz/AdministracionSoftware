@@ -1,16 +1,16 @@
 angular.module('mainCtrl', ['ordenService', 'authService'])
 
 .controller('mainController', function($scope,$rootScope, $location, Auth) {
-	$scope.place = $location.path();;
-	console.log($scope.place);
+	//$scope.place = $location.path();;
+	//console.log($scope.place);
 	
 	$scope.loggedIn = Auth.isLoggedIn();
 
 	$rootScope.$on('$routeChangeStart', function() {
 		Auth.getUsuario()
 			.then(function (data) {
-				$scope.usuario = data.data;
-				console.log($scope.usuario);
+				$scope.actual = data.data;
+				console.log($scope.actual);
 			});
 	});
 
@@ -26,7 +26,7 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
 
 	$scope.doLogout = function() {
 		Auth.logout();
-		$scope.usuario = {};
+		$scope.actual = {};
 		$location.path('/');
 	};
 
@@ -38,13 +38,13 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
 })
 
 .controller('homeController', function($scope, $interval, Orden) {
-	$scope.place = 'home';
+	//$scope.place = 'home';
 
 	$scope.callAtInterval = function() {
         console.log("$scope.callAtInterval - Interval occurred");
     }
 
     $interval( function(){ $scope.callAtInterval(); }, 3000);
-    console.log($scope.place);
+    //console.log($scope.place);
 });
 

@@ -37,17 +37,26 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
         .when('/agregarOrden', {
             templateUrl : 'main/views/pages/agregarOrden.html',
             controller  : 'ordenCreateController',
-            
         })
         .when('/editarOrden', {
             templateUrl : 'main/views/pages/editarOrden.html',
             controller  : 'ordenEditController',
-          
         })
-       
         .when('/info', {
             templateUrl : 'main/views/pages/informacion.html'
            
+        })
+        .when('/verUsuarios', {
+            templateUrl : 'main/views/pages/usuarios.html',
+            controller  : 'usuarioController',
+        })
+        .when('/agregarUsuario', {
+            templateUrl : 'main/views/pages/agregarUsuario.html',
+            controller  : 'usuarioCreateController',
+        })
+        .when('/editarUsuario/:id', {
+            templateUrl : 'main/views/pages/editarUsuario.html',
+            controller  : 'usuarioEditController',
         })
         .otherwise({
             redirectTo: '/'

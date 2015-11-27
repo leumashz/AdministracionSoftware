@@ -4,10 +4,10 @@ angular.module('usuarioService', [])
     var usuarioFactory = {};
 
     usuarioFactory.all = function() {
-      return $http.get('/api/usuarios',{cache: true});
+      return $http.get('/api/usuarios');
     }
     usuarioFactory.get = function(id) {
-      return $http.get('/api/usuario/'+id,{cache: true});
+      return $http.get('/api/usuario/'+id);
     }
     usuarioFactory.create = function(usuarioData) {
       return $http.post('/api/usuario/',usuarioData);

@@ -1,13 +1,14 @@
-angular.module('usuarioCtrl', ['usuarioService'])
+angular.module('usuarioCtrl', ['usuarioService', 'authService'])
 
 .controller('usuarioController', function($scope,Usuario) {
+	//$scope.modo = 'verUsuarios';
 
 	Usuario.all().success(function(data) {
-				$scope.usuario = data;
+				$scope.usuarios = data;
 	});
 
 
-	$scope.eliminarUsuario = function() {
+	$scope.eliminarUsuario = function(id) {
 		Usuario.delete(id)
 			.success(function (data){
 				Usuario.all()
@@ -20,25 +21,33 @@ angular.module('usuarioCtrl', ['usuarioService'])
 
 })
 
-.controller('usuarioCreateController', function(Usuario) {
-	
+.controller('usuarioCreateController', function(Usuario, $scope) {
+		//$scope.modo = 'agregarUsuario';
+		$scope.saveUsuario = function() {
+		$scope.message = '';
 
+		Usuario.create($scope.usuarioData)
+			.success(function(data) {
+				$scope.usuarioData = {};
+				$scope.message = data.message;
+			});
+			
+	};
 })
 
-// controller applied to user edit page
 .controller('usuarioEditController', function($scope,$routeParams, Usuario) {
+	//$scope.modo = 'editarUsuario';
 
 	Usuario.get($routeParams.id)
 		.success(function(data) {
-			$scope.UsuarioData = data;
+			$scope.usuarioData = data;
 		});
 
-	// function to save the user
 	$scope.saveUsuario = function() {
 		//$scope.message = '';
 
-		// call the userService function to update 
-		Menu.update($routeParams.id, $scope.usuarioData)
+		
+		Usuario.update($routeParams.id, $scope.usuarioData)
 			.success(function(data) {
 				$scope.usuarioData = {};
 				//$scope.message = data.message;

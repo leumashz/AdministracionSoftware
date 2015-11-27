@@ -1,0 +1,72 @@
+<!-- Inicia navbar --> 
+<div class="row">	
+		<div class="side-nav fixed  white z-depth-4">
+		        <ul class="collection">
+		        	<!-- Usuario admin  o cajero -->
+		        		<li class="collection-item avatar">
+					      <img src="img/avatar/persona.jpg" alt="" class="circle">
+					      
+					      <p>Hola, <br>
+					        	{{actual.nombre}}
+					      </p>
+					      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+		        	<!-- Inician elementos de la barra de navegacion -->
+		        	<li class="collection-item avatar">
+				    	<a href="/home"><i class="material-icons circle red">store</i>
+				      		<span class="title">Inicio</span>
+				      	</a>
+				    </li>
+				    <li class="collection-item avatar">
+				    	<a href="/agregarUsuario"><i class="material-icons circle red">store</i>
+				      		<span class="title">Agregar Usuario</span>
+				      	</a>
+				    </li>
+				    <li class="collection-item avatar">
+				    	<a href="#" ng-click="doLogout()"><i class="material-icons circle red">power_settings_new</i>
+				      	Salir	
+				      	</a>
+				    </li> 
+		        </ul>
+		    </div>
+<!-- Termina navbvar -->
+
+
+<!-- Contenido principal -->	    
+    	<div class="main">
+    		<div class="row">
+      			<div class="container">
+	      			<div class="col s12">
+	      				 <div class="row">
+	      				 	<h5>Usuarios registrados</h5>
+	      				 	<br>
+	      				 	<table class="highlight">
+						        <thead>
+						          <tr>
+						              <th data-field="id">Nombre</th>
+						              <th data-field="name">Email</th>
+						              <th data-field="price">Telefono</th>
+						              <th></th>
+						              <th></th>
+						          </tr>
+						        </thead>
+						        <tbody ng-repeat="usuario in usuarios">
+						          <tr>
+						           
+						            <td>{{usuario.nombre}}</td>
+						            <td>{{usuario.email}}</td>
+						            <td>{{usuario.telefono}}</td>
+						            <td><a href="/editarUsuario/{{usuario._id}}">Editar</a></td>
+						            <td><a href="#" ng-click="eliminarUsuario(usuario._id)">Eliminar</a></td>
+						          </tr>
+						          
+						        </tbody>
+      						</table>
+	      				 </div>
+	      			</div>
+      			</div>
+      	</div>
+	</div>	
+</div>
+
+<!-- Termina contenido principal -->
