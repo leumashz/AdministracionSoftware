@@ -56,8 +56,6 @@ module.exports = function(app, express) {
 	//rutas para manejar usuarios
 	apiRoutes.get('/usuarios',uCtrl.findAllUsuarios);
 
-	
-
 	apiRoutes.route('/usuario/:id')
 		.get(uCtrl.findById)
 		.put(uCtrl.updateUsuario)

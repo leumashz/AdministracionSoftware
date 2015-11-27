@@ -10,7 +10,7 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
 		Auth.getUsuario()
 			.then(function (data) {
 				$scope.actual = data.data;
-				console.log($scope.actual);
+				//console.log($scope.actual);
 			});
 	});
 

@@ -23,7 +23,7 @@ angular.module('usuarioCtrl', ['usuarioService', 'authService'])
 })
 
 .controller('usuarioCreateController', function(Usuario, $scope) {
-		//$scope.modo = 'agregarUsuario';
+		
 		$scope.saveUsuario = function() {
 		$scope.message = '';
 
@@ -37,8 +37,7 @@ angular.module('usuarioCtrl', ['usuarioService', 'authService'])
 })
 
 .controller('usuarioEditController', function($scope,$routeParams, Usuario) {
-	//$scope.modo = 'editarUsuario';
-
+	
 	Usuario.get($routeParams.id)
 		.success(function(data) {
 			$scope.usuarioData = data;

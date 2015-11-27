@@ -7,16 +7,15 @@ angular.module('infoCtrl', ['menuService', 'authService'])
 		});
 })
 
-.controller('infoAddController', function($scope,Info){
+.controller('infoCreateController', function($scope,Info){
 
-	vm.saveUser = function() {
+	$scope.saveInfo = function() {
 		$scope.processing = true;
 		$scope.message = '';
 
-		// use the create function in the userService
 		Info.create($scope.infoData)
 			.success(function(data) {
-				//$scope.infoData = {};
+				$scope.infoData = {};
 				//$scope.message = data.message;
 			});
 			

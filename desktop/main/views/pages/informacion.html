@@ -31,51 +31,50 @@
     	<div class="main">
     		<div class="row">
       			<div class="col s12">
-	      			<!-- <div class="container"> -->
-	      				<ul class="collection">
-	      			<li class="collection-header"><h5>Información del establecimiento</h5></li>
-					    <li class="collection-item avatar">
-					      <i class="material-icons circle">sort_by_alpha</i>
-					      <span class="title">{{info.nombre}}</span>
-					      <p>First Line <br>
-					         Second Line
-					      </p>
-					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-					    </li>
-					    <li class="collection-item avatar">
-					      <i class="material-icons circle green">subject</i>
-					      <span class="title">{{info.descripcion}}</span>
-					      <p>First Line <br>
-					         Second Line
-					      </p>
-					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-					    </li>
-					    <li class="collection-item avatar">
-					      <i class="material-icons circle red">location_on</i>
-					      <span class="title">{{info.direccion}}</span>
-					      <p>First Line <br>
-					         Second Line
-					      </p>
-					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-					    </li>
-					    <li class="collection-item avatar">
-					      <i class="material-icons circle orange">http</i>
-					      <span class="title">{{info.url}}</span>
-					      <p>First Line <br>
-					         Second Line
-					      </p>
-					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-					    </li>
-					    <li class="collection-item avatar">
-					      <i class="material-icons circle blue">phone</i>
-					      <span class="title">{{info.telefono}}</span>
-					      <p>First Line <br>
-					         Second Line
-					      </p>
-					      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-					    </li>
+	      			<div class="container">
+
+	      			<ul class="collection" ng-repeat="i in info">
+		      			<li class="collection-header"><h5>Información del establecimiento</h5></li>
+						    <li class="collection-item avatar">
+						      <i class="material-icons circle orange">http</i>
+						      <img ng-src="{{i.url}}">
+						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						    </li>
+						    <li class="collection-item avatar">
+						      <i class="material-icons circle">sort_by_alpha</i>
+						      <span class="title">{{i.nombre}}</span>
+						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						    </li>
+						    <li class="collection-item avatar">
+						      <i class="material-icons circle green">subject</i>
+						      <span class="title">{{i.descripcion}}</span>
+						      
+						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						    </li>
+						    <li class="collection-item avatar">
+						      <i class="material-icons circle red">location_on</i>
+						      <span class="title">{{i.direccion}}</span>
+						      
+						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						    </li>
+						    <li class="collection-item avatar">
+						      <i class="material-icons circle orange">http</i>
+						      <span class="title">{{i.pagina}}</span>
+						     
+						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						    </li>
+						    <li class="collection-item avatar">
+						      <i class="material-icons circle blue">phone</i>
+						      <span class="title">{{i.telefono}}</span>
+						      
+						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						    </li>
 					  </ul>
-	      			<!-- </div> -->
+					  <a class="waves-effect waves-light btn" ng-if="i.nombre == 'undefined'" href="/agregarInformacion">Agregar información</a>
+
+					  <a class="waves-effect waves-light btn" ng-if="i.nombre != 'undefined'" href="/editarInformacion/{{i._id}}">Editar información</a>
+					  
+	      			</div>
       			</div>
       		
       	</div>

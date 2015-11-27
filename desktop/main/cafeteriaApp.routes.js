@@ -47,6 +47,15 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
             controller  : 'infoController',
            
         })
+        .when('/agregarInformacion', {
+            templateUrl : 'main/views/pages/agregarInformacion.html',
+            controller  : 'infoCreateController',
+           
+        })
+        .when('/editarInformacion/:id', {
+            templateUrl : 'main/views/pages/editarInformacion.html',
+            controller  : 'infoEditController', 
+        })
         .when('/verUsuarios', {
             templateUrl : 'main/views/pages/usuarios.html',
             controller  : 'usuarioController',

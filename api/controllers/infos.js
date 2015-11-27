@@ -16,13 +16,15 @@
   exports.addInfo = function(req, res, next) {
   	//console.log(req.file.path);
   	var info = new Info({
-      nombreCafeteria:  req.body.nombreCafeteria,
-  		descripcion: 	    req.body.descripcion,
-      direccion:        req.body.direccion,
-  		logo_url:          'http://res.cloudinary.com/evileumas/image/upload/v1446208401/platillo-vacio_v3uxxi.jpg'
+      nombre:       req.body.nombre,
+  		descripcion: 	req.body.descripcion,
+      direccion:    req.body.direccion,
+  		url:          req.body.url,
+      telefono:     req.body.telefono,
+      pagina:       req.body.pagina
   	});
 
-      cloudinary.uploader.upload(req.file.path, function(result) { 
+      /*cloudinary.uploader.upload(req.file.path, function(result) { 
       //console.log(result);
       info.logo_url = result.url;
       info.save(function(err) {
@@ -34,9 +36,17 @@
             res.redirect('/agregarInfo#fail');
           }
         });
-    });
-    
-  }
+    });*/
+    info.save(function(err) {
+          if(!err) {
+            //console.log('Created');
+            res.json({message: 'se guardo'});
+          } else {
+            //console.log('ERROR: ' );
+            res.json({message: 'no se guardo'});
+          }
+        });
+  };
 
   exports.updateInfo = function(req, res, next) {
   	

@@ -5,7 +5,7 @@ var  bodyParser = require('body-parser');
   exports.findAllUsuarios = function(req, res, next) {
     Usuario.find(function(err, usuarios) {
       if(!err) {
-        console.log(usuarios);
+        //console.log(usuarios);
         res.json(usuarios);
       } else {
         //console.log('ERROR: ' + err);
@@ -20,14 +20,14 @@ var  bodyParser = require('body-parser');
       if(!err) {
         res.json(usuario);
       } else {
-        console.log('ERROR: ' + err);
+        //console.log('ERROR: ' + err);
         res.json({mensaje: 'No se encontro el usuario'});
       }
     });
   };
 
   exports.findbyEmail = function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     Usuario.findOne(req.body.email, function(err, usuario) {
       if(!err){
         res.json(usuario);
@@ -39,8 +39,8 @@ var  bodyParser = require('body-parser');
   };
   
   exports.addUsuario = function(req, res, next) {
-    console.log('POST');
-    console.log(req.body);
+    //console.log('POST');
+    //console.log(req.body);
 
     var usuario = new Usuario({
       nombre:   req.body.nombre,

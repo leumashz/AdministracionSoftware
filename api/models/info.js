@@ -6,7 +6,8 @@ var InfoSchema = new mongoose.Schema({
     descripcion: String,
     direccion: String,
     url: String,
-    telefono: Number
+    telefono: Number,
+    pagina: String
 });
 
 module.exports = mongoose.model('Info', InfoSchema);
