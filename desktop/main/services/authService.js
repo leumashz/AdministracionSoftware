@@ -85,6 +85,9 @@ angular.module('authService', [])
       if(token){
         config.headers['x-access-token'] = token;
       }
+      else{
+        $location.path('/');
+      }
 
       return config;
     };

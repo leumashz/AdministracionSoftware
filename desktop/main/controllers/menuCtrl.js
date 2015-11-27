@@ -1,6 +1,7 @@
 angular.module('menuCtrl', ['menuService','authService'])
 
 .controller('menuController', function($scope,Menu) {
+	$scope.place = 'verMenu';
 
 	Menu.all().success(function(data) {
 				$scope.menu = data;

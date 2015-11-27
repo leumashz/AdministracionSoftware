@@ -28,13 +28,28 @@ nav .top-nav{
 	border-bottom:none;
 }
 
-.card.small {
-    height: 350px;
-}
+ header, .main, footer {
+    padding-left: 240px;
+    padding-top: 25px;
+  }
 
-.card.small .card-content {
+  @media only screen and (max-width : 992px) {
+    header, .main, footer {
+      padding-left: 0;
+      padding-top: 25px;
+    }
+  }
+/*.card.small {
+    height: 350px;
+}*/
+
+/*.card.small .card-content {
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 0px;
 	margin-top: 0px;
-}
+}*/
+
+/*.row .col.s4 {
+	margin-left: 15%;
+}*/

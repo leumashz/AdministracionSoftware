@@ -1,6 +1,9 @@
 angular.module('mainCtrl', ['ordenService', 'authService'])
 
 .controller('mainController', function($scope,$rootScope, $location, Auth) {
+	$scope.place = $location.path();;
+	console.log($scope.place);
+	
 	$scope.loggedIn = Auth.isLoggedIn();
 
 	$rootScope.$on('$routeChangeStart', function() {
@@ -27,13 +30,21 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
 		$location.path('/');
 	};
 
+	/*$scope.isActive = function (viewLocation) {
+     return $location.path().indexOf(viewLocation) == 0;
+	}
+	
+	console.log($scope.isActive);*/
 })
 
 .controller('homeController', function($scope, $interval, Orden) {
+	$scope.place = 'home';
+
 	$scope.callAtInterval = function() {
         console.log("$scope.callAtInterval - Interval occurred");
     }
 
     $interval( function(){ $scope.callAtInterval(); }, 3000);
+    console.log($scope.place);
 });
 

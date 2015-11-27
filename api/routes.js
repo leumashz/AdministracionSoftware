@@ -101,6 +101,7 @@ module.exports = function(app, express) {
     "password":"holamundo",
     "tipo":1,
     "telefono":"6161155593",
+    "direccion":"calle A numero 1313",
     "admin":true
     
 }

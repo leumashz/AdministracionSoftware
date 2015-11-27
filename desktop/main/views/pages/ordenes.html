@@ -1,63 +1,50 @@
-<!-- Inicia principal --> 
-	<div class="container">
+<!-- Inicia  navbar -->
+<div class="row">	
 		<div class="side-nav fixed  white z-depth-4">
-	        <ul class="collection">
-	        	<!-- Usuario admin  o cajero -->
-	        		<li class="collection-item avatar">
-				      <img src="img/avatar/persona.jpg" alt="" class="circle">
-				      
-				      <p>Hola, <br>
-				         Juan
-				      </p>
-				      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+		        <ul class="collection">
+		        	<!-- Usuario admin  o cajero -->
+		        		<li class="collection-item avatar">
+					      <img src="img/avatar/persona.jpg" alt="" class="circle">
+					      
+					      <p>Hola, <br>
+					        	{{usuario.nombre}}
+					      </p>
+					      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+		        	<!-- Inician elementos de la barra de navegacion -->
+		        	<li class="collection-item avatar">
+				    	<a href="/home"><i class="material-icons circle red">store</i>
+				      		<span class="title">Inicio</span>
+				      	</a>
 				    </li>
-				    <div class="divider"></div> 
-	        	<!-- Inician elementos de la barra de navegacion -->
-	        	<li class="collection-item avatar">
-			    	<a href="/home"><i class="material-icons circle red">store</i>
-			      		<span class="title">Inicio</span>
-			      	</a>
-			    </li>
+				    <li class="collection-item avatar">
+				    	<a href="/agregarOrden"><i class="material-icons circle red">receipt</i>
+				      	Agregar orden
+				      	</a>
+				    </li>
+				    <li class="collection-item avatar">
+				    	<a href="/verMenu"><i class="material-icons circle red">receipt</i>
+				      	Salir
+				      	</a>
+				    </li>
+		        </ul>
+		    </div>
+<!-- Termina navbar -->
 
-			    <li class="collection-item avatar">
-			    	<a href="/agregarOrden"><i class="material-icons circle red">add</i>
-			      	Agregar orden
-			      	</a>
-			    </li>
-			    <li class="collection-item avatar">
-			    	<a href="/verOrdenes"><i class="material-icons circle red">assignment</i>
-			      	Ver todas
-			      	</a>
-			    </li>s
-			    <div class="divider"></div> 
-			    <li class="collection-item avatar">
-			    	<a href="#salir"><i class="material-icons circle red">power_settings_new</i>
-			      	Salir	
-			      	</a>
-			    </li> 
-	        </ul>
-	        <!-- Finalizan elementos de la barra de navegacion -->
-	    </div>
-	</div>
-    <div class="container">
+
+<!-- Inicia principal --> 
+    <div class="main">
     	<div class="row">
-      		<div class="col s10 offset-s2">
+      		<div class="col s12">
 		      	<div class="row">
-		      		<div class="col s3" ng-repeat="platillo in menu">
-		      			<div class="card small">
-				      		<div class="card-image">
-			      				<img ng-src="{{platillo.url_img}}">
-			      			</div>
-				      		<div class="card-content">
-				      			<span class="card-title grey-text text-darken-4">{{platillo.nombre}}</span>
-			      			</div>
-			      			<div class="card-action">
-			      				<a href="#" ng-click="deletePlatillo(platillo._id)">Agregar</a>
-			      			</div>
-		      			</div>
-
-		      		</div>
+		      		 <div class="collection">
+				        <a href="#!" class="collection-item">Alvin</a>
+				        <a href="#!" class="collection-item active">Alvin</a>
+				        <a href="#!" class="collection-item">Alvin</a>
+				        <a href="#!" class="collection-item">Alvin</a>
+				     </div>	
 		      	</div>
+		      </div>
 			</div>	
 		</div>
    	</div>

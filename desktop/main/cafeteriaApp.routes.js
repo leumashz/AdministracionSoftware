@@ -23,28 +23,28 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
             controller  : 'menuController',
         })
         .when('/agregarPlatillo', {
-            templateUrl : 'main/views/pages/agregarPlatillo.html',
+            templateUrl : 'main/views/pages/agregarPlatillo.html'
         })
         .when('/editarPlatillo/:id', {
             templateUrl : 'main/views/pages/editarPlatillo.html',
             controller  : 'platilloEditController',
         })
-        .when('/vOrdenes', {
-            templateUrl : 'main/views/pages/ordenes.html'
+        .when('/verOrdenes', {
+            templateUrl : 'main/views/pages/ordenes.html',
+            controller  : 'ordenController',
            
         })
         .when('/agregarOrden', {
-            templateUrl : 'main/views/pages/agregarOrden.html'
+            templateUrl : 'main/views/pages/agregarOrden.html',
+            controller  : 'ordenCreateController',
             
         })
         .when('/editarOrden', {
-            templateUrl : 'main/views/pages/editarOrden.html'
+            templateUrl : 'main/views/pages/editarOrden.html',
+            controller  : 'ordenEditController',
           
         })
-        .when('/verOrdenes', {
-            templateUrl : 'main/views/pages/verOrdenes.html'
-           
-        })
+       
         .when('/info', {
             templateUrl : 'main/views/pages/informacion.html'
            

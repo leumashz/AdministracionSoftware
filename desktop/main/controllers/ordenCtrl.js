@@ -1,8 +1,8 @@
-angular.module('menuCtrl', ['ordenService','authService'])
+angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 
 .controller('ordenController', function($scope,Orden) {
 
-	Menu.all().success(function(data) {
+	/*Menu.all().success(function(data) {
 				$scope.menu = data;
 	});
 
@@ -16,20 +16,40 @@ angular.module('menuCtrl', ['ordenService','authService'])
 					});
 			});
 			
-		};
+		};*/
 
+		$scope.saludo = 'hola';
 })
 
-.controller('platilloCreateController', function($scope,Menu) {
-     
+.controller('ordenCreateController', function($scope,Menu,Orden) {
     
+	Menu.all().success(function(data) {
+				$scope.menu = data;
+	});
+
+	var ordenTemp = {};
+
+	$scope.agregarPlatillo = function(id) {
+
+	};
+
+    $scope.saveOrden = function() {
+		$scope.message = '';
+
+		Orden.create($scope.ordenData)
+			.success(function(data) {
+				$scope.ordenData = {};
+				$scope.message = data.message;
+			});
+			
+	};
 
 })
 
 // controller applied to user edit page
-.controller('platilloEditController', function($scope,$routeParams, Menu) {
+.controller('ordenEditController', function($scope,$routeParams, Menu) {
 
-	Menu.get($routeParams.id)
+	/*Menu.get($routeParams.id)
 		.success(function(data) {
 			$scope.platilloData = data;
 		});
@@ -45,6 +65,6 @@ angular.module('menuCtrl', ['ordenService','authService'])
 				//$scope.message = data.message;
 				//console.log($scope.message);
 			});
-	};
+	};*/
 
 });

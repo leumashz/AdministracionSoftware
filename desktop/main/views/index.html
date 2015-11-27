@@ -20,6 +20,7 @@
 	<!-- controladores --> 	
 	<script src="main/controllers/mainCtrl.js"></script>
 	<script src="main/controllers/menuCtrl.js"></script>
+	<script src="main/controllers/ordenCtrl.js"></script>
 	<script src="main/controllers/usuarioCtrl.js"></script>
 
 	<!-- servicios -->	
@@ -36,16 +37,9 @@
 	<script src="main/cafeteriaApp.js"></script>
 </head>
 <body ng-app="cafeteriaApp" ng-controller="mainController">
-
-	<nav class="top-nav teal lighten-3 z-depth-0">
-		<div class="container">
-			<div class="nav-wrapper container">
-				<span class="page-title">Dashboard </span>
-			</div>					
-		</div>
-	</nav>
 	
-	<div ng-view></div>
+	
+	<ng-view></ng-view>
 	
 	<!--<script src="main/lib/angular.min.js"></script>
 	<script src="main/lib/angular-route.min.js"></script>-->
