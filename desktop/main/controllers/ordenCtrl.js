@@ -30,7 +30,7 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 	var ordenTemp = {};
 
 	$scope.agregarPlatillo = function(id) {
-
+		
 	};
 
     $scope.saveOrden = function() {
