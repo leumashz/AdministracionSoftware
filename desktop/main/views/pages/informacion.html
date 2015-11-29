@@ -69,11 +69,14 @@
 						      
 						      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						    </li>
-					  </ul>
-					  <a class="waves-effect waves-light btn" ng-if="i.nombre == 'undefined'" href="/agregarInformacion">Agregar información</a>
-
-					  <a class="waves-effect waves-light btn" ng-if="i.nombre != 'undefined'" href="/editarInformacion/{{i._id}}">Editar información</a>
 					  
+					  
+					  </ul>
+					  <div ng-repeat="i in info">
+					  	<a class="waves-effect waves-light btn" ng-if="info == []" href="/agregarInformacion">Agregar información</a>
+
+					  <a class="waves-effect waves-light btn" ng-if="!info == []" href="/editarInformacion/{{i._id}}">Editar información</a>
+					  </div>
 	      			</div>
       			</div>
       		

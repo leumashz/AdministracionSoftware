@@ -35,8 +35,8 @@ var express     = require("express"),
   app.get('*', function(req, res){  
     res.sendFile('index.html',{root: __dirname + '/desktop/main/views/'});
   }); 
-
-  mongoose.connect('mongodb://localhost/cafeteria', function(err, res) {  
+  //mongodb://localhost/cafeteria
+  mongoose.connect('mongodb://localhost/cafeteria3', function(err, res) {  
     if(err) {
       console.log('ERROR: connecting to Database. ' + err);
     }

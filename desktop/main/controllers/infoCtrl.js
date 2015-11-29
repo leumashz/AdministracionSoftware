@@ -4,6 +4,7 @@ angular.module('infoCtrl', ['menuService', 'authService'])
 	Info.all()
 		.success(function(data){
 			$scope.info = data;
+			console.log($scope.info.length);
 		});
 })
 
