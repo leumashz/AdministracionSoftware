@@ -1,10 +1,16 @@
 angular.module('infoCtrl', ['menuService', 'authService'])
 
 .controller('infoController', function($scope,Info){
+	
 	Info.all()
 		.success(function(data){
 			$scope.info = data;
-			console.log($scope.info.length);
+			if($scope.info.length == 0){
+				$scope.infoStatus = 0;
+			}else{
+				$scope.infoStatus = 1;
+			}
+			console.log($scope.infoStatus);
 		});
 })
 
