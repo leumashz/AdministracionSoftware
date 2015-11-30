@@ -5,22 +5,25 @@
   </ion-nav-back-button>
 </ion-nav-bar>
   <ion-content padding=true scroll=false>
-    <form>
+    <form ng-submit="saveUser(usuarioData)">
       <div class="list">
         <label class="item item-input">
-          <input type="text" placeholder="Nombre">
+          <input type="text" placeholder="Nombre"  ng-model="usuarioData.nombre" required>
         </label>
         <label class="item item-input">
-          <input type="text" placeholder="Apellidos">
+          <input type="email" placeholder="Email"  ng-model="usuarioData.email" required>
         </label>
         <label class="item item-input">
-          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Contraseña" ng-model="usuarioData.password" required>
         </label>
         <label class="item item-input">
-          <input type="password" placeholder="Contraseña">
+          <input type="text" placeholder="Telefono" ng-model="usuarioData.telefono" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Direccion" ng-model="usuarioData.direccion" required>
         </label>
       </div>
-      <button class="button button-block button-positive">
+      <button class="button button-block button-positive" type="submit">
         Registrate :)
       </button>
     </form>

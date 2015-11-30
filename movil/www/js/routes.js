@@ -21,7 +21,8 @@ function config($stateProvider, $urlRouterProvider,$httpProvider) {
 
     .state('register',{
       url:'/register',
-      templateUrl: 'templates/register.html'
+      templateUrl: 'templates/register.html',
+      controller : 'registerCtrl'
     })
 
     .state('recover',{

@@ -86,7 +86,7 @@ function AuthInterceptor($q,$location,AuthToken){
       if(token){
         config.headers['x-access-token'] = token;
       }else {
-        $location.path('/login');
+        //$location.path('/login');
       }
 
       return config;
