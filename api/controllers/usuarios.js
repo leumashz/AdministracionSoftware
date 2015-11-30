@@ -55,9 +55,10 @@ var  bodyParser = require('body-parser');
     usuario.save(function(err) {
       if(!err) {
         //console.log('usuario creado');
-        res.json(usuario);
+        res.json({message: 'success'});
       } else {
         //console.log('ERROR: ' + err);
+        res.json({message: 'error'});
       }
     });
   };
