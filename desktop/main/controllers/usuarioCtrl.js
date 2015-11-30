@@ -30,6 +30,7 @@ angular.module('usuarioCtrl', ['usuarioService', 'authService'])
 		Usuario.create($scope.usuarioData)
 			.success(function(data) {
 				$scope.usuarioData = {};
+				
 				$scope.message = data.message;
 			});
 			

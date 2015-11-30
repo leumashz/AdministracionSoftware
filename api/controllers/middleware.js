@@ -27,9 +27,9 @@ exports.authenticate = function (req, res) {
 //s				console.log(usuario);
 				//var nombre, admin, telefono, direccion, fecha, id;
 				
-				var token = jwt.sign({
+				var token = jwt.sign(
 						usuario
-					}, secretaClave, {
+					, secretaClave, {
 						expiresInMinutes: 1440
 
 				});
