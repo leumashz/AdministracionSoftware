@@ -29,9 +29,9 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 
 	var ordenTemp = {};
 
-	$scope.agregarPlatillo = function(id) {
-		
-	};
+	$scope.agregar = function () {
+			
+	}
 
     $scope.saveOrden = function() {
 		$scope.message = '';

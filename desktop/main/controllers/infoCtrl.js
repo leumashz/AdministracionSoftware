@@ -23,7 +23,7 @@ angular.module('infoCtrl', ['menuService', 'authService'])
 		Info.create($scope.infoData)
 			.success(function(data) {
 				$scope.infoData = {};
-				//$scope.message = data.message;
+				$scope.message = data.message;
 			});
 			
 	};	
@@ -40,7 +40,8 @@ angular.module('infoCtrl', ['menuService', 'authService'])
 
 		Info.update($routeParams.id, $scope.infoData)
 			.success(function(data){
-				//algo
+				$scope.message = data.message;
+				console.log(data.message);
 			});
 	};
 });

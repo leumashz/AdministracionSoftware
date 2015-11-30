@@ -40,10 +40,10 @@
     info.save(function(err) {
           if(!err) {
             //console.log('Created');
-            res.json({message: 'se guardo'});
+            res.json({message: 'Informacion agregada con exito'});
           } else {
             //console.log('ERROR: ' );
-            res.json({message: 'no se guardo'});
+            res.json({message: 'Error al agregar la informacion'});
           }
         });
   };
@@ -58,10 +58,11 @@
       
       info.save(function(err) {
         if(!err) {
-          console.log('Se modifico la info');
-           res.json(info);
+            //console.log('Se modifico la info');
+           res.json({message: 'Se modifico la informacion'});
         } else {
-          res.json(null);
+          res.json({message: 'Error al editar la informacion'});
+          //res.json(null);
         }
       });
     });   
