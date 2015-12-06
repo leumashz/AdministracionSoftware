@@ -31,11 +31,12 @@ module.exports = function(app, express) {
 
 	apiRoutes.post('/authenticate',tkn.authenticate);
 
+	apiRoutes.get('/info',iCtrl.findInfo);
+
 	apiRoutes.use(tkn.verifyToken);
 
 	apiRoutes.get('/menu',pCtrl.findMenu);
 
-	
 
 	apiRoutes.route('/platillo/:id')
 		.get(pCtrl.findById)
@@ -74,9 +75,7 @@ module.exports = function(app, express) {
 		.delete(sCtrl.deleteSugerencia);
 
 	//info de la cafeteria
-	apiRoutes.route('/info')
-		.get(iCtrl.findInfo)
-		.post(iCtrl.addInfo);
+	apiRoutes.post('/info',iCtrl.addInfo);
 
 	apiRoutes.route('/info/:id')
 		.get(iCtrl.findById)	
