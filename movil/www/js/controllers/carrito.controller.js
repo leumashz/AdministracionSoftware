@@ -32,7 +32,20 @@ angular
     $scope.eliminarPlatillo = function (platillo) {
       $scope.menu.splice($scope.menu.indexOf(platillo), 1);
       carritoService.setCarrito($scope.menu);
-
+      var menu = carritoService.getCarrito()
+      if(menu!=''){
+           $scope.menu = menu;
+         }
+        else{
+          carritoService.deleteCarrito();
+          var alertPopup = $ionicPopup.alert({
+              title: 'Carrito vacio!!',
+            template: 'Tiene que agregar previamente algo al carrito desde el menu :('
+          });
+          alertPopup.then(function(res) {
+            $state.go('tab.home', {cache: false})
+           });
+        }
     };
 
   }
