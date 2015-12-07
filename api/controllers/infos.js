@@ -51,7 +51,7 @@
   exports.updateInfo = function(req, res, next) {
   	
     Info.findById(req.params.id, function(err, info) {      
-      info.nombreCafeteria  = req.body.nombreCafeteria;
+      info.nombre  = req.body.nombre;
       info.descripcion   = req.body.descripcion;
       info.direccion  = req.body.direccion;
       info.url  = req.body.url;
