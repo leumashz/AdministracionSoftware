@@ -48,16 +48,18 @@ angular
 
 
     $scope.pedirOrden = function () {
+      var date = new Date();
       var compraJSON = {
          'estado' : 1,
          'id_usuario': usuario._id,
          'platillos' :  menu,
          'total' : $scope.precioTotal,
          'tipo' : 1,
+         'fecha' :  $filter('date')(date.setHours(date.getHours() + 3), "medium"),
          'descripcion' : $scope.compra.descripcion,
          'llevar' : $scope.compra.llevar
        }
-       //console.log(compraJSON);
+       console.log(compraJSON);
        //return;
 
       compraService.postCompra(JSON.stringify(compraJSON));

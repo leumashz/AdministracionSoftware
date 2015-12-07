@@ -62,6 +62,18 @@ function config($stateProvider, $urlRouterProvider,$httpProvider) {
       }
     })
 
+    .state('tab.historial',{
+      url:'/settings/historial',
+      cache : false,
+      views: {
+        'tab-settings': {
+          templateUrl: 'templates/historial.html',
+          controller: 'historialCtrl'
+        }
+      }
+
+    })
+
     .state('tab.home',{
       url:'/home',
       views: {
@@ -83,6 +95,10 @@ function config($stateProvider, $urlRouterProvider,$httpProvider) {
       }
 
     })
+
+
+
+
 
     .state('tab.platillo',{
       url: '/menu/:idPlatillo',
