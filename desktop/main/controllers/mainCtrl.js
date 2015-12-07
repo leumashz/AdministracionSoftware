@@ -46,7 +46,7 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
         console.log("$scope.callAtInterval - Interval occurred");
     }
 
-    $interval( function(){ $scope.callAtInterval(); }, 3000);
+   // $interval( function(){ $scope.callAtInterval(); }, 3000);
     //console.log($scope.place);
 });
 

@@ -33,6 +33,7 @@ exports.authenticate = function (req, res) {
 						expiresInMinutes: 1440
 
 				});
+
 				if(usuario.admin == true){
 					res.json({
 						admin : true,
@@ -42,6 +43,7 @@ exports.authenticate = function (req, res) {
 					});	
 				}else{
 					res.json({
+						admin : false,
 						success: true,
 						message: 'Token generado',
 						token: token
