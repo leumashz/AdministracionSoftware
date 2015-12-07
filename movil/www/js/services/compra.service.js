@@ -7,9 +7,10 @@ angular
   function CompraService($http) {
     return{
       postCompra: function (orden) {
-        $http.post("http://45.55.49.58/orden", orden).success(function(data, status) {
-            console.log(data);
-            console.log(status);
+        $http.post("http://localhost/api/orden", orden).success(function(data, status) {
+          console.log('Entro');
+          console.log(data);
+          console.log(status);
         })
       }
   }

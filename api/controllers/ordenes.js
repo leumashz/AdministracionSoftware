@@ -1,7 +1,7 @@
 var mongoose  = require('mongoose');
 var Orden = require('../models/orden.js');
 
-  
+
   exports.findAllOrdenes = function(req, res, next) {
     Orden.find(function(err, ordenes) {
       if(!err) {
@@ -27,7 +27,7 @@ var Orden = require('../models/orden.js');
   };
 
   exports.addOrden = function(req, res, next) {
-    console.log('POST');
+    console.log(req.body);
     //console.log(req.body);
 
     var orden = new Orden({
@@ -37,7 +37,8 @@ var Orden = require('../models/orden.js');
       fecha:          req.body.fecha,
       total:          req.body.total,
       tipo:           req.body.tipo,
-      extra:          req.body.extra
+      descripcion:    req.body.descripcion,
+      llevar:         req.body.llevar
     });
 
     orden.save(function(err) {
@@ -61,7 +62,8 @@ var Orden = require('../models/orden.js');
       if(req.body.fecha) orden.fecha       =    req.body.fecha;
       if(req.body.total) orden.total       =    req.body.total;
       if(req.body.tipo) orden.tipo        =    req.body.tipo;
-      if(req.body.extra) orden.extra       =    req.body.extra;
+      if(req.body.descripcion) orden.descripcion       =    req.body.descripcion;
+      if(req.body.llevar) orden.llevar       =    req.body.llevar;
 
       orden.save(function(err) {
         if(!err) {
@@ -74,7 +76,7 @@ var Orden = require('../models/orden.js');
     });
   }
 
-  
+
   exports.deleteOrden = function(req, res, next) {
     Orden.findById(req.params.id, function(err, orden) {
       orden.remove(function(err) {
@@ -88,5 +90,3 @@ var Orden = require('../models/orden.js');
       })
     });
   }
-
-  
