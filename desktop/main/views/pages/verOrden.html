@@ -1,0 +1,75 @@
+<!-- Inicia  navbar -->
+<div class="row">	
+		<div class="side-nav fixed  white z-depth-4">
+		        <ul class="collection">
+		        	<!-- Usuario admin  o cajero -->
+		        		<li class="collection-item avatar">
+					      <img src="img/avatar/persona.jpg" alt="" class="circle">
+					      
+					      <p>Hola, <br>
+					        	{{actual.nombre}}
+					      </p>
+					      <a href="#" class="secondary-content"><i class="material-icons">grade</i></a>
+					    </li>
+		        	<!-- Inician elementos de la barra de navegacion -->
+		        	<li class="collection-item avatar">
+				    	<a href="/home"><i class="material-icons circle red">store</i>
+				      		<span class="title">Inicio</span>
+				      	</a>
+				    </li>
+				    <li class="collection-item avatar">
+				    	<a href="/verOrdenes"><i class="material-icons circle red">receipt</i>
+				      	Ordenes
+				      	</a>
+				    </li>
+				    <li class="collection-item avatar">
+				    	<a href="/verMenu"><i class="material-icons circle red">receipt</i>
+				      	Salir
+				      	</a>
+				    </li>
+		        </ul>
+		    </div>
+<!-- Termina navbar -->
+
+
+<!-- Inicia principal --> 
+    <div class="main">
+    		<div class="row">
+      			<div class="col s12">
+	      				 <div class="row">	      				 	
+	      				 	<div class="row">
+	      				 		<div class="container">
+	      				 			<div class="container">
+	      				 			<h5>Detalles de la orden</h5><br>
+	      				 				<div class="card grey lighten-5">
+							            <div class="card-content">
+							              <span class="card-title"><strong>id de orden:</strong> {{ordenData._id}}</span>
+							              <p><strong>Nombre del usuario que ordeno:</strong> {{usuarioOrden.nombre}}</p><br>
+							              <p><strong>Email:</strong> {{usuarioOrden.email}}</p>
+							              <p ng-if="usuarioOrden.telefono"><strong>Telefono:</strong> {{usuarioOrden.telefono}}</p>
+							              <p><strong>Comentarios:</strong> {{ordenData.descripcion}}</p><br>
+							              <p><strong>Platillos:</strong>
+							              	<ul>
+
+							              		<li ng-repeat="platillo in ordenData.platillos">
+							              			{{platillo.nombre}} ---- {{platillo.precio | currency}}
+							              		</li><br>
+							              	</ul>
+							              </p>
+										  <p>Total: {{ordenData.total | currency}}</p><br>
+							            </div>
+							            <div class="card-action">
+							              <a href="#" ng-click="enProceso()">En proceso</a>
+							              <a href="#" ng-click="terminar()">Terminada</a>
+							            </div>
+					          		</div>
+	      				 			</div>
+	      				 		</div>
+	      				 	</div>
+	      				 </div>
+	      			</div>
+			</div>	
+		</div>
+   	</div>
+	
+<!-- Termina contenido principal -->
