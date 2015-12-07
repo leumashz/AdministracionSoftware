@@ -54,7 +54,7 @@
       info.nombreCafeteria  = req.body.nombreCafeteria;
       info.descripcion   = req.body.descripcion;
       info.direccion  = req.body.direccion;
-      //info.logo_url  = req.body.logo_url;
+      info.url  = req.body.url;
       
       info.save(function(err) {
         if(!err) {

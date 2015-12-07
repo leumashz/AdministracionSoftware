@@ -33,11 +33,21 @@ exports.authenticate = function (req, res) {
 						expiresInMinutes: 1440
 
 				});
-				res.json({
-					success: true,
-					message: 'Token generado',
-					token: token
-				});
+				if(usuario.admin == true){
+					res.json({
+						admin : true,
+						success: true,
+						message: 'Token generado',
+						token: token
+					});	
+				}else{
+					res.json({
+						success: true,
+						message: 'Token generado',
+						token: token
+					});
+				}
+				
 			}
 		}
 	});

@@ -15,8 +15,13 @@ angular.module('authService', [])
         password: password
       })
         .success(function(data){
-          AuthToken.setToken(data.token);
-          return data;
+          console.log(data);
+          if(data.admin == true){
+            AuthToken.setToken(data.token);
+            return data;
+          }else{
+            return false;
+          }
         });
     };
 

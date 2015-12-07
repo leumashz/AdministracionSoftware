@@ -70,7 +70,7 @@ var  bodyParser = require('body-parser');
       if(req.body.password) usuario.password  = req.body.password; 
       if(req.body.telefono) usuario.telefono  = req.body.telefono;
       if(req.body.direccion) usuario.direccion = req.body.direccion;
-
+      if(req.body.admin) usuario.admin = req.body.admin;
       usuario.save(function(err) {
         if(!err) {
           //console.log('Updated');
