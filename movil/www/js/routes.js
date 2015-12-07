@@ -66,8 +66,8 @@ function config($stateProvider, $urlRouterProvider,$httpProvider) {
       url:'/home',
       views: {
         'tab-home': {
-          templateUrl: 'templates/home.html'//,
-          //: 'carritoCtrl'
+          templateUrl: 'templates/home.html',
+          controller: 'homeCtrl'
         }
       }
     })
