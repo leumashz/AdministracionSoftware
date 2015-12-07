@@ -42,10 +42,10 @@ angular.module('mainCtrl', ['ordenService', 'authService'])
 .controller('homeController', function($scope, $interval, Orden) {
 	//$scope.place = 'home';
 
-	$scope.callAtInterval = function() {
-        console.log("$scope.callAtInterval - Interval occurred");
-    }
-
+	Orden.all().success(function(data) {
+				$scope.ordenes = data;
+	});
+	
    // $interval( function(){ $scope.callAtInterval(); }, 3000);
     //console.log($scope.place);
 });

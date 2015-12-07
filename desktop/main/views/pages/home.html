@@ -71,11 +71,8 @@
       					<span class="card-title grey-text text-darken-4">Ordenes recientes</span>
       				</div>
       				<div class="card-action">
-      					<div class="collection">
-        					<a href="#!" class="collection-item active">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>		
+      					<div class="collection" ng-repeat="orden in ordenes | limitTo:-5 | orderBy:'fecha'">
+        					<a href="/verOrden/{{orden._id}}" class="collection-item" ng-if="orden.estado == 1">Orden: {{orden._id}}</a>
       					</div>
       				</div>
       			</div>
@@ -86,11 +83,8 @@
       					<span class="card-title grey-text text-darken-4">Ordenes completadas</span>
       				</div>
       				<div class="card-action">
-      					<div class="collection">
-        					<a href="#!" class="collection-item active">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>
-        					<a href="#!" class="collection-item">Algo rico</a>		
+      					<div class="collection" ng-repeat="orden in ordenes | limitTo:-5 | orderBy:'fecha'">
+        					<a href="/verOrden/{{orden._id}}" class="collection-item">Orden: {{orden._id}}</a>
       					</div>
       				</div>
       			
