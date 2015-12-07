@@ -12,6 +12,7 @@ angular
       URL_API_ORDEN : resource + '/api/orden',
       URL_API_INFO : resource + '/api/info',
       URL_API_PLATILLO : resource + '/api/platillo',
-      URL_API_USUARIO : resource + '/api/usuario'
+      URL_API_USUARIO : resource + '/api/usuario',
+      URL_API_SUGERENCIA : resource + '/api/sugerencia'
     }
 })());
