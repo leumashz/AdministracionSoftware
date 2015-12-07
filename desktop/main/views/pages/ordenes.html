@@ -18,8 +18,8 @@
 				      	</a>
 				    </li>
 				    <li class="collection-item avatar">
-				    	<a href="/agregarOrden"><i class="material-icons circle red">receipt</i>
-				      	Agregar orden
+				    	<a href="/ordenesPendientes"><i class="material-icons circle red">assignment_late</i>
+				      		<span class="title">Pendientes</span>
 				      	</a>
 				    </li>
 				    <li class="collection-item avatar">
@@ -37,7 +37,7 @@
     		<div class="row">
       			<div class="col s12">
 	      				 <div class="row">
-	      				 	<h5>Ordenes</h5>
+	      				 	<h5>Historial de ordenes</h5>
 	      				 	<br>
 	      				 	<table class="highlight">
 						        <thead>
@@ -51,15 +51,20 @@
 						              <th></th>
 						          </tr>
 						        </thead>
-						        <tbody ng-repeat="orden in ordenes">
+						        <tbody ng-repeat="orden in ordenes | orderBy:'fecha'">
 						          <tr>
 						            <td>{{orden._id}}</td>
 						            <td>{{orden.descripcion}}</td>
-						            <td>{{orden.llevar}}</td>
+						            <td ng-if="orden.llevar == true">Si</td>
+						            <td ng-if="orden.llevar == false">No</td>
+
 						            <td>{{orden.fecha | date:'MM/dd/yyyy @ h:mma'}}</td>
-						            <td>{{orden.estado}}</td>
-						            <!-- <td><a href="/editarUsuario/{{orden._id}}">Editar</a></td>
-						            <td><a href="#" ng-click="eliminarOrden(orden._id)">Eliminar</a></td> -->
+						            
+						            <td ng-if="orden.estado == 1">Nueva</td>
+						            <td ng-if="orden.estado == 2">En Proceso</td>
+						            <td ng-if="orden.estado == 3">Terminada</td>
+						            <td><a href="/verOrden/{{orden._id}}">Ver</a></td>
+						            <!-- <td><a href="#" ng-click="eliminarOrden(orden._id)">Eliminar</a></td> -->
 						          </tr>
 						          
 						        </tbody>

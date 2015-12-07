@@ -4,10 +4,10 @@ angular.module('ordenService', [])
     var ordenFactory = {};
     
     ordenFactory.all = function() {
-      return $http.get('http://45.55.49.58/api/ordenes',{cache: true});
+      return $http.get('http://45.55.49.58/api/ordenes');
     };
     ordenFactory.get = function(id) {
-      return $http.get('http://45.55.49.58/api/orden/'+id,{cache: true});
+      return $http.get('http://45.55.49.58/api/orden/'+id);
     };
     ordenFactory.create = function(ordenData) {
       return $http.post('http://45.55.49.58/api/orden/',ordenData);

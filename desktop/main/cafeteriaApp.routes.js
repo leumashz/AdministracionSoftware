@@ -42,6 +42,16 @@ angular.module('cafeteriaApp.routes', ['ngRoute'])
             templateUrl : 'main/views/pages/editarOrden.html',
             controller  : 'ordenEditController',
         })
+        .when('/verOrden/:id', {
+            templateUrl : 'main/views/pages/verOrden.html',
+            controller  : 'ordenEditController',
+        })
+        
+        .when('/ordenesPendientes', {
+            templateUrl : 'main/views/pages/verOrden.html',
+            controller  : 'ordenEditController',
+        })
+
         .when('/info', {
             templateUrl : 'main/views/pages/informacion.html',
             controller  : 'infoController',

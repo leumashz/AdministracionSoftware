@@ -1,4 +1,4 @@
-angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
+angular.module('ordenCtrl', ['ordenService','authService', 'menuService', 'usuarioService'])
 
 .controller('ordenController', function($scope,Orden) {
 
@@ -10,9 +10,9 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 	$scope.eliminarOrden = function(id) {
 		Orden.delete(id)
 			.success(function (data){
-				Menu.all()
+				Orden.all()
 					.success(function (data) {
-						$scope.menu = data;
+						$scope.ordenes = data;
 					});
 			});
 			
@@ -48,24 +48,50 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 })
 
 // controller applied to user edit page
-.controller('ordenEditController', function($scope,$routeParams, Menu) {
+.controller('ordenEditController', function($scope,$routeParams, Orden, Usuario) {
 
-	/*Menu.get($routeParams.id)
+	Orden.get($routeParams.id)
 		.success(function(data) {
-			$scope.platilloData = data;
+			$scope.ordenData = data;
+			Usuario.get($scope.ordenData.id_usuario)
+				.success(function(data) {
+				$scope.usuarioOrden = data;
+				//console.log(data);
+			});
 		});
 
 	// function to save the user
-	$scope.savePlatillo = function() {
+	$scope.saveOrden = function() {
 		$scope.message = '';
 
-		// call the userService function to update 
-		Menu.update($routeParams.id, $scope.platilloData)
+		Orden.update($routeParams.id, $scope.ordenData)
 			.success(function(data) {
-				//$scope.platilloData = {};
+				//$scope.ordenData = {};
 				//$scope.message = data.message;
 				//console.log($scope.message);
 			});
-	};*/
+	};
+
+	$scope.enProceso = function(){
+		console.log('si entro');
+		//$scope.ordenActual = $scope.ordenData;
+		$scope.ordenData.estado = 2;
+
+		Orden.update($routeParams.id, $scope.ordenData)
+			.success(function(data) {
+				console.log('si cambio el estado');
+			});
+	};
+
+	$scope.terminar = function(){
+		console.log('si entro');
+		//$scope.ordenActual = $scope.ordenData;
+		$scope.ordenData.estado = 3;
+
+		Orden.update($routeParams.id, $scope.ordenData)
+			.success(function(data) {
+				console.log('si cambio el estado');
+			});
+	};
 
 });
