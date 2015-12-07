@@ -4,19 +4,19 @@ angular.module('ordenService', [])
     var ordenFactory = {};
     
     ordenFactory.all = function() {
-      return $http.get('/api/ordenes',{cache: true});
+      return $http.get('http://45.55.49.58/api/ordenes',{cache: true});
     };
     ordenFactory.get = function(id) {
-      return $http.get('/api/orden/'+id,{cache: true});
+      return $http.get('http://45.55.49.58/api/orden/'+id,{cache: true});
     };
     ordenFactory.create = function(ordenData) {
-      return $http.post('/api/orden/',ordenData);
+      return $http.post('http://45.55.49.58/api/orden/',ordenData);
     };
     ordenFactory.update = function(id,ordenData) {
-      return $http.put('/api/orden/'+id,ordenData);
+      return $http.put('http://45.55.49.58/api/orden/'+id,ordenData);
     };
     ordenFactory.delete = function(id) {
-      return $http.delete('/api/orden/'+id);
+      return $http.delete('http://45.55.49.58/api/orden/'+id);
     };
     return ordenFactory;
 

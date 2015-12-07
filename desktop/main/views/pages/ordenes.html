@@ -34,17 +34,38 @@
 
 <!-- Inicia principal --> 
     <div class="main">
-    	<div class="row">
-      		<div class="col s12">
-		      	<div class="row">
-		      		 <div class="collection">
-				        <a href="#!" class="collection-item">Alvin</a>
-				        <a href="#!" class="collection-item active">Alvin</a>
-				        <a href="#!" class="collection-item">Alvin</a>
-				        <a href="#!" class="collection-item">Alvin</a>
-				     </div>	
-		      	</div>
-		      </div>
+    		<div class="row">
+      			<div class="col s12">
+	      				 <div class="row">
+	      				 	<h5>Ordenes</h5>
+	      				 	<br>
+	      				 	<table class="highlight">
+						        <thead>
+						          <tr>
+						              <th data-field="id">id</th>
+						              <th data-field="descripcion">Descripcion</th>
+						              <th data-field="llevar">Para llevar</th>
+									  <th data-field="fecha">Fecha</th>	
+									  <th data-field="estado">Estado</th>
+						              <th></th>
+						              <th></th>
+						          </tr>
+						        </thead>
+						        <tbody ng-repeat="orden in ordenes">
+						          <tr>
+						            <td>{{orden._id}}</td>
+						            <td>{{orden.descripcion}}</td>
+						            <td>{{orden.llevar}}</td>
+						            <td>{{orden.fecha | date:'MM/dd/yyyy @ h:mma'}}</td>
+						            <td>{{orden.estado}}</td>
+						            <!-- <td><a href="/editarUsuario/{{orden._id}}">Editar</a></td>
+						            <td><a href="#" ng-click="eliminarOrden(orden._id)">Eliminar</a></td> -->
+						          </tr>
+						          
+						        </tbody>
+      						</table>
+	      				 </div>
+	      			</div>
 			</div>	
 		</div>
    	</div>

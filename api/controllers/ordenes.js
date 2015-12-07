@@ -2,31 +2,31 @@ var mongoose  = require('mongoose');
 var Orden = require('../models/orden.js');
 
 
-  exports.findAllOrdenes = function(req, res, next) {
+  exports.findAllOrdenes = function(req, res) {
     Orden.find(function(err, ordenes) {
       if(!err) {
-        console.log('GET /ordenes')
+        //console.log('GET /ordenes')
         res.json(ordenes);
       } else {
-        console.log('ERROR: ' + err);
-        res.send(null);
+        //console.log('ERROR: ' + err);
+        res.json({message: 'No hay ordenes disponibles'});      
       }
     });
   };
 
-  exports.findById = function(req, res, next) {
+  exports.findById = function(req, res) {
     Orden.findById(req.params.id, function(err, orden) {
       if(!err) {
-        console.log('GET /orden/' + req.params.id);
+        //console.log('GET /orden/' + req.params.id);
         res.json(orden);
       } else {
-        console.log('ERROR: ' + err);
-        res.send(null);
+        //console.log('ERROR: ' + err);
+        res.json({message: 'No se encontro la orden'});
       }
     });
   };
 
-  exports.addOrden = function(req, res, next) {
+  exports.addOrden = function(req, res) {
     console.log(req.body);
     //console.log(req.body);
 
@@ -43,18 +43,18 @@ var Orden = require('../models/orden.js');
 
     orden.save(function(err) {
       if(!err) {
-        console.log('Orden creada');
-        res.send(null);
+        //console.log('Orden creada');
+        res.json({message: 'se creo la orden'});
       } else {
-        console.log('ERROR: ' + err);
-        res.send(null);
+        //console.log('ERROR: ' + err);
+        res.json({message: 'no se creo la orden'});
       }
     });
 
     //res.json(orden);
   };
 
-  exports.updateOrden = function(req, res, next) {
+  exports.updateOrden = function(req, res) {
     Orden.findById(req.params.id, function(err, orden) {
       if(req.body.estado) orden.estado      =    req.body.estado;
       if(req.body.id_usuario) orden.id_usuario  =    req.body.id_usuario;
@@ -67,9 +67,9 @@ var Orden = require('../models/orden.js');
 
       orden.save(function(err) {
         if(!err) {
-          console.log('orden actualizada');
+          //console.log('orden actualizada');
         } else {
-          console.log('ERROR: ' + err);
+          //console.log('ERROR: ' + err);
         }
         res.json(orden);
       });
@@ -77,15 +77,15 @@ var Orden = require('../models/orden.js');
   }
 
 
-  exports.deleteOrden = function(req, res, next) {
+  exports.deleteOrden = function(req, res) {
     Orden.findById(req.params.id, function(err, orden) {
       orden.remove(function(err) {
         if(!err) {
-          console.log('Orden Eliminada');
-          res.send(null);
+          //console.log('Orden Eliminada');
+          res.json({message: 'Orden eliminada con exito'});
         } else {
           console.log('ERROR: ' + err);
-          res.send(null);
+          res.json({message: 'No se pudo eliminar la orden'});
         }
       })
     });

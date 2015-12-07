@@ -2,13 +2,13 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 
 .controller('ordenController', function($scope,Orden) {
 
-	/*Menu.all().success(function(data) {
-				$scope.menu = data;
+	Orden.all().success(function(data) {
+				$scope.ordenes = data;
 	});
 
 
-	$scope.eliminarPlatillo = function(id) {
-		Menu.delete(id)
+	$scope.eliminarOrden = function(id) {
+		Orden.delete(id)
 			.success(function (data){
 				Menu.all()
 					.success(function (data) {
@@ -16,9 +16,9 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 					});
 			});
 			
-		};*/
+		};
 
-		$scope.saludo = 'hola';
+		//$scope.saludo = 'hola';
 })
 
 .controller('ordenCreateController', function($scope,Menu,Orden) {
