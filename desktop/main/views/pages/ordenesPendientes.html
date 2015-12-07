@@ -18,8 +18,8 @@
 				      	</a>
 				    </li>
 				    <li class="collection-item avatar">
-				    	<a href="/ordenesPendientes"><i class="material-icons circle red">assignment_late</i>
-				      		<span class="title">Pendientes</span>
+				    	<a href="/verOrdenes"><i class="material-icons circle red">assignment_late</i>
+				      		<span class="title">Ordenes</span>
 				      	</a>
 				    </li>
 				    <li class="collection-item avatar">
@@ -52,7 +52,7 @@
 						          </tr>
 						        </thead>
 						        <tbody ng-repeat="orden in ordenes | orderBy:'fecha'">
-						          <tr>
+						          <tr ng-if="orden.estado == 1">
 						            <td>{{orden._id}}</td>
 						            <td>{{orden.descripcion}}</td>
 						            <td ng-if="orden.llevar == true">Si</td>
@@ -60,11 +60,9 @@
 
 						            <td>{{orden.fecha | date:'MM/dd/yyyy @ h:mma'}}</td>
 						            
-						            <td ng-if="orden.estado == 1">Nueva</td>
-						            <td ng-if="orden.estado == 2">En Proceso</td>
-						            <td ng-if="orden.estado == 3">Terminada</td>
+						            <td>Nueva</td>
+						           
 						            <td><a href="/verOrden/{{orden._id}}">Ver</a></td>
-						            <td><a href="#" ng-click="eliminarOrden(orden._id)">Eliminar</a></td>
 						            <!-- <td><a href="#" ng-click="eliminarOrden(orden._id)">Eliminar</a></td> -->
 						          </tr>
 						          

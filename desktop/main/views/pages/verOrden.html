@@ -48,7 +48,11 @@
 							              <p><strong>Email:</strong> {{usuarioOrden.email}}</p>
 							              <p ng-if="usuarioOrden.telefono"><strong>Telefono:</strong> {{usuarioOrden.telefono}}</p>
 							              <p><strong>Comentarios:</strong> {{ordenData.descripcion}}</p><br>
+							              <p ng-if="ordenData.estado == 1"><strong>Estado:</strong> Nuevo</p><br>
+										  <p ng-if="ordenData.estado == 2"><strong>Estado:</strong> En proceso</p><br>
+										  <p ng-if="ordenData.estado == 3"><strong>Estado:</strong> Terminada</p><br>	
 							              <p><strong>Platillos:</strong>
+
 							              	<ul>
 
 							              		<li ng-repeat="platillo in ordenData.platillos">
