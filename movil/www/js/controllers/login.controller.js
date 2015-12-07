@@ -3,8 +3,14 @@ angular
   .controller('loginCtrl',LoginCtrl);
 
 
-  function LoginCtrl($scope,$rootScope, $location,$ionicPopup, Auth) {
+  function LoginCtrl($scope,$rootScope, $location,$ionicPopup, Auth,Info) {
       	$scope.loggedIn = Auth.isLoggedIn();
+
+        Info.all()
+          .success(function(data){
+            console.log(data);
+            $scope.info= data[0];
+          });
 
 
       	$rootScope.$on('$routeChangeStart', function() {
