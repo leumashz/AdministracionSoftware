@@ -4,7 +4,7 @@ angular
   .factory('AuthToken',AuthToken)
   .factory('AuthInterceptor',AuthInterceptor);
 
-function Auth($http, $q, AuthToken) {
+function Auth($http, $q, AuthToken,RESOURCES) {
     var authFactory = {};
 
     /* 	se generan los argumentos que se pasaran
@@ -13,7 +13,7 @@ function Auth($http, $q, AuthToken) {
      	en el local storage
      */
     authFactory.login = function(email, password) {
-      return $http.post('http://localhost/api/authenticate', {
+      return $http.post(RESOURCES.URL_API_AUTHENTICATE, {
         email:    email,
         password: password
       })
@@ -45,7 +45,7 @@ function Auth($http, $q, AuthToken) {
     */
     authFactory.getUsuario = function() {
       if(AuthToken.getToken())
-        return $http.get('http://localhost/api/usuarioOn', {cache: false});
+        return $http.get(RESOURCES.URL_API_USUARIO_ON, {cache: false});
       else
         return $q.reject({ message: 'el usuario no tiene token'});
     };

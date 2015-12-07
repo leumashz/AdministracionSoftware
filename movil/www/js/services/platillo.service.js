@@ -3,10 +3,10 @@ angular
   .factory('platilloService',platilloService);
 
 
-  function platilloService($http) {
+  function platilloService($http,RESOURCES) {
   	return {
   		getPlatillo: function(idPlatillo){
-  			return $http.get('http://45.55.49.58/platillo/'+idPlatillo).then(function(response){
+  			return $http.get(RESOURCES.URL_API_PLATILLO+'/'+idPlatillo).then(function(response){
   				return response.data;
   			});
   		}

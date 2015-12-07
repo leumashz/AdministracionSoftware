@@ -2,27 +2,27 @@ angular
   .module('ionicApp')
   .factory('Info',Info);
 
-function Info($http) {
+function Info($http,RESOURCES) {
   var infoFactory = {};
 
   //obtener info de la cafeteria
   infoFactory.all = function() {
-    return $http.get('http://localhost/api/info');
+    return $http.get(RESOURCES.URL_API_INFO);
   };
 
   //obtener la info para editar
   infoFactory.get = function(id) {
-    return $http.get('http://localhost/api/info/'+id);
+    return $http.get(RESOURCES.URL_API_INFO+'/'+id);
   };
 
   //crear info
   infoFactory.create = function(infoData) {
-    return $http.post('http://localhost/api/info/',infoData);
+    return $http.post(RESOURCES.URL_API_INFO+'/',infoData);
   };
 
   //actualizar la info
   infoFactory.update = function(id,infoData) {
-    return $http.put('http://localhost/api/info/'+id,infoData);
+    return $http.put(RESOURCES.URL_API_INFO+'/'+id,infoData);
   };
 
   return infoFactory;

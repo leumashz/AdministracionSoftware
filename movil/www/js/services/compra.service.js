@@ -4,10 +4,10 @@ angular
 
 
 
-  function CompraService($http) {
+  function CompraService($http,RESOURCES) {
     return{
       postCompra: function (orden) {
-        $http.post("http://localhost/api/orden", orden).success(function(data, status) {
+        $http.post(RESOURCES.URL_API_ORDEN, orden).success(function(data, status) {
           console.log('Entro');
           console.log(data);
           console.log(status);

@@ -3,10 +3,10 @@ angular
   .factory('menuService', menuService);
 
 
-function menuService ($http) {
+function menuService ($http,RESOURCES) {
 	return {
 		getMenu: function(){
-			return $http.get('http://45.55.49.58/menu').then(function(response){
+			return $http.get(RESOURCES.URL_API_MENU).then(function(response){
 				return response.data;
 			});
 		}
