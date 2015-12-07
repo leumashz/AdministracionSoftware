@@ -2,7 +2,7 @@ var mongoose 	= require('mongoose');
 var	Schema 		= mongoose.Schema;
 var Usuario 	= mongoose.model('Usuario');
 var Platillo 	= mongoose.model('Platillo');
-var moment 		= require('moment');
+
 
 var ordenSchema = new Schema({
 		estado: 		Number,
