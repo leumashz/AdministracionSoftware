@@ -6,7 +6,7 @@ var sugerenciaSchema = new Schema({
 		id_usuario: 	String, 
 		fecha: 			{type: Date, default: Date.now},
 		titulo: 		String,
-		comentario:   	String,
+		comentario:   	String
 });
 
 
