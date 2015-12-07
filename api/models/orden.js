@@ -6,11 +6,11 @@ var Platillo 	= mongoose.model('Platillo');
 var ordenSchema = new Schema({
 		estado: 		Number,
 		id_usuario: 	String,
-		platillos: 		[{ platillo_id: String, cantidad: Number }],
+		platillos: 		[String],
 		fecha: 			{type: Date, default: Date.now},
 		total: 			Number,
 		tipo:       	Number,
-		descripcion:   	[String],
+		descripcion:   	String,
 		llevar: 		Boolean
 });
 
