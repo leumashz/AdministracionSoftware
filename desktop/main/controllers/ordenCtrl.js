@@ -44,6 +44,7 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService'])
 			
 	};
 
+	
 })
 
 // controller applied to user edit page
