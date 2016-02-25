@@ -4,19 +4,19 @@ angular.module('sugerenciaService', [])
   var sugerenciaFactory = {};
     
   sugerenciaFactory.all = function() {
-    return $http.get('http://45.55.49.58/api/sugerencias');
+    return $http.get('http://104.236.247.213/api/sugerencias');
   };
   sugerenciaFactory.get = function(id) {
-    return $http.get('http://45.55.49.58/api/sugerencia/'+id);
+    return $http.get('http://104.236.247.213/api/sugerencia/'+id);
   };
   sugerenciaFactory.create = function(sugerenciaData) {
-    return $http.post('http://45.55.49.58/api/sugerencia/',platilloData);
+    return $http.post('http://104.236.247.213/api/sugerencia/',platilloData);
   };
   sugerenciaFactory.update = function(id,sugerenciaData) {
-    return $http.put('http://45.55.49.58/api/sugerencia/'+id,sugerenciaData);
+    return $http.put('http://104.236.247.213/api/sugerencia/'+id,sugerenciaData);
   };
   sugerenciaFactory.delete = function(id) {
-    return $http.delete('http://45.55.49.58/api/sugerencia/'+id);
+    return $http.delete('http://104.236.247.213/api/sugerencia/'+id);
   };
 
   return sugerenciaFactory;
