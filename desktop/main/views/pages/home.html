@@ -84,7 +84,7 @@
       				</div>
       				<div class="card-action">
       					<div class="collection" ng-repeat="orden in ordenes | limitTo:-5 | orderBy:'fecha'">
-        					<a href="/verOrden/{{orden._id}}" class="collection-item">Orden: {{orden._id}}</a>
+        					<a href="/verOrden/{{orden._id}}" class="collection-item" ng-if="orden.estado == 3">Orden: {{orden._id}}</a>
       					</div>
       				</div>
       			
