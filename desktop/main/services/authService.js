@@ -10,7 +10,7 @@ angular.module('authService', [])
      	en el local storage
      */
     authFactory.login = function(email, password) {
-      return $http.post('http://45.55.49.58/api/authenticate', {
+      return $http.post('http://104.236.247.213/api/authenticate', {
         email:    email,
         password: password
       })
@@ -47,7 +47,7 @@ angular.module('authService', [])
     */
     authFactory.getUsuario = function() {
       if(AuthToken.getToken())
-        return $http.get('http://45.55.49.58/api/usuarioOn');
+        return $http.get('http://104.236.247.213/api/usuarioOn');
       else
         return $q.reject({ message: 'el usuario no tiene token'});
     };
