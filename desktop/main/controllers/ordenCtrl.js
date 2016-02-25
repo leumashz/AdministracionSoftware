@@ -56,7 +56,14 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService', 'usuar
 			Usuario.get($scope.ordenData.id_usuario)
 				.success(function(data) {
 				$scope.usuarioOrden = data;
-				//console.log(data);
+				$scope.platillosOrden = [];
+
+				for(var i = 0; i < $scope.ordenData.platillos.length; i++){
+					Menu.get($scope.ordenData.platillos[i])
+						.success(function(data){
+							$scope.platillosOrden.push(data);
+						});
+				}
 			});
 		});
 
