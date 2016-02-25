@@ -48,7 +48,7 @@ angular.module('ordenCtrl', ['ordenService','authService', 'menuService', 'usuar
 })
 
 // controller applied to user edit page
-.controller('ordenEditController', function($scope,$routeParams, Orden, Usuario) {
+.controller('ordenEditController', function($scope,$routeParams, Orden, Usuario, Menu) {
 
 	Orden.get($routeParams.id)
 		.success(function(data) {
